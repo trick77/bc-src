@@ -1,0 +1,8 @@
+[
+	"udp://tds-r3.blockcollider.org:16060/announce",
+  "udp://139.180.221.213:16060/announce",
+  "udp://52.208.110.140:16060/announce",
+  "udp://internal.xeroxparc.org:16060/announce",
+  "udp://reboot.alcor1436.com:16060/announce",
+  "udp://sa1.alcor1436.com:16060/announce"
+]

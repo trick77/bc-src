@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <!-- link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous" -->
+    <link rel='icon' type='image/png' href='/icon.png'>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+
+
+
+
+    <link type="text/css" rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <!-- link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous" -->
+    <link rel='icon' type='image/png' href='/icon.png'>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css">
+    <style>
+
+    .childLatest {
+      font-size: x-small;
+      margin: 0px;
+      line-height: 16px;
+      display: block;
+      margin-left:50px;
+    }
+
+    #searchTx{
+      padding-right:5px;
+      padding-left:5px;
+    }
+
+    .searchForm{
+      top:15px;
+      display:block;
+      position:absolute;
+      right:15px;
+    }
+
+    @media screen and (max-width: 1124px) {
+        .searchForm {
+            display: none !important;
+        }
+    }
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
+  }
+  70% {
+      -webkit-box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+  }
+  100% {
+      -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+  }
+}
+@keyframes pulse {
+  0% {
+    -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
+    box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
+  }
+  70% {
+      -moz-box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+      box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+  }
+  100% {
+      -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+      box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+  }
+}
+
+.leaflet-container {
+  opacity: 0.8;
+  position: absolute;
+  top: 61px;
+}
+
+.leaflet-bottom {
+  display:none;
+}
+
+.leaflet-pulsing-icon {
+    border-radius: 100%;
+    box-shadow: 1px 1px 3px 0 rgba(0,0,0,0.75);
+    height: 8px !important;
+    width: 8px !important;
+}
+
+.h6 {
+    height: 6px !important;
+    width: 6px !important;
+}
+
+.h7 {
+    height: 7px !important;
+    width: 7px !important;
+}
+
+.h8 {
+    height: 8px !important;
+    width: 8px !important;
+}
+.h9 {
+    height: 9px !important;
+    width: 9px !important;
+}
+.h10 {
+    height: 10px !important;
+    width: 10px !important;
+}
+.h11 {
+    height: 11px !important;
+    width: 11px !important;
+}
+
+.h12 {
+    height: 12px !important;
+    width: 12px !important;
+}
+
+.lpi{
+    background-color: white;
+}
+
+.lpi{
+  box-shadow: 0 0 6px 2px white;
+  animation: pulse 1s infinite;
+}
+
+tr:hover td, th { 
+  background-color: #0e1114;
+    transition-delay: 0s;
+	  transition-duration: 0.2s;
+	  transition-property: all;
+  transition-timing-function: line;
+}
+
+
+    .leaflet-container {
+        margin: 0 auto;
+    }
+
+    html {
+      background:none;
+      min-height:100%;
+}
+
+
+pre {
+  color: white
+}
+
+.navbar {
+  background: black !important;
+  color: white !important;
+  border-bottom: 1.2px
+  border-color: white
+}
+
+.nav-item a {
+  color: white !important;
+}
+.navbar-brand a {
+  color: white !important;
+}
+
+h2 {
+  color:white;
+}
+
+.card-text {
+  color:white;
+}
+
+.card-text {
+  color:white;
+}
+.table tr,th,td{
+  background-color: black;
+  color: white;
+}
+
+.glassList.btcList {
+  border: 1px solid orange;
+  height: auto;
+  min-height: 100%; !important;
+  margin: 2px;
+  font-style: 'monospace';
+}
+.glassList.ethList {
+  border: 1px solid #9400D3;
+  height: auto;
+  min-height: 100%; !important;
+  margin: 2px;
+  font-style: 'monospace';
+}
+.glassList.neoList {
+  border: 1px solid green;
+  height: auto;
+  min-height: 100%; !important;
+  margin: 2px;
+  font-style: 'monospace';
+}
+.glassList.lskList {
+  border: 1px solid blue;
+  height: auto;
+  min-height: 100%; !important;
+  margin: 2px;
+  font-style: 'monospace';
+}
+.glassList.wavList {
+  border: 1px solid lightblue;
+  height: auto;
+  min-height: 100%; !important;
+  margin: 2px;
+  font-style: 'monospace';
+}
+.glassList.nrgList {
+  float: left;
+  font-style: 'monospace';
+  border: 1px solid white;
+  font-size: 9pt;
+  margin: 2px;
+  height: auto;
+  min-height: 100%; !important;
+  text-align: center;
+  width: 28px;
+}
+.glassList {
+  float: left;
+  font-style: 'monospace';
+  border: 1px solid #333;
+  font-size: 9pt;
+  margin: 2px;
+  height: auto;
+  min-height: 100%; !important;
+  text-align: center;
+  width: 28px;
+}
+
+table {
+  border-top: 1px solid #1f1f1f; 
+}
+
+pre {
+  color: white !important;
+}
+.nav-item a {
+  color: white !important;
+}
+.navbar-brand a {
+  color: white !important;
+}
+td,tr,th a {
+  font-color: white !important;
+}
+a {
+  color: white !important;
+}
+h2 {
+  color:white;
+}
+.card-text {
+  color:white;
+}
+.card-text {
+  color:white;
+}
+a {
+  color: white; !important;
+}
+.bg-light {
+  background : black !important;
+}
+body {
+  min-height:100%;
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image:linear-gradient(#000, #333);
+  width: 10wh;
+  color: #fff;
+  background-size: 100%;
+	background: #0f1519;  /* fallback for old browsers */
+	background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%)
+}
+
+#content{
+  /* position:absolute; */
+  background-color: transparent;
+  color: white;
+  background-image: linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 56%, transparent 77%, transparent);
+  min-height:100%;
+  background-size:15px 15px;
+}
+
+.leaflet-container {
+    height: 400px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <div id="content">
+    <div id="app" style="min-height:100vh"></div>
+
+    <script type="application/javascript" src="/assets/bundle.js"></script>
+
+    </div>
+    </div>
+
+</body>
+
+</html>
