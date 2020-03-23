@@ -13650,7 +13650,6 @@
   },
   "server": {
     "port": 3000,
-    "rpcPort": 3001,
     "logCalls": false
   }
 }
