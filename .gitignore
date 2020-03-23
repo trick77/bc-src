@@ -1,3 +1,6 @@
 node_modules/
 data/
 *.map
+_logs/
+_data/
+_debug/
