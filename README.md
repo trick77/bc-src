@@ -12,6 +12,6 @@
    nvm use v10.19.0
    nvm alias default v10.19.0
    ```
-4. Edit start-native.sh
-5. ./start-native.sh or screen -dm ./start-native.sh
+4. Edit start.sh
+5. ./start.sh or screen -dm ./start.sh
 
