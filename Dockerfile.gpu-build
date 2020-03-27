@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y curl
 # Install yarn
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-RUN apt-get update && apt-get install -y yarn
+RUN apt-get update && apt-get install -y yarn && yarn global add node-gyp && yarn add nan
 
 # Install node.js
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
@@ -21,8 +21,6 @@ COPY marker /dev/null
 
 RUN mkdir -p /tmp/build
 COPY ./gpu_dev /tmp/build
-
-RUN yarn global add node-gyp && yarn add nan
 
 WORKDIR /tmp/build
 
