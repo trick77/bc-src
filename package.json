@@ -107,7 +107,7 @@
     "base-x": "^3.0.4",
     "base58": "^1.0.1",
     "basic-auth": "2.0.1",
-    "bcjs": "blockcollider/bcjs#v0.0.31",
+    "bcjs": "blockcollider/bcjs#v0.0.32",
     "bdns": "^0.1.1",
     "benchmark": "^2.1.4",
     "bitcoin-net": "5.0.0",
