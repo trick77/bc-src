@@ -1,6 +1,6 @@
 {
   "name": "bcnode",
-  "version": "0.9.45",
+  "version": "0.9.46",
   "description": "Block Collider protocol on V8 with miner and rovers",
   "main": "lib/src/init.js",
   "scripts": {
@@ -175,7 +175,7 @@
     "lisk-elements": "^2.4.2",
     "lisk-js": "^0.5.2",
     "lowdb": "^1.0.0",
-    "lru-cache": "^4.1.1",
+    "lru-cache": "5.1.1",
     "mathjs": "^4.1.1",
     "maxmind": "^2.7.0",
     "microtime": "^2.1.7",
