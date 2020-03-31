@@ -3,3 +3,4 @@ node_modules/
 _logs/
 _data/
 _debug/
+rust/bcrust-core/target/
