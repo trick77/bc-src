@@ -1,2 +1,2 @@
 . ./buildenv
-cd rust/bcrust-core/ && cargo build --release
+cd rust/bcrust-core/ && rm -rf ./target ; cargo build --release
