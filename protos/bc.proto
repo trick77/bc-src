@@ -43,6 +43,12 @@ message Transfer{
 
 message TransferRequest {
     string address = 1;
+    uint32 max = 2;
+    string from = 3;
+}
+
+message GetHistoryRequest {
+    string from = 1;
 }
 
 message TransferResponse {
@@ -70,10 +76,11 @@ message GetBalanceRequest {
 }
 
 message GetBalanceResponse {
-    string confirmed = 1;
-    string unconfirmed = 2;
-    string collateralized = 3;
-    string unlockable = 4;
+    uint32 height = 1;
+    string confirmed = 2;
+    string unconfirmed = 3;
+    string collateralized = 4;
+    string unlockable = 5;
 }
 
 message GetUnlockTakerTxParamsRequest {
@@ -227,6 +234,15 @@ message CurrentWork {
     string work = 1;
 }
 
+message SyncStatus {
+    string status = 1;
+}
+
+message SettingsResponse {
+    string ngrok_tunnel = 1;
+    string build_version = 2;
+}
+
 service Bc {
 
     rpc GetRoveredBlockHash(GetRoveredBlockHashRequest) returns (Block) {}
@@ -236,6 +252,7 @@ service Bc {
 
     rpc GetBlockHash(GetBlockHashRequest) returns (BcBlock) {}
     rpc GetBlockHeight(GetBlockHeightRequest) returns (BcBlock) {}
+    rpc GetBlocksHeight(GetBlockHeightRequest) returns (GetBlocksResponse) {}
     rpc GetBlocks(GetBlocksRequest) returns (GetBlocksResponse) {}
     rpc GetLatestBlock(Null) returns (BcBlock) {}
 
@@ -252,6 +269,7 @@ service Bc {
 
     rpc Help (Null) returns (HelpResponse) {}
     rpc Stats (Null) returns (StatsResponse) {}
+    rpc GetSettings (Null) returns (SettingsResponse) {}
     rpc NewTx (RpcTransaction) returns (RpcTransactionResponse) {}
     rpc SendTx (Transaction) returns (RpcTransactionResponse) {}
 
@@ -264,14 +282,16 @@ service Bc {
 
     rpc GetTransfers (TransferRequest) returns (TransferResponse) {}
 
-    rpc GetOpenOrders (Null) returns (GetOpenOrdersResponse) {}
+    rpc GetOpenOrders (GetBalanceRequest) returns (GetOpenOrdersResponse) {}
     rpc GetMatchedOrders (GetBalanceRequest) returns (GetMatchedOrdersResponse) {}
+    rpc GetHistoricalOrders (GetHistoryRequest) returns (GetMatchedOrdersResponse) {}
     rpc GetUnmatchedOrders (GetBalanceRequest) returns (GetOpenOrdersResponse) {}
 
-    rpc GetUtxoLength (GetUtxoLengthRequest) returns (GetUtxoLengthResponse) {}
-    rpc GetStxoLength (GetUtxoLengthRequest) returns (GetUtxoLengthResponse) {}
+    rpc GetUTXOLength (GetUtxoLengthRequest) returns (GetUtxoLengthResponse) {}
+    rpc GetSTXOLength (GetUtxoLengthRequest) returns (GetUtxoLengthResponse) {}
 
     rpc GetBlake2bl (GetBlake2blRequest) returns (GetBlake2blResponse) {}
     rpc GetBcAddressViaVanity (VanityConvertRequest) returns (VanityConvertResponse) {}
     rpc GetCurrentWork (Null) returns (CurrentWork) {}
+    rpc GetSyncStatus (Null) returns (SyncStatus) {}
 }
