@@ -20,29 +20,29 @@ CXX = g++
 NVCC = nvcc
 CPPFLAGS += `pkg-config --cflags protobuf`
 CXXFLAGS += -std=c++11
-CPPFLAGS += -I/home/lgray/grpc/include -I/usr/local/cuda/include
+CPPFLAGS += -I$(HOME)/grpc/include -I/usr/local/cuda/include
 ifeq ($(SYSTEM),Darwin)
 LDFLAGS += -L/usr/local/lib `pkg-config --libs protobuf`\
            -L/usr/local/cuda/lib64\
            -L/usr/local/cuda/lib64/stubs\
-           -L/home/lgray/grpc/build\
-           -L/home/lgray/grpc/build/third_party/cares/cares/lib\
-           -L/home/lgray/grpc/build/third_party/boringssl/ssl\
-           -L/home/lgray/grpc/build/third_party/boringssl/crypto\
-           -L/home/lgray/grpc/build/third_party/zlib\
+           -L$(HOME)/grpc/build\
+           -L$(HOME)/grpc/build/third_party/cares/cares/lib\
+           -L$(HOME)/grpc/build/third_party/boringssl/ssl\
+           -L$(HOME)/grpc/build/third_party/boringssl/crypto\
+           -L$(HOME)/grpc/build/third_party/zlib\
            -lgrpc++_reflection -lgrpc++_unsecure -lgrpc -lgrpc++\
 	   -lgrpc_cronet -lgrpc_plugin_support -lgrpcpp_channelz -lcares -lssl -lcrypto -laddress_sorting\
 	   -lgpr -lz \
            -ldl
 else
 LDFLAGS += -L/usr/local/lib `pkg-config --libs protobuf`\
-           -L/home/lgray/grpc/build\
+           -L$(HOME)/grpc/build\
            -L/usr/local/cuda/lib64\
            -L/usr/local/cuda/lib64/stubs\
-           -L/home/lgray/grpc/build/third_party/cares/cares/lib\
-           -L/home/lgray/grpc/build/third_party/boringssl/ssl\
-           -L/home/lgray/grpc/build/third_party/boringssl/crypto\
-	   -L/home/lgray/grpc/build/third_party/zlib\
+           -L$(HOME)/grpc/build/third_party/cares/cares/lib\
+           -L$(HOME)/grpc/build/third_party/boringssl/ssl\
+           -L$(HOME)/grpc/build/third_party/boringssl/crypto\
+	   -L$(HOME)/grpc/build/third_party/zlib\
            -Wl,--no-as-needed -lgrpc++_reflection -lgrpc++_unsecure -lgrpc -lgrpc++ -lgrpc_cronet -lgrpc_plugin_support -lgrpcpp_channelz -lcares -lssl -lcrypto -lz -laddress_sorting -lgpr -lcuda -lcudart -Wl,--as-needed\
            -ldl
 endif
