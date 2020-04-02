@@ -242,6 +242,7 @@ void run_miner(const bc_mining_inputs& in, const uint64_t start_nonce, bc_mining
   index += in.time_stamp_size_;
   
   // work areas for finding max
+  uint64_t best_value(0);
   uint64_t max_value(0), max_idx(0);
   cudaMemsetAsync(pool.scratch_dists,0,HASH_TRIES*sizeof(uint64_t),stream);
   cudaMemsetAsync(pool.scratch_indices,0,HASH_TRIES*sizeof(uint64_t),stream);
@@ -274,11 +275,15 @@ void run_miner(const bc_mining_inputs& in, const uint64_t start_nonce, bc_mining
     cudaMemcpyAsync(&max_value,pool.scratch_dists,sizeof(uint64_t),cudaMemcpyDeviceToHost,stream);
     cudaMemcpyAsync(&max_idx,pool.scratch_indices,sizeof(uint64_t),cudaMemcpyDeviceToHost,stream);
     cudaStreamSynchronize(stream);
-    const uint64_t offsetb2b = max_idx*BLAKE2B_OUTBYTES;
-    cudaMemcpyAsync(out.result_blake2b_,pool.dev_cache->result+offsetb2b, BLAKE2B_OUTBYTES,cudaMemcpyDeviceToHost,stream);
-    cudaMemcpyAsync(&out.nonce_, &pool.dev_cache->nonce[max_idx], sizeof(uint64_t), cudaMemcpyDeviceToHost,stream);    
+    if( max_value > best_value ) {
+      best_value = max_value;
+      const uint64_t offsetb2b = max_idx*BLAKE2B_OUTBYTES;
+      cudaMemcpyAsync(out.result_blake2b_,pool.dev_cache->result+offsetb2b, BLAKE2B_OUTBYTES,cudaMemcpyDeviceToHost,stream);
+      cudaMemcpyAsync(&out.nonce_, &pool.dev_cache->nonce[max_idx], sizeof(uint64_t), cudaMemcpyDeviceToHost,stream);
+    }
     ++iterations;    
     std::cout << bcstream.device << ' ' << nonce_local << ' ' << max_value << ' ' << in.the_difficulty_ << ' ' << iterations << ' ' << max_iterations << std::endl;
+    
     nonce_local = generator() ^ generator() ;
   } while( max_value <= in.the_difficulty_ && iterations < max_iterations && !solution_found);
 
@@ -289,7 +294,7 @@ void run_miner(const bc_mining_inputs& in, const uint64_t start_nonce, bc_mining
   pthread_mutex_unlock( &solution_found_mutex );
 
   out.difficulty_ = in.the_difficulty_;
-  out.distance_ = max_value;
+  out.distance_ = best_value;
   out.iterations_ = iterations*HASH_TRIES;
 }
 
