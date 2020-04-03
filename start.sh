@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+
+. ./tools/buildenv
+yarn install
+
 export BC_MINER_KEY="0xbadcafe0cafebabe0dabbad000cafed00ddead00"
 export BC_NETWORK="main"
 export BC_FORCE_MINE=true
