@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+
+./allow-native-miner.sh
+
 export BC_MINER_KEY="0x....."
 export BC_NETWORK="main"
 export BC_FORCE_MINE=true
