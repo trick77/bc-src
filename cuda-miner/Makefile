@@ -16,33 +16,34 @@
 
 HOST_SYSTEM = $(shell uname | cut -f 1 -d_)
 SYSTEM ?= $(HOST_SYSTEM)
+GIT_BASE_PATH = /var/local/git
 CXX = g++
 NVCC = nvcc
 CPPFLAGS += `pkg-config --cflags protobuf`
 CXXFLAGS += -std=c++11
-CPPFLAGS += -I$(HOME)/grpc/include -I/usr/local/cuda/include
+CPPFLAGS += -I$(GIT_BASE_PATH)/grpc/include -I/usr/local/cuda/include
 ifeq ($(SYSTEM),Darwin)
 LDFLAGS += -L/usr/local/lib `pkg-config --libs protobuf`\
            -L/usr/local/cuda/lib64\
            -L/usr/local/cuda/lib64/stubs\
-           -L$(HOME)/grpc/build\
-           -L$(HOME)/grpc/build/third_party/cares/cares/lib\
-           -L$(HOME)/grpc/build/third_party/boringssl/ssl\
-           -L$(HOME)/grpc/build/third_party/boringssl/crypto\
-           -L$(HOME)/grpc/build/third_party/zlib\
+           -L$(GIT_BASE_PATH)/grpc/build\
+           -L$(GIT_BASE_PATH)/grpc/build/third_party/cares/cares/lib\
+           -L$(GIT_BASE_PATH)/grpc/build/third_party/boringssl/ssl\
+           -L$(GIT_BASE_PATH)/grpc/build/third_party/boringssl/crypto\
+           -L$(GIT_BASE_PATH)/grpc/build/third_party/zlib\
            -lgrpc++_reflection -lgrpc++_unsecure -lgrpc -lgrpc++\
 	   -lgrpc_cronet -lgrpc_plugin_support -lgrpcpp_channelz -lcares -lssl -lcrypto -laddress_sorting\
 	   -lgpr -lz \
            -ldl
 else
 LDFLAGS += -L/usr/local/lib `pkg-config --libs protobuf`\
-           -L$(HOME)/grpc/build\
+           -L$(GIT_BASE_PATH)/grpc/build\
            -L/usr/local/cuda/lib64\
            -L/usr/local/cuda/lib64/stubs\
-           -L$(HOME)/grpc/build/third_party/cares/cares/lib\
-           -L$(HOME)/grpc/build/third_party/boringssl/ssl\
-           -L$(HOME)/grpc/build/third_party/boringssl/crypto\
-	   -L$(HOME)/grpc/build/third_party/zlib\
+           -L$(GIT_BASE_PATH)/grpc/build/third_party/cares/cares/lib\
+           -L$(GIT_BASE_PATH)/grpc/build/third_party/boringssl/ssl\
+           -L$(GIT_BASE_PATH)/grpc/build/third_party/boringssl/crypto\
+	   -L$(GIT_BASE_PATH)/grpc/build/third_party/zlib\
            -Wl,--no-as-needed -lgrpc++_reflection -lgrpc++_unsecure -lgrpc -lgrpc++ -lgrpc_cronet -lgrpc_plugin_support -lgrpcpp_channelz -lcares -lssl -lcrypto -lz -laddress_sorting -lgpr -lcuda -lcudart -Wl,--as-needed\
            -ldl
 endif
@@ -61,7 +62,7 @@ test: bcminer.o main.cu
 miner: bc_miner.o BCGPUMiner.o core.pb.o miner.pb.o miner.grpc.pb.o main.o
 	$(CXX) $^ $(LDFLAGS) -o $@
 
-bc_miner.o: bc_miner.cu 
+bc_miner.o: bc_miner.cu
 	$(NVCC) $^ -c $@
 
 %.grpc.pb.cc: %.proto
