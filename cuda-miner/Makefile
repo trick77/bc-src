@@ -21,7 +21,7 @@ CXX = g++
 NVCC = nvcc
 CPPFLAGS += `pkg-config --cflags protobuf`
 CXXFLAGS += -std=c++11
-CPPFLAGS += -I$(GIT_BASE_PATH)/grpc/include -I/usr/local/cuda/include
+CPPFLAGS += -I$(GIT_BASE_PATH)/grpc/include -I/usr/local/cuda/include -I$(GIT_BASE_PATH)/grpc/third_party/protobuf/src
 ifeq ($(SYSTEM),Darwin)
 LDFLAGS += -L/usr/local/lib `pkg-config --libs protobuf`\
            -L/usr/local/cuda/lib64\
