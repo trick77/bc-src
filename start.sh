@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-. ./tools/buildenv
+. ./_tools/buildenv
 yarn install
 
 export BC_MINER_KEY="0xbadcafe0cafebabe0dabbad000cafed00ddead00"
