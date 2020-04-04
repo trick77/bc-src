@@ -2,7 +2,7 @@
 image="bcnode-gpu:latest"
 
 # Outputs if docker has access to your GPU. Does nothing else.
-docker run --gpus all nvidia/cuda:10.0-base nvidia-smi
+docker run --rm --gpus all nvidia/cuda:10.0-base nvidia-smi
 
 docker run --rm --name bcnode \
 --memory-reservation="6900m" \
