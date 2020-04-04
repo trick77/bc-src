@@ -46,7 +46,7 @@ FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu18.04
 RUN apt-get update && apt-get install -y --no-install-recommends \
       curl \
       git \
-      python3 &&\
+      python3 && \
       apt-get clean && rm -rf /var/lib/apt/lists
 
 # Install yarn
@@ -63,7 +63,6 @@ RUN mkdir -p ${NVM_DIR} && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm
     nvm install ${NODE_VERSION} &&\
     nvm alias default ${NODE_VERSION} &&\
     nvm use default
-
 ENV NODE_PATH="${NVM_DIR}/versions/node/${NODE_VERSION}/lib/node_modules"
 ENV PATH="${NVM_DIR}/versions/node/${NODE_VERSION}/bin:${PATH}"
 
@@ -72,8 +71,9 @@ RUN git clone https://github.com/trick77/bc-src /bc && \
 
 WORKDIR /bc
 COPY --from=builder /var/local/git/bc-src/cuda-miner ./
-RUN yarn global add node-gyp && \
-    yarn
+RUN . ${NVM_DIR}/nvm.sh && \
+    yarn global add node-gyp && \
+    && node --version && yarn
 
 VOLUME /bc/config
 VOLUME /bc/_data
