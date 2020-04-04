@@ -73,7 +73,7 @@ WORKDIR /bc
 COPY --from=builder /var/local/git/bc-src/cuda-miner ./
 RUN . ${NVM_DIR}/nvm.sh && \
     yarn global add node-gyp && \
-    && node --version && yarn
+    node --version && yarn
 
 VOLUME /bc/config
 VOLUME /bc/_data
