@@ -38,9 +38,7 @@ ENV PATH="/var/local/git/grpc/build:${PATH}"
 ARG BRANCH_NAME=cuda-miner
 RUN git clone -b ${BRANCH_NAME} https://github.com/trick77/bc-src /var/local/git/bc-src && \
     cd /var/local/git/bc-src/cuda-miner
-
-# Compile LG's CUDA RPC miner
-COPY ./Makefile /var/local/git/bc-src/cuda-miner/Makefile
+#COPY ./Makefile /var/local/git/bc-src/cuda-miner/Makefile
 RUN cd /var/local/git/bc-src/cuda-miner/src && make -f ../Makefile
 
 FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu18.04
