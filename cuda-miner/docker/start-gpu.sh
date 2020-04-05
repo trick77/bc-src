@@ -25,7 +25,6 @@ docker run --rm --name bcnode \
 -p 3000:3000 -p 16060:16060/tcp -p 16060:16060/udp -p 16061:16061/tcp -p 16061:16061/udp -p 36061:36061/tcp -p 36061:36061/udp -p 36060:36060/tcp -p 36060:36060/udp -d \
 -e BC_MINER_KEY="${BC_MINER_KEY}" \
 -e BC_NETWORK="main" \
--e BC_FORCE_MINE=true \
 -e MIN_HEALTH_NET=true \
 -e BC_TUNNEL_HTTPS=true \
 -e BC_GRPC_RUST_MINER_PORT=50052 \
