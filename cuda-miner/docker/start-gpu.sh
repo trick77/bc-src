@@ -1,13 +1,28 @@
 #!/usr/bin/env bash
-image="bcnode-gpu:latest"
+image="trick77/bcnode-gpu:latest"
 
-# Outputs if docker has access to your GPU. Does nothing else.
+echo "Check the following output if Docker has access to one or more GPUs:"
 docker run --rm --gpus all nvidia/cuda:10.0-base nvidia-smi
 
+if [ -z "${BC_MINER_KEY}" ]; then
+  echo
+  echo "Error: Miner key missing in the environment. Do something like export BC_MINER_KEY=\"0x..yourminerkey\""
+  echo "Aborting."
+  exit 1
+fi
+
+if [ -z "${BC_SCOOKIE}" ]; then
+  echo
+  echo "Error: Scookie is missing in the environment. Do something like export BC_SCOOKIE=\"s3cr3t\""
+  echo "Aborting."
+  exit 1
+fi
+
+# Start bcnode-gpu container
 docker run --rm --name bcnode \
 --memory-reservation="6900m" \
 --gpus all \
--p 3000:3000 -p 16060:16060/tcp -p 16060:16060/udp -p 16061:16061/tcp -p 16061:16061/udp -p 36061:36061/tcp -p 36061:36061/udp -p 36060:36060/tcp -p 36060:36060/udp  \
+-p 3000:3000 -p 16060:16060/tcp -p 16060:16060/udp -p 16061:16061/tcp -p 16061:16061/udp -p 36061:36061/tcp -p 36061:36061/udp -p 36060:36060/tcp -p 36060:36060/udp  -d \
 -e BC_MINER_KEY="${BC_MINER_KEY}" \
 -e BC_NETWORK="main" \
 -e BC_FORCE_MINE=true \

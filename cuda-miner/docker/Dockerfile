@@ -1,4 +1,4 @@
-FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu18.04 AS builder
+FROM nvidia/cuda:10.2-cudnn7-devel-ubuntu18.04 AS builder
 
 # Get basic packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -42,7 +42,7 @@ RUN git clone -b ${BRANCH_NAME} https://github.com/trick77/bc-src /var/local/git
 RUN cd /var/local/git/bc-src/cuda-miner/src && make -f ../Makefile
 
 # ------------------------------------------------------------------------------
-FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu18.04
+FROM nvidia/cuda:10.2-cudnn7-devel-ubuntu18.04
 
 # Install required packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
