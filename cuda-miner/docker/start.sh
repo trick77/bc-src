@@ -27,7 +27,7 @@ fi
 echo "*** Creating a comfy Docker network for the containers..."
 docker network create waietng
 
-echo "*** Firing up the GPU miner container..."
+echo "*** Firing up a container for LG's GPU miner..."
 docker run --rm --name gpuminer \
 --gpus all \
 -p 50052 -d \

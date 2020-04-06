@@ -2,6 +2,7 @@ FROM blockcollider/bcnode
 
 # Custom entrypoint
 COPY bcnode/docker-entrypoint.sh /
+
 COPY bcnode/monkey-patch /
 
 VOLUME /bc/config
