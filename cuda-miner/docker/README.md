@@ -20,6 +20,8 @@ In a nutshell:
     1. Use the **runfile** installer type and installation instructions.
 1. Install https://github.com/NVIDIA/nvidia-docker
 1. This might be a good time for a system reboot.
+1. ```git clone git clone -b cuda-miner https://github.com/trick77/bc-src bcnode```
+    1. ```cd bcnode/cuda-miner/docker```
 1. Build the Docker images locally using ```./build.sh``` (grab an xc0ffee since this will take a while)
 1. If the image build was a success, start the containers with the provided ```./start.sh``` in this directory
 
@@ -31,7 +33,10 @@ Gotchas:
 4. You didn't read this README.
 
 ## Tips & tricks
-
 * To see what bcnode is currently doing use ```docker logs -f bcnode --tail 100```, abort the output with CTRL-C (this will not terminate the process)
 * Use ```docker volume rm db``` to get rid of the blockchain database and start syncing from scratch. You obviously want to do this when the bcnode container is not currently running.
     * The named volume will only be created if the provided start script was used.
+
+## Thanks
+
+Kudos go out to all the nerds in the BC GPU Miner Tester community for their tech and moral support.
