@@ -24,8 +24,7 @@ In a nutshell:
     1. git clone -b cuda-miner https://github.com/trick77/bc-src
     2. cd ./bc-src/cuda-miner/docker && docker build --no-cache -t trick77/bcnode-gpu .
     3. Waiiiiiiit for it...
-    4. If the image build was a success, start the container with the provided shell script
-1. Start the image with the provided script
+1. Only if the image build was a success, start the container with the provided shell script
 
 Gotchas:
 1. Watch for installation errors if sudo is not installed. Sudo is not required but it's contained in some of the installation instructions.
