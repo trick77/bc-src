@@ -1,0 +1,13 @@
+FROM blockcollider/bcnode
+
+# Custom entrypoint
+COPY bcnode/docker-entrypoint.sh /
+COPY bcnode/monkey-patch /
+
+VOLUME /bc/config
+VOLUME /bc/_data
+VOLUME /bc/_logs
+
+EXPOSE 3000 3001 16060 16061
+
+ENTRYPOINT [ "/docker-entrypoint.sh" ]

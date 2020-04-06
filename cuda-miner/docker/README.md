@@ -1,4 +1,4 @@
-# README.md
+# What's this about?
 
 Mining on Block Collider's blockchain with LG's CUDA RPC miner in a Docker container.
 
@@ -20,21 +20,18 @@ In a nutshell:
     1. Use the **runfile** installer type and installation instructions.
 1. Install https://github.com/NVIDIA/nvidia-docker
 1. This might be a good time for a system reboot.
-1. Build the Docker image locally (don't rely on updated Dockerhub images)
-    1. git clone -b cuda-miner https://github.com/trick77/bc-src
-    2. cd ./bc-src/cuda-miner/docker && docker build --no-cache -t trick77/bcnode-gpu .
-    3. Waiiiiiiit for it...
-1. **Only** if the image build was a success, start the container with the provided start-gpu.sh from this directory (it might download an outdated version from Dockerhub otherwise)
+1. Build the Docker images locally using ```./build.sh``` (grab an xc0ffee since this will take a while)
+1. If the image build was a success, start the containers with the provided ```./start.sh``` in this directory
+
+Unfortunately, we can't use docker-compose for the whole thing since it doesn't support the required gpu flag.
 
 Gotchas:
 1. Watch for errors if sudo is not installed. While sudo is not required it's contained in some of the manual installation instructions.
-2. Using --no-cache will always restart the image build from scratch when rebuilding the image but makes sure you will always get the latest sources. Remove --no-cache only if you know what you're doing.
 3. The provided start script will output if Docker is able to find a compatible GPU on the host. If the output doesn't show any compatible GPU, you have to fix this first.
 4. You didn't read this README.
 
 ## Tips & tricks
 
-* To show what the miner is currently doing use ```docker logs -f bcnode --tail 100```, abort the output with CTRL-C (this will not terminate the miner)
-* Kill a currently running bcnode container with ````docker rm -f bcnode````
+* To see what bcnode is currently doing use ```docker logs -f bcnode --tail 100```, abort the output with CTRL-C (this will not terminate the process)
 * Use ```docker volume rm db``` to get rid of the blockchain database and start syncing from scratch. You obviously want to do this when the bcnode container is not currently running.
     * The named volume will only be created if the provided start script was used.
