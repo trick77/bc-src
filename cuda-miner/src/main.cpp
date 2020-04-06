@@ -41,7 +41,7 @@ class ServerImpl final {
 
   // There is no shutdown handling in this code.
   void Run() {
-    std::string server_address("localhost:50052");
+    std::string server_address("0.0.0.0:50052");
 
     ServerBuilder builder;
 
