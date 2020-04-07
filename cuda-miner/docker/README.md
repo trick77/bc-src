@@ -15,14 +15,15 @@ Important reminder: If something doesn't work, don't complain about it. Analyze 
 ## Installation
 In a nutshell:
 1. Install Debian 10 Buster as the host OS.
+1. Install the appropriate tools like ```apt-get install -y git wget curl ca-certificates```
 1. Install Docker from https://docs.docker.com/install/linux/docker-ce/debian/
 1. Install Nvidia's CUDA Drivers from https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804 
     1. Use the **runfile** installer type and installation instructions.
 1. Install https://github.com/NVIDIA/nvidia-docker
 1. This might be a good time for a system reboot.
-1. ```git clone git clone -b cuda-miner https://github.com/trick77/bc-src bcnode```
+1. ```git clone -b cuda-miner https://github.com/trick77/bc-src bcnode```
     1. ```cd bcnode/cuda-miner/docker```
-1. Build the Docker images locally using ```./build.sh``` (grab an xc0ffee since this will take a while)
+1. Build the Docker images locally using ```./build-images.sh``` (grab an xc0ffee since this will take a while)
 1. If the image build was a success, start the containers with the provided ```./start.sh``` in this directory
 
 Unfortunately, we can't use docker-compose for the whole thing since it doesn't support the required gpu flag.
