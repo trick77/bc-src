@@ -24,7 +24,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       protobuf-compiler \
       locales \
       pkg-config \
-      unzip
+      unzip \
+      && rm -rf /var/lib/apt/lists/*
 
 # Fetch grpc
 ARG GRPC_RELEASE=1.24.2

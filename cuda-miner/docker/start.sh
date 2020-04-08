@@ -50,6 +50,8 @@ ${bcnode_image} \
 start --rovers --rpc --ws --ui --node --scookie "${BC_SCOOKIE}" 2>&1
 echo "*** Done."
 echo
+docker ps
+echo
 echo "Verify everything runs smoothly with: docker logs -f bcnode --tail 100"
 echo "For the GPU miner:  docker logs -f gpuminer --tail 100"
 echo "Hit CTRL-C to abort the output."
