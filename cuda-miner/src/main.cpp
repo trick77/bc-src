@@ -4,6 +4,8 @@
 #include <thread>
 #include <cstdlib>
 #include <time.h>
+#include <signal.h>
+#include <stdlib.h>
 
 #include <mutex>
 
@@ -270,7 +272,29 @@ class ServerImpl final {
   BCGPUMiner thegpuminer_;
 };
 
+void sig_int(int signo) {
+  if (signo == SIGINT) {
+    std::cout << "Caught SIGINT, exiting!" << std::endl;
+    exit(0);
+  }
+}
+
+void sig_kill(int signo) {
+  if (signo == SIGKILL) {
+    std::cout << "Caught SIGKILL, exiting!" << std::endl;
+    exit(0);
+  }
+}
+
 int main(int argc, char** argv) {
+
+  if (signal(SIGINT, sig_int) == SIG_ERR) {
+    std::cout << "Not handling SIGINT!" << std::endl;
+  }
+  if (signal(SIGKILL, sig_kill) == SIG_ERR) {
+    std::cout << "Not handling SIGKILL!" << std::endl;
+  }
+  
   ServerImpl server;
   server.Run();
 
