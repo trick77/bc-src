@@ -52,7 +52,8 @@ struct bc_mining_inputs {
 struct bc_mining_outputs {
   uint8_t  result_blake2b_[BLAKE2B_OUTBYTES];
   uint64_t distance_, difficulty_, iterations_;
-  uint64_t nonce_;  
+  uint64_t nonce_;
+  bool canceled_;
 };
 
 struct bc_mining_mempools {
@@ -77,6 +78,7 @@ struct bc_thread_data {
   bc_mining_stream* stream;
   uint64_t start_nonce;
   bool *solution_found;
+  bool *cancel;
 };
 
 // do this once
@@ -84,7 +86,7 @@ void init_gpus(std::vector<bc_mining_stream>& streams);
 // do this once for each GPU you would like to use
 void init_mining_memory(bc_mining_mempools& pool, cudaStream_t stream);
 // do this a bunch
-void run_miner(const bc_mining_inputs& in, const unsigned seed_mixer, bc_mining_stream& pool,bc_mining_outputs& out);
+void run_miner(const bc_mining_inputs& in, const uint64_t start_nonce, bc_mining_stream& bcstream, bc_mining_outputs& out, bool& solution_found, bool& cancel);
 // for threading
 void* run_miner_thread(void *);
 // do this once for each GPU

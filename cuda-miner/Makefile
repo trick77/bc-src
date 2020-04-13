@@ -57,9 +57,10 @@ vpath %.proto $(PROTOS_PATH)
 
 all: system-check miner
 
-test: bcminer.o main.cu
-	$(NVCC) $^ -o $@
-miner: bc_miner.o BCGPUMiner.o core.pb.o miner.pb.o miner.grpc.pb.o main.o
+test: bcminer.o
+	$(NVCC) $^ main.cu -o $@
+
+miner: core.pb.o miner.pb.o miner.grpc.pb.o bc_miner.o BCGPUMiner.o CallData.o main.o
 	$(CXX) $^ $(LDFLAGS) -o $@
 
 bc_miner.o: bc_miner.cu
