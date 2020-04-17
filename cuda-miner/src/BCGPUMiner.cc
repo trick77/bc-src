@@ -50,30 +50,15 @@ void BCGPUMiner::submit_job(const bc_mining_inputs& job) {
   cancel = false;
   solution_found = false;
 
-  std::cout << job.miner_key_ << std::endl;
-  std::cout << job.the_difficulty_ << std::endl;
-  
   memcpy(&in, &job, sizeof(bc_mining_inputs));
 
-  std::cout << in.miner_key_ << std::endl;
-  std::cout << in.the_difficulty_ << std::endl;
-  
   unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
   std::mt19937_64 generator(seed);
   uint64_t start_nonce = generator();
 
-  std::vector<pthread_t> threads_lcl(streams.size());
-  std::vector<bc_thread_data> thread_data_lcl(streams.size());
-  std::vector<bc_mining_outputs> outs_lcl(streams.size());
-  
   for(unsigned iGPU = 0; iGPU < streams.size(); ++iGPU) {
-    thread_data[iGPU].in = &in;
-    thread_data[iGPU].out = &outs[iGPU];
-    thread_data[iGPU].stream = &streams[iGPU];
     thread_data[iGPU].start_nonce = start_nonce + 100*iGPU*HASH_TRIES + generator();
-    thread_data[iGPU].solution_found = &solution_found;
-    thread_data[iGPU].cancel = &cancel;
-
+    
     int result_code = pthread_create(&threads[iGPU], NULL, run_miner_thread, &thread_data[iGPU]);
     assert(!result_code);
   }
@@ -101,11 +86,11 @@ BCGPUMiner::result_type BCGPUMiner::yield_result(bc_mining_outputs& out) {
 	     << (unsigned)(outs[iGPU].result_blake2b_[i]&0xf);
     }
     result << std::dec;
-    std::cout << iGPU << " result     : " << result.str() << std::endl;
-    std::cout << iGPU << " nonce      : " << outs[iGPU].nonce_ << std::endl;
-    std::cout << iGPU << " difficulty : " << outs[iGPU].difficulty_ << std::endl;
-    std::cout << iGPU << " iterations : " << outs[iGPU].iterations_ << std::endl;
-    std::cout << iGPU << " distance   : " << outs[iGPU].distance_ << std::endl;
+    std::cout << iGPU << " result     : " << result.str() << std::endl
+	      << iGPU << " nonce      : " << outs[iGPU].nonce_ << std::endl
+	      << iGPU << " difficulty : " << outs[iGPU].difficulty_ << std::endl
+	      << iGPU << " iterations : " << outs[iGPU].iterations_ << std::endl
+	      << iGPU << " distance   : " << outs[iGPU].distance_ << std::endl;
     
     if( outs[iGPU].distance_ > best_distance ) {
       best_result = iGPU;
