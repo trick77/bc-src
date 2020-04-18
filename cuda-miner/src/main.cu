@@ -94,6 +94,7 @@ int main(int argc, char **argv) {
 
     uint64_t start_nonce = generator();
     bool solution_found = false;
+    bool cancel = false;
     for(unsigned iGPU = 0; iGPU < streams.size(); ++iGPU ) {
       in[iGPU].miner_key_size_ = mhash.length();
       in[iGPU].time_stamp_size_ = times.length();
@@ -116,6 +117,7 @@ int main(int argc, char **argv) {
       thread_data[iGPU].stream = &streams[iGPU];
       thread_data[iGPU].start_nonce = std::numeric_limits<uint64_t>::max() - iGPU*100*HASH_TRIES; //start_nonce + 100*HASH_TRIES*iGPU + generator();
       thread_data[iGPU].solution_found = &solution_found;
+      thread_data[iGPU].cancel = &cancel;
       std::cout<< iGPU << ' ' << thread_data[iGPU].start_nonce << std::endl;
     }
 
@@ -124,7 +126,7 @@ int main(int argc, char **argv) {
       result_code = pthread_create(&threads[iGPU], NULL, run_miner_thread, &thread_data[iGPU]);
       assert(!result_code);
     }
-    
+    std::cout << "started threads" << std::endl;    
     
     for ( unsigned iGPU = 0; iGPU < streams.size(); ++iGPU) {
       // block until thread 'index' completes

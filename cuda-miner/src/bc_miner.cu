@@ -9,11 +9,13 @@
 #include "cos_dist.cu"
 #include <curand_kernel.h>
 #include "stdio.h"
-#include <pthread.h>
 #include <random>
 #include <chrono>
+#include <pthread.h>
 
+//mutexes
 pthread_mutex_t solution_found_mutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t data_xfer_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 __global__ void setup_rand(curandState* state, uint32_t random)
 {
@@ -198,7 +200,7 @@ void init_mining_memory(bc_mining_mempools& pool, cudaStream_t stream) {
   cudaStreamSynchronize(stream);
 }
 
-void run_miner(const bc_mining_inputs& in, const uint64_t start_nonce, bc_mining_stream& bcstream, bc_mining_outputs& out, bool& solution_found) {
+void run_miner(const bc_mining_inputs& in, const uint64_t start_nonce, bc_mining_stream& bcstream, bc_mining_outputs& out, bool& solution_found, bool& cancel) {
   cudaSetDevice(bcstream.device);
   cudaStream_t stream = bcstream.stream;
   bc_mining_mempools& pool = bcstream.pool;
@@ -208,7 +210,6 @@ void run_miner(const bc_mining_inputs& in, const uint64_t start_nonce, bc_mining
   if( pool.scratch_dists == NULL ) return;
   if( pool.scratch_indices == NULL ) return;
   
-  const unsigned max_iterations = 10;
   uint64_t nonce_local = start_nonce;
 
   unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
@@ -250,12 +251,13 @@ void run_miner(const bc_mining_inputs& in, const uint64_t start_nonce, bc_mining
   uint64_t iterations = 0;
   // the following kernel launches are the primary work
   // only set the random seeds once
-  //setup_rand<<<blocks,threads,0,stream>>>(pool.dev_states,((const uint32_t*)in.received_work_)[0]^((uint32_t)start_nonce));
+  
+  setup_rand<<<blocks,threads,0,stream>>>(pool.dev_states,((const uint32_t*)in.received_work_)[0]^((uint32_t)start_nonce));
   do {
-    cudaMemsetAsync(pool.dev_states,0,HASH_TRIES*sizeof(curandState),stream);
-    setup_rand<<<blocks,threads,0,stream>>>(pool.dev_states,((const uint32_t*)in.received_work_)[0]^((uint32_t)nonce_local));
+    //cudaMemsetAsync(pool.dev_states,0,HASH_TRIES*sizeof(curandState),stream);
+    //setup_rand<<<blocks,threads,0,stream>>>(pool.dev_states,((const uint32_t*)in.received_work_)[0]^((uint32_t)nonce_local));
 
-    if( solution_found ) break;
+    if( solution_found || cancel ) break;
     cudaMemsetAsync(pool.dev_cache->result,0,HASH_TRIES*BLAKE2B_OUTBYTES,stream);
     cudaMemsetAsync(pool.dev_cache->nonce,0,HASH_TRIES*sizeof(uint64_t),stream);
     cudaMemsetAsync(pool.dev_cache->nonce_hashes,0,HASH_TRIES*BLAKE2B_OUTBYTES,stream);
@@ -282,25 +284,33 @@ void run_miner(const bc_mining_inputs& in, const uint64_t start_nonce, bc_mining
       cudaMemcpyAsync(&out.nonce_, &pool.dev_cache->nonce[max_idx], sizeof(uint64_t), cudaMemcpyDeviceToHost,stream);
     }
     ++iterations;    
-    std::cout << bcstream.device << ' ' << nonce_local << ' ' << max_value << ' ' << in.the_difficulty_ << ' ' << iterations << ' ' << max_iterations << std::endl;
-    
-    nonce_local = generator() ^ generator() ;
-  } while( max_value <= in.the_difficulty_ && iterations < max_iterations && !solution_found);
+    nonce_local = generator() ^ generator();
+  } while( max_value <= in.the_difficulty_ && !solution_found && !cancel);
 
-  std::cout << bcstream.device << " found solution! "  << max_value << std::endl;
+  if( !cancel ) {
+    std::cout << bcstream.device << " found solution! " << max_value << std::endl;
+    pthread_mutex_lock( &solution_found_mutex );
+    if( !solution_found ) solution_found = true;
+    pthread_mutex_unlock( &solution_found_mutex );
 
-  pthread_mutex_lock( &solution_found_mutex );
-  if( !solution_found ) solution_found = true;
-  pthread_mutex_unlock( &solution_found_mutex );
+    out.difficulty_ = in.the_difficulty_;
+    out.distance_ = best_value;
+    out.iterations_ = iterations*HASH_TRIES;
+    out.canceled_ = false;
+  } else {
+    std::cout << bcstream.device << " canceled!" << std::endl;
 
-  out.difficulty_ = in.the_difficulty_;
-  out.distance_ = best_value;
-  out.iterations_ = iterations*HASH_TRIES;
+    out.difficulty_ = in.the_difficulty_;
+    out.distance_ = best_value;
+    out.iterations_ = iterations*HASH_TRIES;
+    out.canceled_ = true;
+  }
+
 }
 
 void* run_miner_thread(void * input) {
   bc_thread_data& inputs = *((bc_thread_data*)input);
-  run_miner(*inputs.in,inputs.start_nonce,*inputs.stream,*inputs.out, *inputs.solution_found);
+  run_miner(*inputs.in,inputs.start_nonce,*inputs.stream,*inputs.out, *inputs.solution_found, *inputs.cancel);
   return NULL;
 }
 
