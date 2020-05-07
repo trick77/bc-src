@@ -4491,6 +4491,11 @@ decimal.js@9.0.1:
   resolved "https://registry.yarnpkg.com/decimal.js/-/decimal.js-9.0.1.tgz#1cc8b228177da7ab6498c1cc06eb130a290e6e1e"
   integrity sha512-2h0iKbJwnImBk4TGk7CG1xadoA0g3LDPlQhQzbZ221zvG0p2YVUedbKIPsOZXKZGx6YmZMJKYOalpCMxSdDqTQ==
 
+decimal.js@^10.2.0:
+  version "10.2.0"
+  resolved "https://registry.yarnpkg.com/decimal.js/-/decimal.js-10.2.0.tgz#39466113a9e036111d02f82489b5fd6b0b5ed231"
+  integrity sha512-vDPw+rDgn3bZe1+F/pyEwb1oMG2XTlRVgAa6B4KccTEpYgF8w6eQllVbQcfIJnZyvzFtFpxnpGtx8dd7DJp/Rw==
+
 decode-uri-component@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
@@ -5802,15 +5807,22 @@ eth-lib@^0.1.26:
     ws "^3.0.0"
     xhr-request-promise "^0.1.2"
 
+eth-revert-reason@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/eth-revert-reason/-/eth-revert-reason-1.0.2.tgz#c4bca6f4b4ea87436899da04d0bbde6a2dc97ed2"
+  integrity sha512-AzoHqb/UUj4eZ2SLaC/7AgvQezmf4NWBn6e3midQHDslkBesW5VLzrbskIqu8Osx5WZ7YJ2UJIerLCJeSj2iZQ==
+  dependencies:
+    ethers "^4.0.46"
+
 ethereum-common@^0.0.18:
   version "0.0.18"
   resolved "https://registry.yarnpkg.com/ethereum-common/-/ethereum-common-0.0.18.tgz#2fdc3576f232903358976eb39da783213ff9523f"
   integrity sha1-L9w1dvIykDNYl26znaeDIT/5Uj8=
 
-ethereum-input-data-decoder@0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/ethereum-input-data-decoder/-/ethereum-input-data-decoder-0.2.0.tgz#f94ca9cdc1b789c91c16df5701a488c111c308e6"
-  integrity sha512-KhgWtU3odqckGGg5dLmV1tcN5Wq2Q1zOasgG1CJwOBHFzs+ihyUkEqRwtguwXc+rJGbvBeM/tyWkKhx7BLWagg==
+ethereum-input-data-decoder@0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/ethereum-input-data-decoder/-/ethereum-input-data-decoder-0.3.0.tgz#9c6fcedc984a0477367c657e49943b3d30af48f2"
+  integrity sha512-i6BDTbHhwODJ1SCh85hVY93KdT49e4iAkuA+xNVnBrywhCsywMPmDf0lM7AErLa0VWjgOqXkIr6wmsn+gRIj/A==
   dependencies:
     bn.js "^4.11.8"
     buffer "^5.2.1"
@@ -5966,6 +5978,21 @@ ethers@^4.0.27:
     aes-js "3.0.0"
     bn.js "^4.4.0"
     elliptic "6.3.3"
+    hash.js "1.1.3"
+    js-sha3 "0.5.7"
+    scrypt-js "2.0.4"
+    setimmediate "1.0.4"
+    uuid "2.0.1"
+    xmlhttprequest "1.8.0"
+
+ethers@^4.0.46:
+  version "4.0.47"
+  resolved "https://registry.yarnpkg.com/ethers/-/ethers-4.0.47.tgz#91b9cd80473b1136dd547095ff9171bd1fc68c85"
+  integrity sha512-hssRYhngV4hiDNeZmVU/k5/E8xmLG8UpcNUzg6mb7lqhgpFPH/t7nuv20RjRrEf0gblzvi2XwR5Te+V3ZFc9pQ==
+  dependencies:
+    aes-js "3.0.0"
+    bn.js "^4.4.0"
+    elliptic "6.5.2"
     hash.js "1.1.3"
     js-sha3 "0.5.7"
     scrypt-js "2.0.4"

@@ -1,6 +1,6 @@
 {
   "name": "bcnode",
-  "version": "0.9.49",
+  "version": "0.9.50",
   "description": "Block Collider protocol on V8 with miner and rovers",
   "main": "lib/src/init.js",
   "scripts": {
@@ -133,8 +133,10 @@
     "cors": "2.8.5",
     "counterjs": "git+https://github.com/akloboucnik/CounterJS.git#master",
     "debug": "^3.1.0",
+    "decimal.js": "^10.2.0",
     "discovery-swarm": "git+https://github.com/blockcollider/discovery-swarm.git#master",
-    "ethereum-input-data-decoder": "0.2.0",
+    "eth-revert-reason": "^1.0.2",
+    "ethereum-input-data-decoder": "0.3.0",
     "ethereumjs-block": "2.0.1",
     "ethereumjs-common": "^1.4.0",
     "ethereumjs-devp2p": "2.5.1",
