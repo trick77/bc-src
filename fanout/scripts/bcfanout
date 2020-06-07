@@ -1,0 +1,32 @@
+#!/usr/bin/env python3
+import argparse 
+import bcfanout
+
+parser = argparse.ArgumentParser(description='BlockCollider miner grpc fanout')
+parser.add_argument("--bind", type=str, help="IP to bind server to.")
+parser.add_argument("--bind_port", type=int, help="Port to bind to.")
+parser.add_argument("--miners", type=str, nargs='+', help="List of miner IPs to send data to.")
+parser.add_argument("--starting_port", type=int, help="First port to start sending data to miners on.")
+parser.add_argument("--test", action="store_true", default=False, help="Run basic sanity checks.")
+
+args = parser.parse_args()
+
+if args.bind is None:
+    raise Exception('Must specify IP to bind to with --bind!')
+
+if args.miners is None:
+    raise Exception('Must specify at least one miner IP to forward to!')
+
+bind_port = 50052 if args.bind_port is None else args.bind_port
+start_port = 50053 if args.starting_port is None else args.starting_port
+
+fanout = bcfanout.bcfanout.Fanout(args.bind, args.miners,
+                                  bcport=bind_port,
+                                  fanout_port_start=start_port)
+
+fanout.start_server()
+
+if args.test:
+    fanout.test()
+
+fanout.wait_on_server()
