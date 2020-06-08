@@ -28,6 +28,7 @@ class MinerFanoutServicer(MinerServicer):
 
     def Mine(self, request, context):
         print('got:', request, context)
+        tic = time.monotonic()
         exe = TPE(max_workers = len(self.miners) + 1)
 
         responses = []
@@ -38,12 +39,20 @@ class MinerFanoutServicer(MinerServicer):
         print('responses:', responses)
 
         best_response = None
+        total_iters = 0
         for response in responses:
             resp = response.result()
-            best = 0 if best_response is None else int(best_response.distance)            
+            best = 0 if best_response is None else int(best_response.distance)
+            total_iters += resp.iterations
             if best_response is None or best < int(resp.distance):
                 best_response = resp
-        
+
+        best_response.iterations = total_iters
+        toc = time.monotonic()
+        dtime = toc - tic
+        hashrate = total_iters / dtime
+        print(f'Completed mining request with a hash rate of: {hashrate} H/s')
+                
         return best_response
         
 def server_process(bind_ip, bcport, miners, start_port):
