@@ -10,7 +10,7 @@ PPE = futures.ProcessPoolExecutor
 
 def forward(request, context, miner, port):
     with grpc.insecure_channel(f'{miner}:{port}') as ch:
-        print('forwarding', request, f'to {miner}:{port}')
+        print('forwarding', request.work, f'to {miner}:{port}')
         stub = MinerStub(ch)
         resp = None
         try:
@@ -27,7 +27,7 @@ class MinerFanoutServicer(MinerServicer):
         self.miners = miners
 
     def Mine(self, request, context):
-        print('got:', request, context)
+        print('got:', request.difficulty, context)
         tic = time.monotonic()
         exe = TPE(max_workers = len(self.miners) + 1)
 
@@ -40,19 +40,33 @@ class MinerFanoutServicer(MinerServicer):
 
         best_response = None
         total_iters = 0
-        for response in responses:
+        for response in futures.as_completed(responses):
             resp = response.result()
             best = 0 if best_response is None else int(best_response.distance)
             total_iters += resp.iterations
             if best_response is None or best < int(resp.distance):
                 best_response = resp
+            if int(best_response.distance) > int(request.difficulty):
+                break                
 
         best_response.iterations = total_iters
         toc = time.monotonic()
         dtime = toc - tic
         hashrate = total_iters / dtime
         print(f'Completed mining request with a hash rate of: {hashrate} H/s')
-                
+
+        if int(best_response.distance) > int(best_response.difficulty):
+            best_response.result = MinerResponseResult.Ok
+        
+        print('response result = ', best_response.result)
+        
+        if best_response.result == MinerResponseResult.Error:
+            print('There was an error in mining!')
+        elif best_response.result == MinerResponseResult.Canceled:
+            print('Mining canceled with distance:', best_response.distance, "and difficulty:", best_response.difficulty)
+        else:
+            print('Mining successful with distance:', best_response.distance, 'and difficulty:', best_response.difficulty)
+        
         return best_response
         
 def server_process(bind_ip, bcport, miners, start_port):
@@ -91,7 +105,7 @@ class Fanout(object):
         req.work = "7ca44f0c6f416240157a7d9067802269a64ab5503bd11970e3130d36e75ab815"
         req.miner_key = "0xf34fa87db39d15471bebe997860dcd49fc259318"
         req.merkle_root = "d1dde6972fa183f1b9ca2c0ee2d6d87656be16db28c7d6cc3c5086eb7fda8fe5"
-        req.difficulty = "298874869807223"
+        req.difficulty = "300874869807223"
         req.current_timestamp = 1585772256
         print(req)
         ip = self.bind_ip
