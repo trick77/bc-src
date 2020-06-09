@@ -41,7 +41,7 @@ def get_version():
     return g["__version__"]
 
 
-INSTALL_REQUIRES = ['']
+INSTALL_REQUIRES = ['grpcio-tools']
 EXTRAS_REQUIRE = {}
 
 setup(name="bcfanout",
