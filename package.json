@@ -1,7 +1,7 @@
 {
   "name": "bcnode",
-  "version": "0.9.56",
-  "description": "Block Collider protocol on V8 with miner and rovers",
+  "version": "0.9.57",
+  "description": "Block Collider multichain on V8 with CPU miner, Overline, and rovers.",
   "main": "lib/src/init.js",
   "scripts": {
     "bcnode": "./bin/cli start --ws --rovers --ui --node --miner-key YOUR_PUBLIC_KEY",
@@ -108,7 +108,7 @@
     "bcjs": "blockcollider/bcjs#v0.0.35",
     "bdns": "^0.1.1",
     "benchmark": "^2.1.4",
-    "bitcoin-net": "5.0.0",
+    "bitcoin-net": "5.2.0",
     "bitcoin-script": "^0.1.1",
     "bitcoinjs-lib": "^5.1.10",
     "bitcore-p2p": "8.19.0",
