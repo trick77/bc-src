@@ -1,6 +1,6 @@
 {
   "name": "bcnode",
-  "version": "0.9.59",
+  "version": "0.9.60",
   "description": "Block Collider multichain on V8 with CPU miner, Overline, and rovers.",
   "main": "lib/src/init.js",
   "scripts": {
@@ -94,7 +94,7 @@
       "$Keys"
     ],
     "parser": "babel-eslint",
-    "plugins": [ ]
+    "plugins": []
   },
   "dependencies": {
     "@cityofzion/neo-js": "0.14.0",
@@ -132,6 +132,7 @@
     "counterjs": "git+https://github.com/akloboucnik/CounterJS.git#master",
     "debug": "^3.1.0",
     "decimal.js": "^10.2.0",
+    "del": "^5.1.0",
     "discovery-swarm": "git+https://github.com/blockcollider/discovery-swarm.git#master",
     "eth-revert-reason": "^1.0.3",
     "ethereum-input-data-decoder": "0.3.0",
@@ -147,6 +148,7 @@
     "external-ip": "^2.0.3",
     "fastpriorityqueue": "^0.6.3",
     "fibers": "^4.0.2",
+    "figlet": "^1.5.0",
     "fkill": "7.0.1",
     "flow": "^0.2.3",
     "frame-stream": "2.0.0",
@@ -232,6 +234,7 @@
     "terminate": "^2.1.0",
     "to-buffer": "1.1.1",
     "typeforce": "^1.18.0",
+    "unzip": "^0.1.11",
     "utp-native": "2.1.7",
     "waves-api": "0.24.2",
     "web3": "^1.0.0-beta.30",
