@@ -1,6 +1,6 @@
 {
   "name": "bcnode",
-  "version": "0.9.61",
+  "version": "0.9.62",
   "description": "Block Collider multichain on V8 with CPU miner, Overline, and rovers.",
   "main": "lib/src/init.js",
   "scripts": {
