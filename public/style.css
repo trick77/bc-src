@@ -211,8 +211,6 @@ html { background:#fff; }
 body { font-family:Arimo, Arial, Helvetica, sans-serif; color:#fff; font-weight:400; font-size:14px; padding-top:90px; }
 
 .container { width:1000px; margin:0 auto; position:relative; }
-.container:before, .container:after { content: ""; display: table; }
-.container:after { clear: both; }
 .container { *zoom: 1; }
 
 a { text-decoration:none; outline:none!important; }
