@@ -193,7 +193,7 @@
     "redux-saga": "^0.16.0",
     "request": "^2.87.0",
     "response-time": "^2.3.2",
-    "rlp": "^2.2.3",
+    "rlp": "^2.2.6",
     "rlp-encoding": "^3.0.0",
     "rocksdb": "4.1.0",
     "rx-pubsub": "^0.2.1",
