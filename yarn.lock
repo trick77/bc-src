@@ -178,30 +178,30 @@
     enabled "2.0.x"
     kuler "^2.0.0"
 
-"@ethereumjs/block@^3.0.0-beta.1":
-  version "3.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@ethereumjs/block/-/block-3.0.0-beta.1.tgz#3613fe1c324fe444148dc5fdfe5f798e3f16c0f7"
-  integrity sha512-3Lyy//qZfy8PN/w0/jK5lWFyHfxj5UwbeMOHR3gZZWhAkwQ2aTGUPYAaEBqa9gJPhMLQWy0vfRVPmilhTapUTA==
+"@ethereumjs/block@3.0.0-beta.2":
+  version "3.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/@ethereumjs/block/-/block-3.0.0-beta.2.tgz#4bd97c58640e7b42d698233c0bfffb935fc14544"
+  integrity sha512-DSTikodQ7snhQsiebQgUnb6FALbkdVPRLhdzL5HAXGiJCL4UIGMdZoSK37Sk+9WMHm2TMReOSBbyJaS5jUQYIQ==
   dependencies:
-    "@ethereumjs/common" "2.0.0-beta.1"
-    "@ethereumjs/tx" "3.0.0-beta.1"
+    "@ethereumjs/common" "2.0.0-beta.2"
+    "@ethereumjs/tx" "3.0.0-beta.2"
     "@types/bn.js" "^4.11.6"
     ethereumjs-util "^7.0.7"
     merkle-patricia-tree "^4.0.0"
 
-"@ethereumjs/common@2.0.0-beta.1":
-  version "2.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@ethereumjs/common/-/common-2.0.0-beta.1.tgz#1f3bffe1bbef552567ed162e36a1cf3cda80e6c0"
-  integrity sha512-fPOXVeJmQpMJjnPHm6/23BY+xVdigvyZA8QKw8O1KDjcLbMds1kuYhfc7GszaUklbWsaSvwlebXat3WYvOx+8w==
+"@ethereumjs/common@2.0.0-beta.2":
+  version "2.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/@ethereumjs/common/-/common-2.0.0-beta.2.tgz#eaf2b59e69917d18757dc0d4dc07aa8f60af6f86"
+  integrity sha512-DdzcV2iTKsfhFihR2boXEdTDqufpbHonPqp7fORsKTv9FRo5dkM8V9SF03RphSsZzYWg+KXd+eX1hYcpUjherw==
   dependencies:
     crc-32 "^1.2.0"
 
-"@ethereumjs/tx@3.0.0-beta.1":
-  version "3.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@ethereumjs/tx/-/tx-3.0.0-beta.1.tgz#56d0701a465a4ce70a10e643801ea6a9e1cf25e7"
-  integrity sha512-2Au5nT8nyaP1DDv9iT4e3UTbM0U9ubbfy+dUwBVOFz395My0w6m/XaMORPyLW+2Y7GIoRXfPZlqmS5/7g6aJJA==
+"@ethereumjs/tx@3.0.0-beta.2":
+  version "3.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/@ethereumjs/tx/-/tx-3.0.0-beta.2.tgz#8268b1dd6d201603e91ae855fe1e24c1dae0f052"
+  integrity sha512-NZLIVXp/OcwkhP4Z4AC742kjInMPwvixKexlQFjAWoughp+/5JZESRb171mvLQAKI4aqY9bYicadtTwCdsMuZQ==
   dependencies:
-    "@ethereumjs/common" "2.0.0-beta.1"
+    "@ethereumjs/common" "2.0.0-beta.2"
     ethereumjs-util "^7.0.7"
 
 "@ethersproject/abi@5.0.0-beta.153":

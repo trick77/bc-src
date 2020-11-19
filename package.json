@@ -99,7 +99,7 @@
   "dependencies": {
     "@cityofzion/neo-js": "0.14.0",
     "@cityofzion/neon-js": "4.8.1",
-    "@ethereumjs/block": "^3.0.0-beta.1",
+    "@ethereumjs/block": "3.0.0-beta.2",
     "atob": "2.1.1",
     "avon": "mmpmm/avon#master",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
