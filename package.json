@@ -1,7 +1,7 @@
 {
   "name": "bcnode",
-  "version": "0.9.63",
-  "description": "EMB & NRG Multichain miner, Overline, and rovers.",
+  "version": "0.9.64",
+  "description": "EMB & COLLATERAL MINER.",
   "main": "lib/src/init.js",
   "scripts": {
     "bcnode": "./bin/cli start --ws --rovers --ui --node --miner-key YOUR_PUBLIC_KEY",
