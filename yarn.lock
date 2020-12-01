@@ -178,30 +178,30 @@
     enabled "2.0.x"
     kuler "^2.0.0"
 
-"@ethereumjs/block@3.0.0-rc.1":
-  version "3.0.0-rc.1"
-  resolved "https://registry.yarnpkg.com/@ethereumjs/block/-/block-3.0.0-rc.1.tgz#8c905de7e02f0b656db11a202a031443e93eb4d6"
-  integrity sha512-AeM5qOImaCscoSFL+k7kAynAkVbOP03vKv3sy9Aw0xKqDR1f8VB8CH3tY1QRGwHg9P6pSPqDrSgUAGPuLlpS7g==
+"@ethereumjs/block@3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@ethereumjs/block/-/block-3.0.0.tgz#3ec5fe0b19c84ad6016251561082ff7d493b2dc6"
+  integrity sha512-V7tHVAL0ny4cas/BWv0xZrojZNnZqwSC9qNT3A/99Wq/2gkpwisAU4tRkJ4TUpW1CHVXHZgoC+7T8rRtu1p74g==
   dependencies:
-    "@ethereumjs/common" "2.0.0-rc.1"
-    "@ethereumjs/tx" "3.0.0-rc.1"
+    "@ethereumjs/common" "^2.0.0"
+    "@ethereumjs/tx" "^3.0.0"
     "@types/bn.js" "^4.11.6"
     ethereumjs-util "^7.0.7"
     merkle-patricia-tree "^4.0.0"
 
-"@ethereumjs/common@2.0.0-rc.1":
-  version "2.0.0-rc.1"
-  resolved "https://registry.yarnpkg.com/@ethereumjs/common/-/common-2.0.0-rc.1.tgz#d8b4fc33397dd122876463265c0c19dc2a5b19cd"
-  integrity sha512-bC1ITy+CeJZjY1Q/HI9QXeNm8kS+g5Fd99PIi0z74RpvQ9btbVpdNw7bzpO5U82dfAHjKgETHwVbOXoYY0eplg==
+"@ethereumjs/common@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@ethereumjs/common/-/common-2.0.0.tgz#096880b144ed201ca1bc213333afc473758f50dc"
+  integrity sha512-yL0zA7Xwgz8IFHKW0VoXGjdZDVxUJg8BQ/muMHvYPW7zHJNNC80gQmvLH+MpvIg1TCXZkFXxrpYRAyCElSm+aw==
   dependencies:
     crc-32 "^1.2.0"
 
-"@ethereumjs/tx@3.0.0-rc.1":
-  version "3.0.0-rc.1"
-  resolved "https://registry.yarnpkg.com/@ethereumjs/tx/-/tx-3.0.0-rc.1.tgz#886fc64826cfebc48295183a9aaaf3beae348cd0"
-  integrity sha512-iUJS2ZH6hoaqpHpp8Scb/vbOxZunpsJgBQY2GBL1Lzn/cV8p2pH//4jIjx/O3JPrh8o8kN/xVsPPJlj22NlOmA==
+"@ethereumjs/tx@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@ethereumjs/tx/-/tx-3.0.0.tgz#8dfd91ed6e91e63996e37b3ddc340821ebd48c81"
+  integrity sha512-H9tfy6qgYxPXvt1TSObfVmVjlF43OoQqoPQ3PJsG2JiuqaMHj5ettV1pGFEC3FamENDBkl6vD6niQEvIlXv/VQ==
   dependencies:
-    "@ethereumjs/common" "2.0.0-rc.1"
+    "@ethereumjs/common" "^2.0.0"
     ethereumjs-util "^7.0.7"
 
 "@ethersproject/abi@5.0.0-beta.153":
@@ -6964,7 +6964,12 @@ globby@^10.0.1:
     merge2 "^1.2.3"
     slash "^3.0.0"
 
-google-protobuf@^3.13.0, google-protobuf@^3.7.1:
+google-protobuf@^3.14.0:
+  version "3.14.0"
+  resolved "https://registry.yarnpkg.com/google-protobuf/-/google-protobuf-3.14.0.tgz#20373d22046e63831a5110e11a84f713cc43651e"
+  integrity sha512-bwa8dBuMpOxg7COyqkW6muQuvNnWgVN8TX/epDRGW5m0jcrmq2QJyCyiV8ZE2/6LaIIqJtiv9bYokFhfpy/o6w==
+
+google-protobuf@^3.7.1:
   version "3.13.0"
   resolved "https://registry.yarnpkg.com/google-protobuf/-/google-protobuf-3.13.0.tgz#909c5983d75dd6101ed57c79e0528d000cdc3251"
   integrity sha512-ZIf3qfLFayVrPvAjeKKxO5FRF1/NwRxt6Dko+fWEMuHwHbZx8/fcaAao9b0wCM6kr8qeg2te8XTpyuvKuD9aKw==
@@ -7068,10 +7073,10 @@ growly@^1.3.0:
   resolved "https://registry.yarnpkg.com/growly/-/growly-1.3.0.tgz#f10748cbe76af964b7c96c93c6bcc28af120c081"
   integrity sha1-8QdIy+dq+WS3yWyTxrzCivEgwIE=
 
-grpc-tools@^1.9.1:
-  version "1.9.1"
-  resolved "https://registry.yarnpkg.com/grpc-tools/-/grpc-tools-1.9.1.tgz#e43be478860a21781ce9a535647985cd365b1e06"
-  integrity sha512-t2JFMPLjxcgwVSJwFEauFaoEiO56kijxSwehQDgZNR/hrStJCH0pHGsjqJNuCOvmI9Z31pYOfgj4zeInTQWh5A==
+grpc-tools@^1.10.0:
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/grpc-tools/-/grpc-tools-1.10.0.tgz#687c0599715fc8c02e93496f8f37f89bc9840ef7"
+  integrity sha512-tEbO16TuXV+aJPTMK4FCd4Jw6uzR/wm4h3u27MmZQlWLETp3bL/6KQdVM6xujNx8N1Mbj0/Be2f/0SedzGm0dQ==
   dependencies:
     node-pre-gyp "^0.15.0"
 
@@ -7080,16 +7085,16 @@ grpc-web@^1.0.6:
   resolved "https://registry.yarnpkg.com/grpc-web/-/grpc-web-1.2.1.tgz#860051d705bf5baa7b81fcbd14030060bf16b7b9"
   integrity sha512-ibBaJPzfMVuLPgaST9w0kZl60s+SnkPBQp6QKdpEr85tpc1gXW2QDqSne9xiyiym0logDfdUSm4aX5h9YBA2mw==
 
-grpc@1.24.3:
-  version "1.24.3"
-  resolved "https://registry.yarnpkg.com/grpc/-/grpc-1.24.3.tgz#92efe28dfc1250dca179b8133e40b4f2341473d9"
-  integrity sha512-EDemzuZTfhM0hgrXqC4PtR76O3t+hTIYJYR5vgiW0yt2WJqo4mhxUqZUirzUQz34Psz7dbLp38C6Cl7Ij2vXRQ==
+grpc@1.24.4:
+  version "1.24.4"
+  resolved "https://registry.yarnpkg.com/grpc/-/grpc-1.24.4.tgz#9240a3ea33cfaf04cd32ce8346798709bbd6782d"
+  integrity sha512-mHRAwuitCMuSHo1tp1+Zc0sz3cYa7pkhVJ77pkIXD5gcVORtkRiyW6msXYqTDT+35jazg98lbO3XzuTo2+XrcA==
   dependencies:
     "@types/bytebuffer" "^5.0.40"
     lodash.camelcase "^4.3.0"
     lodash.clone "^4.5.0"
     nan "^2.13.2"
-    node-pre-gyp "^0.15.0"
+    node-pre-gyp "^0.16.0"
     protobufjs "^5.0.3"
 
 handlebars@^4.0.3:
@@ -10355,6 +10360,22 @@ node-pre-gyp@^0.15.0:
   version "0.15.0"
   resolved "https://registry.yarnpkg.com/node-pre-gyp/-/node-pre-gyp-0.15.0.tgz#c2fc383276b74c7ffa842925241553e8b40f1087"
   integrity sha512-7QcZa8/fpaU/BKenjcaeFF9hLz2+7S9AqyXFhlH/rilsQ/hPZKK32RtR5EQHJElgu+q5RfbJ34KriI79UWaorA==
+  dependencies:
+    detect-libc "^1.0.2"
+    mkdirp "^0.5.3"
+    needle "^2.5.0"
+    nopt "^4.0.1"
+    npm-packlist "^1.1.6"
+    npmlog "^4.0.2"
+    rc "^1.2.7"
+    rimraf "^2.6.1"
+    semver "^5.3.0"
+    tar "^4.4.2"
+
+node-pre-gyp@^0.16.0:
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/node-pre-gyp/-/node-pre-gyp-0.16.0.tgz#238fa540364784e5015dfcdba78da3937e18dbdc"
+  integrity sha512-4efGA+X/YXAHLi1hN8KaPrILULaUn2nWecFrn1k2I+99HpoyvcOGEbtcOxpDiUwPF2ZANMJDh32qwOUPenuR1g==
   dependencies:
     detect-libc "^1.0.2"
     mkdirp "^0.5.3"
