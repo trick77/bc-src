@@ -1,6 +1,6 @@
 {
   "name": "bcnode",
-  "version": "0.9.64",
+  "version": "0.9.65",
   "description": "EMB & COLLATERAL MINER.",
   "main": "lib/src/init.js",
   "scripts": {
