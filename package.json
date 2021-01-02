@@ -158,7 +158,7 @@
     "keyboardjs": "^2.6.4",
     "leaflet": "^1.7.1",
     "lisk-elements": "^2.4.3",
-    "lru-cache": "5.1.1",
+    "lru-cache": "6.0.0",
     "mathjs": "^4.1.1",
     "maxmind": "^2.7.0",
     "mkdirp": "^0.5.1",
