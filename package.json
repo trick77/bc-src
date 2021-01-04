@@ -1,7 +1,7 @@
 {
   "name": "bcnode",
-  "version": "0.9.65",
-  "description": "EMB & COLLATERAL MINER.",
+  "version": "0.9.66",
+  "description": "EMB & OL MINER.",
   "main": "lib/src/init.js",
   "scripts": {
     "bcnode": "./bin/cli start --ws --rovers --ui --node --miner-key YOUR_PUBLIC_KEY",
