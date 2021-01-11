@@ -78,7 +78,7 @@ class MinerFanoutServicer(MinerServicer):
             print('updating work to', request.work_id)
             lcl_workstate = WorkState()
             lcl_workstate.work_id = request.work_id
-            lcl_workstate.number = request.last_previous_block.height
+            lcl_workstate.number = request.last_previous_block.height + 1
             lcl_workstate.miner_key = request.miner_key
             lcl_workstate.work = request.work
             lcl_workstate.merkle_root = request.merkle_root
