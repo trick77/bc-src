@@ -16,6 +16,10 @@ from http.server import ThreadingHTTPServer
 from concurrent.futures import ThreadPoolExecutor as TPE
 from concurrent.futures import ProcessPoolExecutor as PPE
 
+class QuietRequestHandler(RequestHandler):
+    def log_request(self, format, *args):
+        return
+
 # global state classes (ick)
 class WorkState:
     def __init__(self):
@@ -39,7 +43,8 @@ class SolutionState:
 
 @method
 def ol_getWork():
-    lcl_workstate = deepcopy(gbl_workstate)
+    lcl_workstate = WorkState()
+    lcl_workstate.__dict__.update(gbl_workstate.__dict__)
     return [lcl_workstate.work, lcl_workstate.merkle_root, lcl_workstate.difficulty, str(lcl_workstate.number),
             lcl_workstate.work_id, lcl_workstate.miner_key, str(lcl_workstate.timestamp)]
 
@@ -54,7 +59,7 @@ def ol_submitWork(work_id, nonce, difficulty, distance, timestamp, iterations, t
     lcl_solstate.iterations = int(iterations)
     lcl_solstate.time_diff = int(time_diff)
     gbl_solstate.__dict__.update(lcl_solstate.__dict__)
-    
+    return True
 
 gbl_workstate = WorkState()
 gbl_solstate = SolutionState()
@@ -121,7 +126,7 @@ def server_process(bind_ip, bc_port, api_port):
     server.add_insecure_port(f'{bind_ip}:{bc_port}')
     server.start()
     print(f'{bind_ip}:{bc_port} started:', server)
-    httpd = ThreadingHTTPServer((bind_ip, api_port), RequestHandler)
+    httpd = ThreadingHTTPServer((bind_ip, api_port), QuietRequestHandler)
     print(f'{bind_ip}:{api_port} started', httpd)
     httpd.serve_forever()
     server.wait_for_termination()
