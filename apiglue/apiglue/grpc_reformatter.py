@@ -160,15 +160,19 @@ class grpc_reformatter(object):
         ip = self.bind_ip
         port = self.bc_port
         exe = TPE(max_workers = 10)
-        def submit_work(ip, port):
+        def submit_work(ip, port, request):
             with grpc.insecure_channel(f'{ip}:{port}') as ch:
                 stub = MinerStub(ch)
-                resp = stub.Mine(req)
+                resp = stub.Mine(request)
                 print('response:', resp)
         i = 0
         while True:
             req.work_id = str(i)
+            work_list = list(req.work)
+            work_list[i % len(work_list)] = str(i)[0]
+            req.work = ''.join(work_list)
+            #req.last_previous_block.height
             i+=1
-            exe.submit(submit_work, ip, port)
+            exe.submit(submit_work, ip, port, req)
             time.sleep(5)
         exit()
