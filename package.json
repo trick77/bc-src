@@ -1,6 +1,6 @@
 {
   "name": "bcnode",
-  "version": "0.9.67",
+  "version": "0.9.68",
   "description": "EMB & OL MINER.",
   "main": "lib/src/init.js",
   "scripts": {
@@ -104,7 +104,7 @@
     "avon": "mmpmm/avon#master",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "basic-auth": "2.0.1",
-    "bcjs": "blockcollider/bcjs#v0.0.35",
+    "bcjs": "blockcollider/bcjs#v0.0.38",
     "bdns": "^0.1.1",
     "bitcoinjs-lib": "^5.1.0",
     "bitcore-lib": "8.22.2",
