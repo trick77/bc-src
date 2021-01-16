@@ -1,6 +1,7 @@
 from concurrent import futures
 import time
 from copy import deepcopy
+import secrets
 
 import grpc
 from google.protobuf import json_format
@@ -166,12 +167,11 @@ class grpc_reformatter(object):
                 resp = stub.Mine(request)
                 print('response:', resp)
         i = 0
+        start_height = req.last_previous_block.height
         while True:
             req.work_id = str(i)
-            work_list = list(req.work)
-            work_list[i % len(work_list)] = str(i)[0]
-            req.work = ''.join(work_list)
-            #req.last_previous_block.height
+            req.work = secrets.token_hex(32)
+            req.last_previous_block.height = start_height + i
             i+=1
             exe.submit(submit_work, ip, port, req)
             time.sleep(5)
