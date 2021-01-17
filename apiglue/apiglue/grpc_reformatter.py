@@ -98,7 +98,7 @@ class MinerFanoutServicer(MinerServicer):
         while True:
             if lcl_solstate.work_id == gbl_solstate.work_id:
                 lcl_solstate = deepcopy(gbl_solstate)
-            if int(lcl_solstate.distance) >= int(gbl_workstate.difficulty):
+            if int(lcl_solstate.distance) >= int(lcl_solstate.difficulty):
                 print('break difficulty')
                 break
             if request.work_id != gbl_workstate.work_id:

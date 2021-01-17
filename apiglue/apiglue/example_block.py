@@ -5,7 +5,7 @@ example_block = """{
   "work": "bf68296c832a3b3f041f42ee9b3497b4095c64fa7803de7dc2aa06a6fb40a581",
   "minerKey": "0xf34fa87db39d15471bebe997860dcd49fc259318",
   "merkleRoot": "a6eccc432b795dd1bbba7ffaaf160159b9abda33b2217d444d2264de092f6871",
-  "difficulty": "320872073400528",
+  "difficulty": "310872073400528",
   "lastPreviousBlock": {
     "hash": "4d494e9d8670b3d6e6322780b24271c80b04e620d6ab762d23a4c007560c1517",
     "previousHash": "8f3e5e32cd4ae919f6e2cbe49d50035c8f6566720b68b00ca2a9d34df22030f4",
