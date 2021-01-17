@@ -3,7 +3,6 @@ node_modules/
 _logs/
 _data/
 _debug/
-rust/bcrust-core/target/
 *.log
 export/
 .DS_Store
