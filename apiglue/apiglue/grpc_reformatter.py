@@ -51,6 +51,7 @@ def ol_getWork():
 
 @method
 def ol_submitWork(work_id, nonce, difficulty, distance, timestamp, iterations, time_diff):
+    print("called ol_submitWork")
     lcl_solstate = SolutionState()
     lcl_solstate.work_id = work_id
     lcl_solstate.nonce = nonce
@@ -96,9 +97,12 @@ class MinerFanoutServicer(MinerServicer):
         lcl_solstate.work_id = request.work_id
         lcl_solstate.distance = '0'
         while True:
-            if lcl_solstate.work_id == gbl_solstate.work_id:
-                lcl_solstate = deepcopy(gbl_solstate)
-            if int(lcl_solstate.distance) >= int(lcl_solstate.difficulty):
+            if gbl_solstate.work_id is not None and lcl_solstate.work_id == gbl_solstate.work_id:
+                lcl_solstate.__dict__.update(gbl_solstate.__dict__)
+                print(lcl_solstate.distance, lcl_solstate.difficulty)
+            if (lcl_solstate.distance is not None and
+                lcl_solstate.difficulty is not None and
+                int(lcl_solstate.distance) >= int(lcl_solstate.difficulty)):
                 print('break difficulty')
                 break
             if request.work_id != gbl_workstate.work_id:
