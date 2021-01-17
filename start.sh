@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 . ./_tools/buildenv
-yarn install
+yarn install --frozen-lockfile
 
 export BC_MINER_KEY="0xbadcafe0cafebabe0dabbad000cafed00ddead00"
 export BC_NETWORK="main"
