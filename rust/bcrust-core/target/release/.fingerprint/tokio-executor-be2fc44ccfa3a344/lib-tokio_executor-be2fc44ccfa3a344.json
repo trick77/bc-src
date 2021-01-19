@@ -1,1 +1,0 @@
-{"rustc":14740025116429768070,"features":"[]","target":29930929928743702,"profile":2574335274271406459,"path":5364379232349975038,"deps":[[5779728507744675234,"futures",false,14743497437631705388]],"local":[{"CheckDepInfo":{"dep_info":"release/.fingerprint/tokio-executor-be2fc44ccfa3a344/dep-lib-tokio_executor-be2fc44ccfa3a344"}}],"rustflags":[],"metadata":713232376866658969}
