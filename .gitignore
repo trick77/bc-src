@@ -6,3 +6,4 @@ _debug/
 *.log
 export/
 .DS_Store
+rust/
