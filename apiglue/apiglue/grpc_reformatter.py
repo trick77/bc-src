@@ -31,6 +31,7 @@ class WorkState:
         self.merkle_root = None
         self.difficulty = None
         self.timestamp = None
+        self.lash_block_hash = None
 
 class SolutionState:
     def __init__(self):
@@ -46,8 +47,9 @@ class SolutionState:
 def ol_getWork():
     lcl_workstate = WorkState()
     lcl_workstate.__dict__.update(gbl_workstate.__dict__)
-    return [lcl_workstate.work, lcl_workstate.merkle_root, lcl_workstate.difficulty, str(lcl_workstate.number),
-            lcl_workstate.work_id, lcl_workstate.miner_key, str(lcl_workstate.timestamp)]
+    return [lcl_workstate.work, lcl_workstate.merkle_root, lcl_workstate.difficulty,
+            str(lcl_workstate.number), lcl_workstate.work_id, lcl_workstate.miner_key,
+            str(lcl_workstate.timestamp), lcl_workstate.last_block_hash]
 
 @method
 def ol_submitWork(work_id, nonce, difficulty, distance, timestamp, iterations, time_diff):
@@ -91,6 +93,7 @@ class MinerFanoutServicer(MinerServicer):
             lcl_workstate.merkle_root = request.merkle_root
             lcl_workstate.timestamp = request.current_timestamp
             lcl_workstate.difficulty = request.difficulty
+            lcl_workstate.last_block_hash = request.last_previous_block.hash
             gbl_workstate.__dict__.update(lcl_workstate.__dict__)
             
         lcl_solstate = SolutionState()
