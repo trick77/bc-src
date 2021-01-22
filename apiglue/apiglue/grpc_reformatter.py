@@ -31,7 +31,7 @@ class WorkState:
         self.merkle_root = None
         self.difficulty = None
         self.timestamp = None
-        self.lash_block_hash = None
+        self.last_block_hash = None
 
 class SolutionState:
     def __init__(self):
