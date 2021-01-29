@@ -13,15 +13,43 @@ from .example_block import example_block
 from jsonrpcserver import method
 from jsonrpcserver.server import RequestHandler
 
+from collections import OrderedDict
+from threading import Lock
+
 from http.server import ThreadingHTTPServer
 from concurrent.futures import ThreadPoolExecutor as TPE
 from concurrent.futures import ProcessPoolExecutor as PPE
+
+#we will use this cache for work ids to mark completion
+lru_lock = Lock()
+class LRUCache:
+    def __init__(self, capacity: int):
+        self.cache = OrderedDict()
+        self.capacity = capacity
+    # returns completion state of workid
+    # if not present the work is not completed
+    def get(self, key: str) -> bool:
+        with lru_lock:
+            if key not in self.cache:
+                return False
+            else:
+                self.cache.move_to_end(key)
+                return self.cache[key]
+
+    def put(self, key: str) -> None:
+        with lru_lock:
+            self.cache[key] = True # put means work is completed
+            self.cache.move_to_end(key)
+            if len(self.cache) > self.capacity:
+                self.cache.popitem(last = False)
+check_work_completed = LRUCache(capacity=200)
 
 class QuietRequestHandler(RequestHandler):
     def log_request(self, format, *args):
         return
 
 # global state classes (ick)
+gbl_workstate_lock = Lock()
 class WorkState:
     def __init__(self):
         self.work_id = None
@@ -33,6 +61,7 @@ class WorkState:
         self.timestamp = None
         self.last_block_hash = None
 
+gbl_solstate_lock = Lock()
 class SolutionState:
     def __init__(self):
         self.work_id = None
@@ -46,10 +75,12 @@ class SolutionState:
 @method
 def ol_getWork():
     lcl_workstate = WorkState()
-    lcl_workstate.__dict__.update(gbl_workstate.__dict__)
+    with gbl_workstate_lock:
+        lcl_workstate.__dict__.update(gbl_workstate.__dict__)
+    done = check_work_completed.get(lcl_workstate.work_id) 
     return [lcl_workstate.work, lcl_workstate.merkle_root, lcl_workstate.difficulty,
             str(lcl_workstate.number), lcl_workstate.work_id, lcl_workstate.miner_key,
-            str(lcl_workstate.timestamp), lcl_workstate.last_block_hash]
+            str(lcl_workstate.timestamp), lcl_workstate.last_block_hash, str(done)]
 
 @method
 def ol_submitWork(work_id, nonce, difficulty, distance, timestamp, iterations, time_diff):
@@ -62,7 +93,10 @@ def ol_submitWork(work_id, nonce, difficulty, distance, timestamp, iterations, t
     lcl_solstate.timestamp = int(timestamp)
     lcl_solstate.iterations = int(iterations)
     lcl_solstate.time_diff = int(time_diff)
-    gbl_solstate.__dict__.update(lcl_solstate.__dict__)
+    with gbl_workstate_lock:
+        if lcl_solstate.work_id == gbl_workstate.work_id:
+            with gbl_solstate_lock:
+                gbl_solstate.__dict__.update(lcl_solstate.__dict__)
     return True
 
 gbl_workstate = WorkState()
@@ -94,27 +128,38 @@ class MinerFanoutServicer(MinerServicer):
             lcl_workstate.timestamp = request.current_timestamp
             lcl_workstate.difficulty = request.difficulty
             lcl_workstate.last_block_hash = request.last_previous_block.hash
-            gbl_workstate.__dict__.update(lcl_workstate.__dict__)
+            with gbl_workstate_lock:
+                gbl_workstate.__dict__.update(lcl_workstate.__dict__)
             
         lcl_solstate = SolutionState()
         lcl_solstate.work_id = request.work_id
         lcl_solstate.distance = '0'
+        gbl_work_id = request.work_id
+        gbl_diff = None
         while True:
-            if gbl_solstate.work_id is not None and lcl_solstate.work_id == gbl_solstate.work_id:
+            with gbl_workstate_lock:
+                gbl_work_id = gbl_workstate.work_id
+                gbl_diff = gbl_workstate.difficulty
+            with gbl_solstate_lock:
                 lcl_solstate.__dict__.update(gbl_solstate.__dict__)
-                print(lcl_solstate.distance, lcl_solstate.difficulty)
-            if (lcl_solstate.distance is not None and
-                lcl_solstate.difficulty is not None and
-                int(lcl_solstate.distance) >= int(lcl_solstate.difficulty)):
-                print('break difficulty')
-                break
-            if request.work_id != gbl_workstate.work_id:
+            if request.work_id != gbl_work_id:
                 print('break new work id')
+                break
+            if (lcl_solstate.work_id is not None and
+                gbl_work_id is not None and 
+                lcl_solstate.work_id == gbl_work_id and
+                lcl_solstate.distance is not None and
+                gbl_diff is not None and
+                int(lcl_solstate.distance) >= int(gbl_diff)):
+                print('solution dist / diff ->', lcl_solstate.distance, gbl_diff)
+                print('break difficulty')
                 break
             time.sleep(0.001)
 
+        check_work_completed.put(request.work_id)
+        
         # if another request has updated work kill this one
-        if request.work_id != gbl_workstate.work_id:
+        if request.work_id != gbl_work_id:
             print('solution for stale work ->', request.work_id)
             return null_resp
 
