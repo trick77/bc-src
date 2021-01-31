@@ -20,6 +20,14 @@ message RpcTransaction {
     string private_key_hex = 5;
 }
 
+message RpcFeedTransaction {
+    string owner_addr = 1;
+    string feed_addr = 2;
+    string amount = 3;
+    string tx_fee = 4;
+    string private_key_hex = 5;
+}
+
 enum RpcTransactionResponseStatus {
     Success = 0;
     Failure = 1;
@@ -49,14 +57,18 @@ message TransferRequest {
 
 message GetHistoryRequest {
     string from = 1;
+    uint64 max = 2;
 }
 
 message TransferResponse {
     repeated Transfer transfers = 1;
+    string from = 2;
+    string to = 3;
 }
 
 message GetUtxoLengthRequest{
     string script_type = 1;
+    string address = 2;
 }
 
 message GetUtxoLengthResponse{
@@ -65,6 +77,8 @@ message GetUtxoLengthResponse{
 
 message GetSpendableCollateralRequest {
     string address = 1;
+    uint32 from = 2;
+    uint32 to = 3;
 }
 
 message GetSpendableCollateralResponse {
@@ -107,12 +121,13 @@ message MakerOrderInfo {
     string  receives_unit = 11;
     string  double_hashed_bc_address = 12;
     string  collateralized_nrg = 13;
-    string  nrg_unit = 14;
-    string  tx_hash = 15;
-    uint32  tx_output_index = 16;
-    bool    is_settled = 17;
-    string  fixed_unit_fee = 18;
-    uint32  base = 19;
+    string  original_nrg = 14;
+    string  nrg_unit = 15;
+    string  tx_hash = 16;
+    uint32  tx_output_index = 17;
+    bool    is_settled = 18;
+    string  fixed_unit_fee = 19;
+    uint32  base = 20;
 }
 
 message TakerOrderInfo {
@@ -139,6 +154,11 @@ message GetOpenOrdersResponse {
 
 message GetMatchedOrdersResponse {
     repeated MatchedOrderInfo orders = 1;
+}
+
+message GetHistoricalOrdersResponse {
+    repeated MatchedOrderInfo orders = 1;
+    uint64 next_block = 2;
 }
 
 message TakerOrder {
@@ -243,12 +263,23 @@ message SettingsResponse {
     string build_version = 2;
 }
 
+message GetNrgSupplyResponse {
+    string amount = 1;
+}
+
+message GetMarkedTxs {
+    repeated MarkedTransaction txs = 1;
+}
+
+
 service Bc {
 
     rpc GetRoveredBlockHash(GetRoveredBlockHashRequest) returns (Block) {}
     rpc GetRoveredBlockHeight(GetRoveredBlockHeightRequest) returns (Block) {}
     rpc GetRoveredBlocks(GetRoveredBlocksRequest) returns (GetRoveredBlocksResponse) {}
     rpc GetLatestRoveredBlocks(Null) returns (GetRoveredBlocksResponse) {}
+    rpc GetNrgSupply(Null) returns (GetNrgSupplyResponse) {}
+
 
     rpc GetBlockHash(GetBlockHashRequest) returns (BcBlock) {}
     rpc GetBlockHeight(GetBlockHeightRequest) returns (BcBlock) {}
@@ -258,6 +289,8 @@ service Bc {
 
     rpc GetTx(GetTxRequest) returns (Transaction) {}
     rpc GetMarkedTx(GetMarkedTxRequest) returns (MarkedTransaction) {}
+    rpc GetMarkedTxsForMatchedOrder(GetOutPointRequest) returns (GetMarkedTxs) {}
+
 
     rpc GetTradeStatus(GetOutPointRequest) returns (GetTradeStatusResponse) {}
     rpc GetOutpointStatus(GetOutPointRequest) returns (GetOutPointStatusResponse) {}
@@ -275,16 +308,17 @@ service Bc {
 
     rpc GetBalance (GetBalanceRequest) returns (GetBalanceResponse) {}
     rpc GetWallet (GetBalanceRequest) returns (WalletData) {}
-    rpc GetSpendableOutpoints(GetBalanceRequest) returns (WalletData) {}
+    rpc GetSpendableOutpoints(GetSpendableCollateralRequest) returns (WalletData) {}
     rpc GetSpendableCollateral (GetSpendableCollateralRequest) returns (GetSpendableCollateralResponse) {}
     rpc GetUnlockTakerTxParams (GetUnlockTakerTxParamsRequest) returns (GetUnlockTakerTxParamsResponse) {}
 
 
     rpc GetTransfers (TransferRequest) returns (TransferResponse) {}
 
-    rpc GetOpenOrders (GetBalanceRequest) returns (GetOpenOrdersResponse) {}
-    rpc GetMatchedOrders (GetBalanceRequest) returns (GetMatchedOrdersResponse) {}
-    rpc GetHistoricalOrders (GetHistoryRequest) returns (GetMatchedOrdersResponse) {}
+    rpc GetOpenOrders (GetSpendableCollateralRequest) returns (GetOpenOrdersResponse) {}
+    rpc GetMatchedOrders (GetSpendableCollateralRequest) returns (GetMatchedOrdersResponse) {}
+    rpc GetHistoricalOrders (GetHistoryRequest) returns (GetHistoricalOrdersResponse) {}
+
     rpc GetUnmatchedOrders (GetBalanceRequest) returns (GetOpenOrdersResponse) {}
 
     rpc GetUTXOLength (GetUtxoLengthRequest) returns (GetUtxoLengthResponse) {}
