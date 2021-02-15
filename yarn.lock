@@ -2492,9 +2492,9 @@ batch@0.6.1:
   resolved "https://registry.yarnpkg.com/batch/-/batch-0.6.1.tgz#dc34314f4e679318093fc760272525f94bf25c16"
   integrity sha1-3DQxT05nkxgJP8dgJyUl+UvyXBY=
 
-bcjs@blockcollider/bcjs#v0.0.38:
-  version "0.0.38"
-  resolved "https://codeload.github.com/blockcollider/bcjs/tar.gz/780e961039ce8fcf05ccdc2051111342753a91e3"
+bcjs@blockcollider/bcjs#v0.0.40:
+  version "0.0.39"
+  resolved "https://codeload.github.com/blockcollider/bcjs/tar.gz/e888e27e7aa8ea3190c36a237434bbe96493e7a5"
   dependencies:
     "@cityofzion/neon-js" "4.7.1"
     "@liskhq/lisk-cryptography" "2.2.0"
