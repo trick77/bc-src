@@ -16,7 +16,7 @@ from jsonrpcserver.server import RequestHandler
 from collections import OrderedDict
 from threading import Lock
 
-from http.server import ThreadingHTTPServer
+from http.server import HTTPServer
 from concurrent.futures import ThreadPoolExecutor as TPE
 from concurrent.futures import ProcessPoolExecutor as PPE
 
@@ -174,12 +174,12 @@ class MinerFanoutServicer(MinerServicer):
                              time_diff=lcl_solstate.time_diff)
 
 def server_process(bind_ip, bc_port, api_port):
-    server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
+    server = grpc.server(futures.ThreadPoolExecutor(max_workers=8))
     add_MinerServicer_to_server(MinerFanoutServicer(), server)
     server.add_insecure_port(f'{bind_ip}:{bc_port}')
     server.start()
     print(f'{bind_ip}:{bc_port} started:', server)
-    httpd = ThreadingHTTPServer((bind_ip, api_port), QuietRequestHandler)
+    httpd = HTTPServer((bind_ip, api_port), QuietRequestHandler)
     print(f'{bind_ip}:{api_port} started', httpd)
     httpd.serve_forever()
     server.wait_for_termination()
