@@ -75,8 +75,7 @@ class SolutionState:
 @method
 def ol_getWork():
     lcl_workstate = WorkState()
-    with gbl_workstate_lock:
-        lcl_workstate.__dict__.update(gbl_workstate.__dict__)
+    lcl_workstate.__dict__.update(gbl_workstate.__dict__)
     done = check_work_completed.get(lcl_workstate.work_id) 
     return [lcl_workstate.work, lcl_workstate.merkle_root, lcl_workstate.difficulty,
             str(lcl_workstate.number), lcl_workstate.work_id, lcl_workstate.miner_key,
@@ -93,10 +92,9 @@ def ol_submitWork(work_id, nonce, difficulty, distance, timestamp, iterations, t
     lcl_solstate.timestamp = int(timestamp)
     lcl_solstate.iterations = int(iterations)
     lcl_solstate.time_diff = int(time_diff)
-    with gbl_workstate_lock:
-        if lcl_solstate.work_id == gbl_workstate.work_id:
-            with gbl_solstate_lock:
-                gbl_solstate.__dict__.update(lcl_solstate.__dict__)
+    if lcl_solstate.work_id == gbl_workstate.work_id:
+        with gbl_solstate_lock:
+            gbl_solstate.__dict__.update(lcl_solstate.__dict__)
     return True
 
 gbl_workstate = WorkState()
@@ -137,11 +135,9 @@ class MinerFanoutServicer(MinerServicer):
         gbl_work_id = request.work_id
         gbl_diff = None
         while True:
-            with gbl_workstate_lock:
-                gbl_work_id = gbl_workstate.work_id
-                gbl_diff = gbl_workstate.difficulty
-            with gbl_solstate_lock:
-                lcl_solstate.__dict__.update(gbl_solstate.__dict__)
+            gbl_work_id = gbl_workstate.work_id
+            gbl_diff = gbl_workstate.difficulty
+            lcl_solstate.__dict__.update(gbl_solstate.__dict__)
             if request.work_id != gbl_work_id:
                 print('break new work id')
                 break
