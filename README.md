@@ -1,4 +1,4 @@
-# When hoodie?
+# When open source?
 
 All versions/tags are pushed to https://hub.docker.com/r/trick77/bcnode/tags?page=1&ordering=last_updated 
 
