@@ -2,6 +2,9 @@
 
 # When open source?
 
+Since the Overline (ex. Block Collider) chose not to open source their miner's ES6 code and tool chain (even though they're oliged to), here's a repository 
+with the current code of the miner' post-transpiled JavaScript code extracted from the official Docker images.
+
 All versions/tags are pushed to https://hub.docker.com/r/trick77/bcnode/tags?page=1&ordering=last_updated 
 
 ## Installation hints
@@ -12,9 +15,9 @@ All versions/tags are pushed to https://hub.docker.com/r/trick77/bcnode/tags?pag
 2. Make sure to add the nvm env vars at the end of your .bashrc
 3. Install Nodejs:
    ```
-   nvm install v10.19.0
-   nvm use v10.19.0
-   nvm alias default v10.19.0
+   nvm install v10.21.0
+   nvm use v10.21.0
+   nvm alias default v10.21.0
    ```
 4. Edit start.sh
 5. ./start.sh or screen -dm ./start.sh
