@@ -1,3 +1,5 @@
+[![deepcode](https://www.deepcode.ai/api/gh/badge?key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwbGF0Zm9ybTEiOiJnaCIsIm93bmVyMSI6InRyaWNrNzciLCJyZXBvMSI6ImJjLXNyYyIsImluY2x1ZGVMaW50IjpmYWxzZSwiYXV0aG9ySWQiOjI3NjE3LCJpYXQiOjE2MTM4MDYwMDN9.YNWMYw_Iyv_iKMPpOuQCESeSKn_8FBgD4AECilH9Ah4)](https://www.deepcode.ai/app/gh/trick77/bc-src/_/dashboard?utm_content=gh%2Ftrick77%2Fbc-src)
+
 # When open source?
 
 All versions/tags are pushed to https://hub.docker.com/r/trick77/bcnode/tags?page=1&ordering=last_updated 
