@@ -2,7 +2,7 @@
 
 # When open source?
 
-Since the Overline (ex. Block Collider) chose not to open source their miner's ES6 code and tool chain (even though they're oliged to), here's a repository 
+Since the Overline (ex. Block Collider) team chose not to open source their miner's ES6 code and tool chain (even though they're oliged to), here's a repository 
 with the current code of the miner' post-transpiled JavaScript code extracted from the official Docker images.
 
 All versions/tags are pushed to https://hub.docker.com/r/trick77/bcnode/tags?page=1&ordering=last_updated 
