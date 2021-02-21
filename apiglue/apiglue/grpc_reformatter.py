@@ -29,10 +29,10 @@ class LRUCache:
     # returns completion state of workid
     # if not present the work is not completed
     def get(self, key: str) -> bool:
-        with lru_lock:
-            if key not in self.cache:
-                return False
-            else:
+        if key not in self.cache:
+            return False
+        else:
+            with lru_lock:
                 self.cache.move_to_end(key)
                 return self.cache[key]
 
@@ -93,8 +93,7 @@ def ol_submitWork(work_id, nonce, difficulty, distance, timestamp, iterations, t
     lcl_solstate.iterations = int(iterations)
     lcl_solstate.time_diff = int(time_diff)
     if lcl_solstate.work_id == gbl_workstate.work_id:
-        with gbl_solstate_lock:
-            gbl_solstate.__dict__.update(lcl_solstate.__dict__)
+        gbl_solstate.__dict__.update(lcl_solstate.__dict__)
     return True
 
 gbl_workstate = WorkState()
@@ -126,8 +125,7 @@ class MinerFanoutServicer(MinerServicer):
             lcl_workstate.timestamp = request.current_timestamp
             lcl_workstate.difficulty = request.difficulty
             lcl_workstate.last_block_hash = request.last_previous_block.hash
-            with gbl_workstate_lock:
-                gbl_workstate.__dict__.update(lcl_workstate.__dict__)
+            gbl_workstate.__dict__.update(lcl_workstate.__dict__)
             
         lcl_solstate = SolutionState()
         lcl_solstate.work_id = request.work_id
@@ -170,7 +168,7 @@ class MinerFanoutServicer(MinerServicer):
                              time_diff=lcl_solstate.time_diff)
 
 def server_process(bind_ip, bc_port, api_port):
-    server = grpc.server(futures.ThreadPoolExecutor(max_workers=8))
+    server = grpc.server(futures.ThreadPoolExecutor(max_workers=4))
     add_MinerServicer_to_server(MinerFanoutServicer(), server)
     server.add_insecure_port(f'{bind_ip}:{bc_port}')
     server.start()
