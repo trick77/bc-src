@@ -2704,7 +2704,7 @@ bitcoinjs-lib@^5.1.0, bitcoinjs-lib@^5.1.6:
     varuint-bitcoin "^1.0.4"
     wif "^2.0.1"
 
-bitcore-lib@^8.24.2, bitcore-lib@^8.25.0:
+bitcore-lib@^8.22.2, bitcore-lib@^8.24.2:
   version "8.25.0"
   resolved "https://registry.yarnpkg.com/bitcore-lib/-/bitcore-lib-8.25.0.tgz#37be265c351d2c7a91b2c63db0166a70728e50e2"
   integrity sha512-rswb6YLDCSSg8oNGeJ/RM01MOlvu356aCri0zSx9W/iGihztEKwno0Y4tHQHt28jE2jps8dUlXv9m1ow/zBsjA==
