@@ -1,6 +1,6 @@
 {
   "name": "bcnode",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "EMB & OL MINER",
   "main": "lib/src/init.js",
   "scripts": {
@@ -40,8 +40,8 @@
   },
   "author": {
     "name": "Patrick McConlogue",
-    "email": "pm@blockcollider.org",
-    "url": "https://www.blockcollider.org/"
+    "email": "no-reply@github.com",
+    "url": "https://www.overline.network/"
   },
   "license": "MIT",
   "bugs": {
