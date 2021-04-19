@@ -136,7 +136,7 @@
     "ethereumjs-devp2p": "git+https://github.com/overliner/ethereumjs-devp2p.git",
     "ethereumjs-icap": "^0.3.2",
     "ethereumjs-tx": "2.1.2",
-    "ethereumjs-util": "7.0.8",
+    "ethereumjs-util": "7.0.9",
     "ethers": "^4.0.46",
     "express": "^4.17.1",
     "express-winston": "2.5.1",
