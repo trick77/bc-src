@@ -34,6 +34,9 @@
     "watch": "concurrently -p name -n 'standard,babel,jest' 'yarn run watch:lint' 'yarn run watch:transpile' 'yarn run watch:test'",
     "webpack": "./node_modules/webpack-cli/bin/cli.js --config webpack/webpack.config.js"
   },
+  "engines": {
+    "node": "12.x"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/blockcollider/bcnode.git"
@@ -99,14 +102,16 @@
   "dependencies": {
     "@cityofzion/neo-js": "0.14.0",
     "@cityofzion/neon-js": "4.8.3",
+    "@ethereumjs/devp2p": "4.0.0",
     "@ethereumjs/block": "3.2.1",
     "@ethereumjs/common": "2.2.0",
     "@ethereumjs/tx": "^3.1.3",
+    "@liskhq/lisk-client": "3.0.2",
     "atob": "2.1.1",
-    "avon": "mmpmm/avon#master",
+    "avon": "akloboucnik/avon#node-12-compatibility",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "basic-auth": "2.0.1",
-    "bcjs": "blockcollider/bcjs#v0.0.42",
+    "bcjs": "blockcollider/bcjs#upgrade-lisk-and-node-12",
     "bdns": "^0.1.1",
     "bitcoinjs-lib": "^5.1.0",
     "bitcore-lib": "^8.22.2",
@@ -160,7 +165,6 @@
     "keccak": "^3.0.1",
     "keyboardjs": "^2.6.4",
     "leaflet": "^1.7.1",
-    "lisk-elements": "^2.4.3",
     "lru-cache": "6.0.0",
     "mathjs": "^4.1.1",
     "maxmind": "^2.7.0",
@@ -169,7 +173,7 @@
     "moment-timezone": "0.5.31",
     "ms": "^2.1.1",
     "neon-cli": "^0.1.22",
-    "ngrok": "^3.3.0",
+    "ngrok": "^4.0.1",
     "node-fetch": "^2.6.1",
     "node-machine-id": "^1.1.12",
     "node-uuid": "^1.4.8",
@@ -211,7 +215,7 @@
     "stream-write": "1.0.1",
     "to-buffer": "1.1.1",
     "typeforce": "^1.18.0",
-    "unzip": "^0.1.11",
+    "unzip-stream": "^0.3.1",
     "utp-native": "2.3.0",
     "waves-api": "0.24.2",
     "web3": "^1.0.0-beta.30",
