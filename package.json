@@ -1,6 +1,6 @@
 {
   "name": "olnode",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "EMB & OL MINER",
   "main": "lib/src/init.js",
   "scripts": {
@@ -145,6 +145,7 @@
     "ethereumjs-util": "7.0.9",
     "ethers": "^4.0.46",
     "express": "^4.17.1",
+    "express-static-gzip": "^2.1.1",
     "express-winston": "2.5.1",
     "external-ip": "^2.0.3",
     "fastpriorityqueue": "^0.6.3",
@@ -208,7 +209,6 @@
     "rx-pubsub": "^0.2.1",
     "secp256k1": "^3.8.0",
     "semver": "5.5.0",
-    "serve-index": "^1.9.1",
     "sha256": "^0.2.0",
     "sntp": "2.1.0",
     "socket.io": "^2.4.1",
@@ -237,6 +237,7 @@
     "babel-preset-es2017": "^6.24.1",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
+    "compression-webpack-plugin": "^6.1.1",
     "concurrently": "3.5.1",
     "esdoc": "1.1.0",
     "esdoc-ecmascript-proposal-plugin": "^1.0.0",
