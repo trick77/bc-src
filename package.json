@@ -116,7 +116,7 @@
     "bdns": "^0.1.1",
     "bitcoinjs-lib": "^5.1.0",
     "bitcore-lib": "^8.22.2",
-    "bitcore-p2p": "^8.19.0",
+    "bitcore-p2p": "^8.24.2",
     "bittorrent-dht": "git+https://github.com/mmpmm/bittorrent-dht.git",
     "bittorrent-tracker": "git+https://github.com/webtorrent/bittorrent-tracker",
     "blocked": "^1.3.0",
