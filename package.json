@@ -113,7 +113,7 @@
     "avon": "akloboucnik/avon#node-12-compatibility",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "basic-auth": "2.0.1",
-    "bcjs": "blockcollider/bcjs#v0.1.0",
+    "bcjs": "blockcollider/bcjs#v0.1.7",
     "bdns": "^0.1.1",
     "bitcoinjs-lib": "^5.1.0",
     "bitcore-lib": "^8.22.2",
