@@ -3086,10 +3086,10 @@ bitcoinjs-lib@^5.1.6, bitcoinjs-lib@^5.2.0:
     varuint-bitcoin "^1.0.4"
     wif "^2.0.1"
 
-bitcore-lib@^8.24.2:
-  version "8.25.8"
-  resolved "https://registry.yarnpkg.com/bitcore-lib/-/bitcore-lib-8.25.8.tgz#b4a9d6cd715596297d958d2ad12fdf09e54a16d7"
-  integrity sha512-vxNJ+DLAeC2V8iPa6dRvUbb/Nm3Vr/cXKhCKSIxj8YPU2tP0QiwEz2Lu9sbqhtsmIerS+F1eeHulzS21MpS2GQ==
+bitcore-lib@^8.25.10:
+  version "8.25.10"
+  resolved "https://registry.yarnpkg.com/bitcore-lib/-/bitcore-lib-8.25.10.tgz#4bbb30932dec65cb76e4d1d793f55d7e4a75f071"
+  integrity sha512-MyHpSg7aFRHe359RA/gdkaQAal3NswYZTLEuu0tGX1RGWXAYN9i/24fsjPqVKj+z0ua+gzAT7aQs0KiKXWCgKA==
   dependencies:
     bech32 "=1.1.3"
     bn.js "=4.11.8"
@@ -3099,12 +3099,12 @@ bitcore-lib@^8.24.2:
     inherits "=2.0.1"
     lodash "^4.17.20"
 
-bitcore-p2p@^8.24.2:
-  version "8.24.2"
-  resolved "https://registry.yarnpkg.com/bitcore-p2p/-/bitcore-p2p-8.24.2.tgz#297775c898e6e46347e11a8f81fddc86081c930e"
-  integrity sha512-TloyfifeaRpc3Oa8OfkQr/WR+k67YkzBegyNbIlLmN7l86f8jpZQChZ0/h4+QuwNNq5khJ6tx9k8zEFo8kfXbA==
+bitcore-p2p@^8.25.12:
+  version "8.25.12"
+  resolved "https://registry.yarnpkg.com/bitcore-p2p/-/bitcore-p2p-8.25.12.tgz#db48d5025aa2da490a248cdebcc5cc005a632fb9"
+  integrity sha512-JN6iFvnvNMOS52oeqpUlNvitNSjTQQz1AtlMgO5KCvw1cruWR7rNtGCGlINeVDIO6o6alSJmsj1iWyspcmdYPQ==
   dependencies:
-    bitcore-lib "^8.24.2"
+    bitcore-lib "^8.25.10"
     bloom-filter "^0.2.0"
     buffers bitpay/node-buffers#v0.1.2-bitpay
     socks5-client "^0.3.6"
