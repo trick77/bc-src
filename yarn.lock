@@ -2892,9 +2892,9 @@ basic-auth@2.0.1:
   dependencies:
     safe-buffer "5.1.2"
 
-bcjs@blockcollider/bcjs#v0.1.7:
-  version "0.1.7"
-  resolved "https://codeload.github.com/blockcollider/bcjs/tar.gz/f0eda00050f523eaf5b308367712a658ecfeb914"
+bcjs@blockcollider/bcjs#v0.1.16:
+  version "0.1.15"
+  resolved "https://codeload.github.com/blockcollider/bcjs/tar.gz/273af7d16b621ab945ab811fc4d657f4b14b53dc"
   dependencies:
     "@cityofzion/neon-js" "4.7.1"
     "@liskhq/lisk-client" "https://github.com/blockcollider/lisk-tarballs/raw/master/liskhq-lisk-client-2.3.1.tgz"
