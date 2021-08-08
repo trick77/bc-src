@@ -1,6 +1,6 @@
 {
   "name": "olnode",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "EMB & OL MINER",
   "main": "lib/src/init.js",
   "scripts": {
@@ -230,6 +230,7 @@
     "babel-eslint": "9.0.0",
     "babel-jest": "^22.4.1",
     "babel-loader": "^7.1.4",
+    "babel-plugin-rewire": "^1.2.0",
     "babel-plugin-syntax-flow": "^6.18.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
@@ -280,7 +281,12 @@
     "plugins": [
       "flowtype"
     ],
-    "rules": {}
+    "rules": {},
+    "globals": {
+      "describe": "readonly",
+      "it": "readonly",
+      "expect": "readonly"
+    }
   },
   "pkg": {
     "scripts": [
