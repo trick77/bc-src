@@ -153,6 +153,7 @@
     "fastpriorityqueue": "^0.6.3",
     "fibers": "^4.0.2",
     "figlet": "^1.5.0",
+    "find-up": "^5.0.0",
     "fkill": "7.1.0",
     "flow": "^0.2.3",
     "frame-stream": "2.1.0",
