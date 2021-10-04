@@ -1,6 +1,6 @@
 {
   "name": "olnode",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "EMB & OL MINER",
   "main": "lib/src/init.js",
   "scripts": {
