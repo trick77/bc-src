@@ -1,0 +1,95 @@
+syntax = "proto3";
+
+package bc.wireless;
+
+message WirelessBcBlock {
+    bytes hash = 1; // string in BcBlock (32)
+    bytes previous_hash = 2; // string in BcBlock (32)
+    uint64 version = 3;
+    uint64 schema_version = 4;
+    uint64 height = 5;
+    string miner = 6;
+    bytes difficulty = 7; // string in BcBlock(7)
+    uint64 timestamp = 8;
+    bytes merkle_root = 9; // string in BcBlock (32)
+    bytes chain_root = 10; // string in BcBlock (32)
+    bytes distance = 11; // string in BcBlock (7)
+    bytes total_distance = 12; // string in BcBlock (13)
+    string nonce = 13; // TODO check if bytes
+    uint64 nrg_grant = 14;
+    uint64 twn = 15;
+    repeated string tws = 16;
+    uint64 emblem_weight = 17;
+    string emblem_chain_fingerprint_root = 18;
+    string emblem_chain_address = 19;
+    uint64 tx_count = 20;
+    repeated WirelessTransaction txs = 21;
+    uint64 tx_fee_base = 22;
+    uint64 tx_distance_sum_limit = 23;
+    uint64 blockchain_headers_count = 24;
+    WirelessBlockchainHeaders blockchain_headers = 25;
+    bytes blockchain_fingerprints_root = 26; // string in BcBlock (32)
+}
+
+message WirelessBlockchainHeaders {
+    repeated WirelessBlockchainHeader btc = 1;
+    repeated WirelessBlockchainHeader eth = 2;
+    repeated WirelessBlockchainHeader lsk = 3;
+    repeated WirelessBlockchainHeader neo = 4;
+    repeated WirelessBlockchainHeader wav = 5;
+}
+
+message WirelessBlockchainHeader {
+    string blockchain = 1;
+    string hash = 2;
+    string previous_hash = 3;
+    uint64 timestamp = 4;
+    uint64 height = 5;
+    string merkle_root = 6;
+    uint64 blockchain_confirmations_in_parent_count = 7;
+    repeated WirelessMarkedTransaction marked_txs = 8;
+    uint64 marked_tx_count = 9;
+}
+
+message WirelessMarkedTransaction {
+    bytes value = 1;
+    string hash = 2; // the unique hash representing this transaction in the bridged chain
+    string id = 3; // TODO: add blockchain / dataset identification field, 'eth', 'btc', ....
+    string token = 4; // chains smart contract address, not BC
+    string addr_from = 5; // bridged chains address, not BC
+    string addr_to = 6; // bridged chains address, not BC
+    uint64 block_height = 7; // the block number in the bridged chain containing this transaction
+    uint64 index = 8; // the position relative to other marked transactions
+    string block_hash = 9; // the block in which the marked transaction was stored, not BC, format of the bridged chain
+}
+
+message WirelessTransaction {
+  uint64 version = 1;
+  string nonce = 2; // <rnd>+<minerAddess> / <tx mine work> TODO check if bytes
+  bytes hash = 3; // string in Transaction (32)
+  string overline = 4;
+  uint64 nin_count = 5;
+  uint64 nout_count = 6;
+  repeated WirelessTransactionInput inputs = 7;
+  repeated WirelessTransactionOutput outputs = 8;
+  uint32 lock_time = 9;
+}
+
+message WirelessTransactionInput {
+  WirelessOutPoint out_point = 1;
+  uint32 script_length = 2;
+  bytes input_script = 3;
+}
+
+message WirelessOutPoint {
+  bytes value = 1;
+  bytes hash = 2; // string in OutPoint (32)
+  uint64 index = 3;
+}
+
+message WirelessTransactionOutput {
+  bytes value = 1;
+  bytes unit = 2;
+  uint32 script_length = 3;
+  bytes output_script = 4;
+}

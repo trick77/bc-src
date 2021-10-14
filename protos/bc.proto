@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package bc;
+package bc.exchange;
 
 import "core.proto";
 
@@ -10,6 +10,7 @@ message HelpResponse {
 
 message StatsResponse {
     int64 calls = 1;
+    uint64 latest_gpu_miner_update = 2;
 }
 
 message RpcTransaction {
@@ -18,6 +19,29 @@ message RpcTransaction {
     string amount = 3;
     string tx_fee = 4;
     string private_key_hex = 5;
+}
+
+message RpcFeedTransaction {
+    string owner_addr = 1;
+    string feed_addr = 2;
+    string amount = 3;
+    string tx_fee = 4;
+    string private_key_hex = 5;
+}
+
+message RpcUpdateFeedTransaction {
+    string owner_addr = 1;
+    string feed_addr = 2;
+    string sender_addr = 3;
+    string data = 4;
+    string data_length = 5;
+    string amount = 6;
+    string tx_fee = 7;
+    string tx_panel = 8;
+    string tx_part = 9;
+    string tx_nonce = 10;
+    string minimum_distance = 11;
+    string private_key_hex = 12;
 }
 
 enum RpcTransactionResponseStatus {
@@ -49,14 +73,25 @@ message TransferRequest {
 
 message GetHistoryRequest {
     string from = 1;
+    uint64 max = 2;
 }
 
 message TransferResponse {
     repeated Transfer transfers = 1;
+    string from = 2;
+    string to = 3;
 }
 
 message GetUtxoLengthRequest{
     string script_type = 1;
+    string address = 2;
+}
+
+message GetUtxosRequest{
+    string script_type = 1;
+    string address = 2;
+    string from = 3;
+    string to = 4;
 }
 
 message GetUtxoLengthResponse{
@@ -65,14 +100,24 @@ message GetUtxoLengthResponse{
 
 message GetSpendableCollateralRequest {
     string address = 1;
+    uint32 from = 2;
+    uint32 to = 3;
 }
 
 message GetSpendableCollateralResponse {
-    repeated OutPoint outpoints = 1;
+    repeated core.OutPoint outpoints = 1;
 }
 
 message GetBalanceRequest {
     string address = 1;
+}
+
+message GetEmbBalanceResponse {
+    string balance = 1;
+}
+
+message GetByteFeeResponse {
+    string fee = 1;
 }
 
 message GetBalanceResponse {
@@ -107,12 +152,13 @@ message MakerOrderInfo {
     string  receives_unit = 11;
     string  double_hashed_bc_address = 12;
     string  collateralized_nrg = 13;
-    string  nrg_unit = 14;
-    string  tx_hash = 15;
-    uint32  tx_output_index = 16;
-    bool    is_settled = 17;
-    string  fixed_unit_fee = 18;
-    uint32  base = 19;
+    string  original_nrg = 14;
+    string  nrg_unit = 15;
+    string  tx_hash = 16;
+    uint32  tx_output_index = 17;
+    bool    is_settled = 18;
+    string  fixed_unit_fee = 19;
+    uint32  base = 20;
 }
 
 message TakerOrderInfo {
@@ -139,6 +185,11 @@ message GetOpenOrdersResponse {
 
 message GetMatchedOrdersResponse {
     repeated MatchedOrderInfo orders = 1;
+}
+
+message GetHistoricalOrdersResponse {
+    repeated MatchedOrderInfo orders = 1;
+    uint64 next_block = 2;
 }
 
 message TakerOrder {
@@ -191,7 +242,7 @@ message GetBlocksRequest {
 }
 
 message GetBlocksResponse {
-    repeated BcBlock blocks = 1;
+    repeated core.BcBlock blocks = 1;
 }
 
 message GetRoveredBlocksRequest {
@@ -201,11 +252,11 @@ message GetRoveredBlocksRequest {
 }
 
 message GetRawMempoolResponse {
-    repeated Transaction transactions = 1;
+    repeated core.Transaction transactions = 1;
 }
 
 message GetRoveredBlocksResponse {
-    repeated Block blocks = 1;
+    repeated core.Block blocks = 1;
 }
 
 message GetTxRequest {
@@ -243,55 +294,75 @@ message SettingsResponse {
     string build_version = 2;
 }
 
+message GetNrgSupplyResponse {
+    string amount = 1;
+}
+
+message GetMarkedTxs {
+    repeated core.MarkedTransaction txs = 1;
+}
+
+
 service Bc {
 
-    rpc GetRoveredBlockHash(GetRoveredBlockHashRequest) returns (Block) {}
-    rpc GetRoveredBlockHeight(GetRoveredBlockHeightRequest) returns (Block) {}
+    rpc GetRoveredBlockHash(GetRoveredBlockHashRequest) returns (core.Block) {}
+    rpc GetRoveredBlockHeight(GetRoveredBlockHeightRequest) returns (core.Block) {}
     rpc GetRoveredBlocks(GetRoveredBlocksRequest) returns (GetRoveredBlocksResponse) {}
-    rpc GetLatestRoveredBlocks(Null) returns (GetRoveredBlocksResponse) {}
+    rpc GetLatestRoveredBlocks(core.Null) returns (GetRoveredBlocksResponse) {}
+    rpc GetNrgSupply(core.Null) returns (GetNrgSupplyResponse) {}
 
-    rpc GetBlockHash(GetBlockHashRequest) returns (BcBlock) {}
-    rpc GetBlockHeight(GetBlockHeightRequest) returns (BcBlock) {}
+
+    rpc GetBlockHash(GetBlockHashRequest) returns (core.BcBlock) {}
+    rpc GetBlockHeight(GetBlockHeightRequest) returns (core.BcBlock) {}
     rpc GetBlocksHeight(GetBlockHeightRequest) returns (GetBlocksResponse) {}
     rpc GetBlocks(GetBlocksRequest) returns (GetBlocksResponse) {}
-    rpc GetLatestBlock(Null) returns (BcBlock) {}
+    rpc GetLatestBlock(core.Null) returns (core.BcBlock) {}
+    rpc GetLatestUTXOBlock(core.Null) returns (core.BcBlock) {}
 
-    rpc GetTx(GetTxRequest) returns (Transaction) {}
-    rpc GetMarkedTx(GetMarkedTxRequest) returns (MarkedTransaction) {}
+    rpc GetTx(GetTxRequest) returns (core.Transaction) {}
+    rpc GetMarkedTx(GetMarkedTxRequest) returns (core.MarkedTransaction) {}
+    rpc GetMarkedTxsForMatchedOrder(GetOutPointRequest) returns (GetMarkedTxs) {}
+
 
     rpc GetTradeStatus(GetOutPointRequest) returns (GetTradeStatusResponse) {}
     rpc GetOutpointStatus(GetOutPointRequest) returns (GetOutPointStatusResponse) {}
-    rpc GetTxClaimedBy(GetOutPointRequest) returns (Transaction) {}
+    rpc GetTxClaimedBy(GetOutPointRequest) returns (core.Transaction) {}
 
-    rpc GetRawMempool(Null) returns (GetRawMempoolResponse) {}
-    rpc GetBlockByTx(GetTxRequest) returns (BcBlock) {}
-    rpc GetRoveredBlockForMarkedTx(GetMarkedTxRequest) returns (Block) {}
+    rpc GetRawMempool(core.Null) returns (GetRawMempoolResponse) {}
+    rpc GetBlockByTx(GetTxRequest) returns (core.BcBlock) {}
+    rpc GetRoveredBlockForMarkedTx(GetMarkedTxRequest) returns (core.Block) {}
 
-    rpc Help (Null) returns (HelpResponse) {}
-    rpc Stats (Null) returns (StatsResponse) {}
-    rpc GetSettings (Null) returns (SettingsResponse) {}
+    rpc Help (core.Null) returns (HelpResponse) {}
+    rpc Stats (core.Null) returns (StatsResponse) {}
+    rpc GetSettings (core.Null) returns (SettingsResponse) {}
+    rpc NewFeed (RpcFeedTransaction) returns (RpcTransactionResponse) {}
     rpc NewTx (RpcTransaction) returns (RpcTransactionResponse) {}
-    rpc SendTx (Transaction) returns (RpcTransactionResponse) {}
+    rpc SendTx (core.Transaction) returns (RpcTransactionResponse) {}
 
+    rpc GetEmbBalance (GetBalanceRequest) returns (GetEmbBalanceResponse) {}
     rpc GetBalance (GetBalanceRequest) returns (GetBalanceResponse) {}
-    rpc GetWallet (GetBalanceRequest) returns (WalletData) {}
-    rpc GetSpendableOutpoints(GetBalanceRequest) returns (WalletData) {}
+    rpc GetWallet (GetBalanceRequest) returns (core.WalletData) {}
+    rpc GetSpendableOutpoints(GetSpendableCollateralRequest) returns (core.WalletData) {}
     rpc GetSpendableCollateral (GetSpendableCollateralRequest) returns (GetSpendableCollateralResponse) {}
     rpc GetUnlockTakerTxParams (GetUnlockTakerTxParamsRequest) returns (GetUnlockTakerTxParamsResponse) {}
 
+    rpc GetByteFeeMultiplier (core.Null) returns (GetByteFeeResponse) {}
 
     rpc GetTransfers (TransferRequest) returns (TransferResponse) {}
 
-    rpc GetOpenOrders (GetBalanceRequest) returns (GetOpenOrdersResponse) {}
-    rpc GetMatchedOrders (GetBalanceRequest) returns (GetMatchedOrdersResponse) {}
-    rpc GetHistoricalOrders (GetHistoryRequest) returns (GetMatchedOrdersResponse) {}
+    rpc GetOpenOrders (GetSpendableCollateralRequest) returns (GetOpenOrdersResponse) {}
+    rpc GetMatchedOrders (GetSpendableCollateralRequest) returns (GetMatchedOrdersResponse) {}
+    rpc GetHistoricalOrders (GetHistoryRequest) returns (GetHistoricalOrdersResponse) {}
+
     rpc GetUnmatchedOrders (GetBalanceRequest) returns (GetOpenOrdersResponse) {}
 
+    rpc GetUtxos (GetUtxosRequest) returns (core.Utxos) {}
     rpc GetUTXOLength (GetUtxoLengthRequest) returns (GetUtxoLengthResponse) {}
     rpc GetSTXOLength (GetUtxoLengthRequest) returns (GetUtxoLengthResponse) {}
 
     rpc GetBlake2bl (GetBlake2blRequest) returns (GetBlake2blResponse) {}
     rpc GetBcAddressViaVanity (VanityConvertRequest) returns (VanityConvertResponse) {}
-    rpc GetCurrentWork (Null) returns (CurrentWork) {}
-    rpc GetSyncStatus (Null) returns (SyncStatus) {}
+    rpc GetCurrentWork (core.Null) returns (CurrentWork) {}
+    rpc GetSyncStatus (core.Null) returns (SyncStatus) {}
+    rpc GetFastSyncStatus (core.Null) returns (SyncStatus) {}
 }
