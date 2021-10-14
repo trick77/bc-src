@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package bc;
+package bc.core;
 
 message Null {}
 
@@ -25,6 +25,7 @@ message MarkedTransaction {
     string addr_to = 6; // bridged chains address, not BC
     uint64 block_height = 7; // the block number in the bridged chain containing this transaction
     uint64 index = 8; // the position relative to other marked transactions
+    string block_hash = 9; // the block in which the marked transaction was stored, not BC, format of bridged chain
 }
 
 message BlockchainHeaders {
@@ -110,6 +111,10 @@ message TransactionInput {
   bytes input_script = 3;
 }
 
+message Utxos {
+  repeated Utxo utxo = 1;
+}
+
 message Utxo {
   TransactionOutput output = 1;
   string tx_hash = 2;
@@ -135,4 +140,5 @@ message BlockchainHeader {
     string merkle_root = 6;
     uint64 blockchain_confirmations_in_parent_count = 7;
     repeated MarkedTransaction marked_txs = 8;
+    uint64 marked_tx_count = 9;
 }
