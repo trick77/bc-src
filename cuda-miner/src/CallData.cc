@@ -19,52 +19,52 @@ using grpc::ServerContext;
 using grpc::ServerCompletionQueue;
 using grpc::Status;
 
-using ::bc::Miner;
-using ::bc::MinerResponse;
-using ::bc::MinerRequest;
+using ::bc::miner::Miner;
+using ::bc::miner::MinerResponse;
+using ::bc::miner::MinerRequest;
 
-CallData::CallData(BCGPUMiner* theminer, ::bc::Miner::AsyncService* service, ServerCompletionQueue* cq)
+CallData::CallData(BCGPUMiner* theminer, ::bc::miner::Miner::AsyncService* service, ServerCompletionQueue* cq)
   : theminer_(theminer), service_(service), cq_(cq), responder_(&ctx_), status_(CREATE) {
-  
+
   // Invoke the serving logic right away.
   Proceed();
 }
-  
+
 void CallData::Proceed() {
   std::lock_guard<std::mutex> lock(mtx_status_);
   std::cout << this << " Proceed() - " <<  status_ << std::endl << std::flush;
-  
+
   if (status_ == CREATE) {
     // Make this instance progress to the PROCESS state.
     status_ = PROCESS;
-    
+
     // As part of the initial CREATE state, we *request* that the system
     // start processing Mine requests. In this request, "this" acts are
     // the tag uniquely identifying the request (so that different CallData
     // instances can serve different requests concurrently), in this case
     // the memory address of this CallData instance.
-    
+
     service_->RequestMine(&ctx_, &request_, &responder_, cq_, cq_, this);
   } else if (status_ == PROCESS) {
     // Spawn a new CallData instance to serve new clients while we process
     // the one for this CallData. The instance will deallocate itself as
     // part of its FINISH state.
     new CallData(theminer_, service_, cq_);
-    
+
     // get all the miner data
     const std::string& miner_key = request_.miner_key();
     const std::string& work = request_.work();
     const std::string& merkel_root = request_.merkle_root();
     const std::string& difficulty = request_.difficulty();
     const uint64_t& timestamp = request_.current_timestamp();
-    
+
     std::cout << "received: " << std::endl;
     std::cout << "\tminer_key   : " << miner_key << std::endl;
     std::cout << "\twork        : " << work << std::endl;
     std::cout << "\tmerkel_root : " << merkel_root << std::endl;
     std::cout << "\tdifficulty  : " << difficulty << std::endl;
     std::cout << "\ttimestamp   : " << timestamp << std::endl;
-    
+
     bc_mining_inputs in;
     in.miner_key_size_ = miner_key.length();
     memcpy(in.miner_key_,miner_key.c_str(),in.miner_key_size_);
@@ -86,7 +86,7 @@ void CallData::Proceed() {
     tsstr << timestamp;
     in.time_stamp_size_ = tsstr.str().length();
     memcpy(in.time_stamp_,tsstr.str().c_str(),in.time_stamp_size_);
-    
+
     //convert the difficulty
     std::cout << " received difficulty: " << difficulty << std::endl;
     in.the_difficulty_ = strtoull(difficulty.c_str(),NULL,10);
@@ -94,16 +94,16 @@ void CallData::Proceed() {
       std::cout << " got a bogus difficulty " << in.the_difficulty_ << ", reducing to min!" << std::endl;
       in.the_difficulty_ = 290112262029012ULL;
     }
-    
-    // start processing this mining request 
+
+    // start processing this mining request
     bc_mining_outputs out;
-    
+
     clock_gettime(CLOCK_MONOTONIC, &start);
     theminer_->submit_job(in);
-    
+
     BCGPUMiner::result_type mining_outcome = theminer_->yield_result(out);
     clock_gettime(CLOCK_MONOTONIC, &finish);
-    
+
     // send to output
     std::stringstream strnonce, strdistance, strdifficulty;
     strnonce << out.nonce_;
@@ -139,19 +139,19 @@ void CallData::Proceed() {
 
     switch( mining_outcome ) {
     case BCGPUMiner::SUCCESS:
-      response_.set_result(::bc::MinerResponseResult::Ok);
+      response_.set_result(::bc::miner::MinerResponseResult::Ok);
       break;
     case BCGPUMiner::CANCELED:
-      response_.set_result(::bc::MinerResponseResult::Canceled);
+      response_.set_result(::bc::miner::MinerResponseResult::Canceled);
       break;
     default:
       assert(0 && "unknown miner response!");
     }
 
     if( mining_outcome == BCGPUMiner::SUCCESS && out.distance_ < out.difficulty_ ) {
-      response_.set_result(::bc::MinerResponseResult::Error);
+      response_.set_result(::bc::miner::MinerResponseResult::Error);
     }
-        
+
     std::cout << "Proceed() - yielding result " << response_.result() << std::endl << std::flush;
 
     // And we are done! Let the gRPC runtime know we've finished, using the

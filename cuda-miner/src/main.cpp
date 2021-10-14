@@ -25,9 +25,9 @@ using grpc::ServerContext;
 using grpc::ServerCompletionQueue;
 using grpc::Status;
 
-using ::bc::Miner;
-using ::bc::MinerResponse;
-using ::bc::MinerRequest;
+using ::bc::miner::Miner;
+using ::bc::miner::MinerResponse;
+using ::bc::miner::MinerRequest;
 
 std::mutex rpc_lock;
 
@@ -103,7 +103,7 @@ class ServerImpl final {
   }
 
   std::unique_ptr<ServerCompletionQueue> cq_;
-  ::bc::Miner::AsyncService service_;
+  ::bc::miner::Miner::AsyncService service_;
   std::unique_ptr<Server> server_;
   // this handles the GPU(s)                                                                                       
   BCGPUMiner thegpuminer_;
