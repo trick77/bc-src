@@ -1,5 +1,9 @@
 # Config CHANGELOG
 
+## 1.4.5
+
+- removed sentry,*
+
 ## 2 - (0.6.1)
 
  - app.version.strictCheck
@@ -8,7 +12,7 @@
  - p2p.blacklist.enabled
  - p2p.quorum.size
  - rovers.council.enabled
- 
+
 ## 1 - (0.6.0)
 
  - _version
