@@ -336,6 +336,7 @@ service Bc {
     rpc Stats (core.Null) returns (StatsResponse) {}
     rpc GetSettings (core.Null) returns (SettingsResponse) {}
     rpc NewFeed (RpcFeedTransaction) returns (RpcTransactionResponse) {}
+    rpc UpdateFeed (RpcUpdateFeedTransaction) returns (RpcTransactionResponse) {}
     rpc NewTx (RpcTransaction) returns (RpcTransactionResponse) {}
     rpc SendTx (core.Transaction) returns (RpcTransactionResponse) {}
 
@@ -350,6 +351,10 @@ service Bc {
 
     rpc GetTransfers (TransferRequest) returns (TransferResponse) {}
 
+    rpc GetTakerForMaker (GetOutPointRequest) returns (GetOutPointRequest) {}
+    rpc GetOpenOrder (GetOutPointRequest) returns (GetOpenOrdersResponse) {}
+    rpc GetOpenCallbackOrder (GetOutPointRequest) returns (GetOpenOrdersResponse) {}
+    rpc GetMatchedOrder (GetOutPointRequest) returns (GetMatchedOrdersResponse) {}
     rpc GetOpenOrders (GetSpendableCollateralRequest) returns (GetOpenOrdersResponse) {}
     rpc GetMatchedOrders (GetSpendableCollateralRequest) returns (GetMatchedOrdersResponse) {}
     rpc GetHistoricalOrders (GetHistoryRequest) returns (GetHistoricalOrdersResponse) {}

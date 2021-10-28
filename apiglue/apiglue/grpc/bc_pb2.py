@@ -17,17 +17,17 @@ import core_pb2 as core__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='bc.proto',
-  package='bc',
+  package='bc.exchange',
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x08\x62\x63.proto\x12\x02\x62\x63\x1a\ncore.proto\"!\n\x0cHelpResponse\x12\x11\n\thelp_text\x18\x01 \x01(\t\"\x1e\n\rStatsResponse\x12\r\n\x05\x63\x61lls\x18\x01 \x01(\x03\"m\n\x0eRpcTransaction\x12\x11\n\tfrom_addr\x18\x01 \x01(\t\x12\x0f\n\x07to_addr\x18\x02 \x01(\t\x12\x0e\n\x06\x61mount\x18\x03 \x01(\t\x12\x0e\n\x06tx_fee\x18\x04 \x01(\t\x12\x17\n\x0fprivate_key_hex\x18\x05 \x01(\t\"j\n\x16RpcTransactionResponse\x12\x30\n\x06status\x18\x01 \x01(\x0e\x32 .bc.RpcTransactionResponseStatus\x12\x0f\n\x07tx_hash\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\"\x81\x01\n\x08Transfer\x12\x0c\n\x04\x66rom\x18\x01 \x01(\t\x12\n\n\x02to\x18\x02 \x01(\t\x12\x0e\n\x06\x61mount\x18\x03 \x01(\t\x12\x0f\n\x07tx_hash\x18\x04 \x01(\t\x12\x17\n\x0ftx_output_index\x18\x05 \x01(\r\x12\x11\n\ttimestamp\x18\x06 \x01(\x04\x12\x0e\n\x06height\x18\x07 \x01(\x04\"=\n\x0fTransferRequest\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\x12\x0b\n\x03max\x18\x02 \x01(\r\x12\x0c\n\x04\x66rom\x18\x03 \x01(\t\"!\n\x11GetHistoryRequest\x12\x0c\n\x04\x66rom\x18\x01 \x01(\t\"3\n\x10TransferResponse\x12\x1f\n\ttransfers\x18\x01 \x03(\x0b\x32\x0c.bc.Transfer\"+\n\x14GetUtxoLengthRequest\x12\x13\n\x0bscript_type\x18\x01 \x01(\t\"\'\n\x15GetUtxoLengthResponse\x12\x0e\n\x06length\x18\x01 \x01(\r\"0\n\x1dGetSpendableCollateralRequest\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\"A\n\x1eGetSpendableCollateralResponse\x12\x1f\n\toutpoints\x18\x01 \x03(\x0b\x32\x0c.bc.OutPoint\"$\n\x11GetBalanceRequest\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\"x\n\x12GetBalanceResponse\x12\x0e\n\x06height\x18\x01 \x01(\r\x12\x11\n\tconfirmed\x18\x02 \x01(\t\x12\x13\n\x0bunconfirmed\x18\x03 \x01(\t\x12\x16\n\x0e\x63ollateralized\x18\x04 \x01(\t\x12\x12\n\nunlockable\x18\x05 \x01(\t\"I\n\x1dGetUnlockTakerTxParamsRequest\x12\x0f\n\x07tx_hash\x18\x01 \x01(\t\x12\x17\n\x0ftx_output_index\x18\x02 \x01(\r\"M\n\x1eGetUnlockTakerTxParamsResponse\x12\x16\n\x0eunlock_scripts\x18\x01 \x03(\t\x12\x13\n\x0bvalue_in_tx\x18\x02 \x01(\x0c\"\xc2\x03\n\x0eMakerOrderInfo\x12\x14\n\x0ctrade_height\x18\x01 \x01(\x04\x12\x0f\n\x07\x64\x65posit\x18\x02 \x01(\x04\x12\x12\n\nsettlement\x18\x03 \x01(\x04\x12\x13\n\x0bshift_maker\x18\x04 \x01(\x04\x12\x13\n\x0bshift_taker\x18\x05 \x01(\x04\x12\x18\n\x10sends_from_chain\x18\x06 \x01(\t\x12\x19\n\x11receives_to_chain\x18\x07 \x01(\t\x12\x1a\n\x12sends_from_address\x18\x08 \x01(\t\x12\x1b\n\x13receives_to_address\x18\t \x01(\t\x12\x12\n\nsends_unit\x18\n \x01(\t\x12\x15\n\rreceives_unit\x18\x0b \x01(\t\x12 \n\x18\x64ouble_hashed_bc_address\x18\x0c \x01(\t\x12\x1a\n\x12\x63ollateralized_nrg\x18\r \x01(\t\x12\x10\n\x08nrg_unit\x18\x0e \x01(\t\x12\x0f\n\x07tx_hash\x18\x0f \x01(\t\x12\x17\n\x0ftx_output_index\x18\x10 \x01(\r\x12\x12\n\nis_settled\x18\x11 \x01(\x08\x12\x16\n\x0e\x66ixed_unit_fee\x18\x12 \x01(\t\x12\x0c\n\x04\x62\x61se\x18\x13 \x01(\r\"\xec\x01\n\x0eTakerOrderInfo\x12\x1a\n\x12sends_from_address\x18\x01 \x01(\t\x12\x1b\n\x13receives_to_address\x18\x02 \x01(\t\x12 \n\x18\x64ouble_hashed_bc_address\x18\x03 \x01(\t\x12\x12\n\nis_settled\x18\x04 \x01(\x08\x12\x0f\n\x07tx_hash\x18\x05 \x01(\t\x12\x17\n\x0ftx_output_index\x18\x06 \x01(\r\x12\x18\n\x10total_collateral\x18\x07 \x01(\t\x12\x14\n\x0ctrade_height\x18\x08 \x01(\x04\x12\x11\n\ttimestamp\x18\t \x01(\x04\"j\n\x10MatchedOrderInfo\x12!\n\x05maker\x18\x01 \x01(\x0b\x32\x12.bc.MakerOrderInfo\x12!\n\x05taker\x18\x02 \x01(\x0b\x32\x12.bc.TakerOrderInfo\x12\x10\n\x08unlocked\x18\x07 \x01(\x08\";\n\x15GetOpenOrdersResponse\x12\"\n\x06orders\x18\x01 \x03(\x0b\x32\x12.bc.MakerOrderInfo\"@\n\x18GetMatchedOrdersResponse\x12$\n\x06orders\x18\x01 \x03(\x0b\x32\x14.bc.MatchedOrderInfo\"\x97\x01\n\nTakerOrder\x12\x1a\n\x12sends_from_address\x18\x01 \x01(\t\x12\x1b\n\x13receives_to_address\x18\x02 \x01(\t\x12\x15\n\rmaker_tx_hash\x18\x03 \x01(\t\x12\x1d\n\x15maker_tx_output_index\x18\x04 \x01(\r\x12\x1a\n\x12\x63ollateralized_nrg\x18\x05 \x01(\t\"9\n\x12GetBlake2blRequest\x12\x14\n\x0cto_be_hashed\x18\x01 \x01(\t\x12\r\n\x05times\x18\x02 \x01(\r\"#\n\x13GetBlake2blResponse\x12\x0c\n\x04hash\x18\x01 \x01(\t\"&\n\x14VanityConvertRequest\x12\x0e\n\x06vanity\x18\x01 \x01(\t\":\n\x15VanityConvertResponse\x12\x12\n\nbc_address\x18\x01 \x01(\t\x12\r\n\x05\x65rror\x18\x02 \x01(\t\">\n\x1aGetRoveredBlockHashRequest\x12\x12\n\nblockchain\x18\x01 \x01(\t\x12\x0c\n\x04hash\x18\x02 \x01(\t\"B\n\x1cGetRoveredBlockHeightRequest\x12\x12\n\nblockchain\x18\x01 \x01(\t\x12\x0e\n\x06height\x18\x02 \x01(\r\"#\n\x13GetBlockHashRequest\x12\x0c\n\x04hash\x18\x01 \x01(\t\"\'\n\x15GetBlockHeightRequest\x12\x0e\n\x06height\x18\x01 \x01(\r\"<\n\x10GetBlocksRequest\x12\x14\n\x0cstart_height\x18\x01 \x01(\r\x12\x12\n\nend_height\x18\x02 \x01(\r\"0\n\x11GetBlocksResponse\x12\x1b\n\x06\x62locks\x18\x01 \x03(\x0b\x32\x0b.bc.BcBlock\"W\n\x17GetRoveredBlocksRequest\x12\x12\n\nblockchain\x18\x01 \x01(\t\x12\x14\n\x0cstart_height\x18\x02 \x01(\r\x12\x12\n\nend_height\x18\x03 \x01(\r\">\n\x15GetRawMempoolResponse\x12%\n\x0ctransactions\x18\x01 \x03(\x0b\x32\x0f.bc.Transaction\"5\n\x18GetRoveredBlocksResponse\x12\x19\n\x06\x62locks\x18\x01 \x03(\x0b\x32\t.bc.Block\"\x1c\n\x0cGetTxRequest\x12\x0c\n\x04hash\x18\x01 \x01(\t\"6\n\x12GetMarkedTxRequest\x12\x12\n\nblockchain\x18\x01 \x01(\t\x12\x0c\n\x04hash\x18\x02 \x01(\t\"1\n\x12GetOutPointRequest\x12\x0c\n\x04hash\x18\x01 \x01(\t\x12\r\n\x05index\x18\x02 \x01(\r\"(\n\x16GetTradeStatusResponse\x12\x0e\n\x06status\x18\x01 \x01(\r\",\n\x19GetOutPointStatusResponse\x12\x0f\n\x07unspent\x18\x01 \x01(\x08\"\x1b\n\x0b\x43urrentWork\x12\x0c\n\x04work\x18\x01 \x01(\t\"\x1c\n\nSyncStatus\x12\x0e\n\x06status\x18\x01 \x01(\t\"?\n\x10SettingsResponse\x12\x14\n\x0cngrok_tunnel\x18\x01 \x01(\t\x12\x15\n\rbuild_version\x18\x02 \x01(\t*8\n\x1cRpcTransactionResponseStatus\x12\x0b\n\x07Success\x10\x00\x12\x0b\n\x07\x46\x61ilure\x10\x01\x32\x87\x13\n\x02\x42\x63\x12\x42\n\x13GetRoveredBlockHash\x12\x1e.bc.GetRoveredBlockHashRequest\x1a\t.bc.Block\"\x00\x12\x46\n\x15GetRoveredBlockHeight\x12 .bc.GetRoveredBlockHeightRequest\x1a\t.bc.Block\"\x00\x12O\n\x10GetRoveredBlocks\x12\x1b.bc.GetRoveredBlocksRequest\x1a\x1c.bc.GetRoveredBlocksResponse\"\x00\x12\x42\n\x16GetLatestRoveredBlocks\x12\x08.bc.Null\x1a\x1c.bc.GetRoveredBlocksResponse\"\x00\x12\x36\n\x0cGetBlockHash\x12\x17.bc.GetBlockHashRequest\x1a\x0b.bc.BcBlock\"\x00\x12:\n\x0eGetBlockHeight\x12\x19.bc.GetBlockHeightRequest\x1a\x0b.bc.BcBlock\"\x00\x12\x45\n\x0fGetBlocksHeight\x12\x19.bc.GetBlockHeightRequest\x1a\x15.bc.GetBlocksResponse\"\x00\x12:\n\tGetBlocks\x12\x14.bc.GetBlocksRequest\x1a\x15.bc.GetBlocksResponse\"\x00\x12)\n\x0eGetLatestBlock\x12\x08.bc.Null\x1a\x0b.bc.BcBlock\"\x00\x12,\n\x05GetTx\x12\x10.bc.GetTxRequest\x1a\x0f.bc.Transaction\"\x00\x12>\n\x0bGetMarkedTx\x12\x16.bc.GetMarkedTxRequest\x1a\x15.bc.MarkedTransaction\"\x00\x12\x46\n\x0eGetTradeStatus\x12\x16.bc.GetOutPointRequest\x1a\x1a.bc.GetTradeStatusResponse\"\x00\x12L\n\x11GetOutpointStatus\x12\x16.bc.GetOutPointRequest\x1a\x1d.bc.GetOutPointStatusResponse\"\x00\x12;\n\x0eGetTxClaimedBy\x12\x16.bc.GetOutPointRequest\x1a\x0f.bc.Transaction\"\x00\x12\x36\n\rGetRawMempool\x12\x08.bc.Null\x1a\x19.bc.GetRawMempoolResponse\"\x00\x12/\n\x0cGetBlockByTx\x12\x10.bc.GetTxRequest\x1a\x0b.bc.BcBlock\"\x00\x12\x41\n\x1aGetRoveredBlockForMarkedTx\x12\x16.bc.GetMarkedTxRequest\x1a\t.bc.Block\"\x00\x12$\n\x04Help\x12\x08.bc.Null\x1a\x10.bc.HelpResponse\"\x00\x12&\n\x05Stats\x12\x08.bc.Null\x1a\x11.bc.StatsResponse\"\x00\x12/\n\x0bGetSettings\x12\x08.bc.Null\x1a\x14.bc.SettingsResponse\"\x00\x12\x39\n\x05NewTx\x12\x12.bc.RpcTransaction\x1a\x1a.bc.RpcTransactionResponse\"\x00\x12\x37\n\x06SendTx\x12\x0f.bc.Transaction\x1a\x1a.bc.RpcTransactionResponse\"\x00\x12=\n\nGetBalance\x12\x15.bc.GetBalanceRequest\x1a\x16.bc.GetBalanceResponse\"\x00\x12\x34\n\tGetWallet\x12\x15.bc.GetBalanceRequest\x1a\x0e.bc.WalletData\"\x00\x12@\n\x15GetSpendableOutpoints\x12\x15.bc.GetBalanceRequest\x1a\x0e.bc.WalletData\"\x00\x12\x61\n\x16GetSpendableCollateral\x12!.bc.GetSpendableCollateralRequest\x1a\".bc.GetSpendableCollateralResponse\"\x00\x12\x61\n\x16GetUnlockTakerTxParams\x12!.bc.GetUnlockTakerTxParamsRequest\x1a\".bc.GetUnlockTakerTxParamsResponse\"\x00\x12;\n\x0cGetTransfers\x12\x13.bc.TransferRequest\x1a\x14.bc.TransferResponse\"\x00\x12\x43\n\rGetOpenOrders\x12\x15.bc.GetBalanceRequest\x1a\x19.bc.GetOpenOrdersResponse\"\x00\x12I\n\x10GetMatchedOrders\x12\x15.bc.GetBalanceRequest\x1a\x1c.bc.GetMatchedOrdersResponse\"\x00\x12L\n\x13GetHistoricalOrders\x12\x15.bc.GetHistoryRequest\x1a\x1c.bc.GetMatchedOrdersResponse\"\x00\x12H\n\x12GetUnmatchedOrders\x12\x15.bc.GetBalanceRequest\x1a\x19.bc.GetOpenOrdersResponse\"\x00\x12\x46\n\rGetUTXOLength\x12\x18.bc.GetUtxoLengthRequest\x1a\x19.bc.GetUtxoLengthResponse\"\x00\x12\x46\n\rGetSTXOLength\x12\x18.bc.GetUtxoLengthRequest\x1a\x19.bc.GetUtxoLengthResponse\"\x00\x12@\n\x0bGetBlake2bl\x12\x16.bc.GetBlake2blRequest\x1a\x17.bc.GetBlake2blResponse\"\x00\x12N\n\x15GetBcAddressViaVanity\x12\x18.bc.VanityConvertRequest\x1a\x19.bc.VanityConvertResponse\"\x00\x12-\n\x0eGetCurrentWork\x12\x08.bc.Null\x1a\x0f.bc.CurrentWork\"\x00\x12+\n\rGetSyncStatus\x12\x08.bc.Null\x1a\x0e.bc.SyncStatus\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x08\x62\x63.proto\x12\x0b\x62\x63.exchange\x1a\ncore.proto\"!\n\x0cHelpResponse\x12\x11\n\thelp_text\x18\x01 \x01(\t\"?\n\rStatsResponse\x12\r\n\x05\x63\x61lls\x18\x01 \x01(\x03\x12\x1f\n\x17latest_gpu_miner_update\x18\x02 \x01(\x04\"m\n\x0eRpcTransaction\x12\x11\n\tfrom_addr\x18\x01 \x01(\t\x12\x0f\n\x07to_addr\x18\x02 \x01(\t\x12\x0e\n\x06\x61mount\x18\x03 \x01(\t\x12\x0e\n\x06tx_fee\x18\x04 \x01(\t\x12\x17\n\x0fprivate_key_hex\x18\x05 \x01(\t\"t\n\x12RpcFeedTransaction\x12\x12\n\nowner_addr\x18\x01 \x01(\t\x12\x11\n\tfeed_addr\x18\x02 \x01(\t\x12\x0e\n\x06\x61mount\x18\x03 \x01(\t\x12\x0e\n\x06tx_fee\x18\x04 \x01(\t\x12\x17\n\x0fprivate_key_hex\x18\x05 \x01(\t\"\x81\x02\n\x18RpcUpdateFeedTransaction\x12\x12\n\nowner_addr\x18\x01 \x01(\t\x12\x11\n\tfeed_addr\x18\x02 \x01(\t\x12\x13\n\x0bsender_addr\x18\x03 \x01(\t\x12\x0c\n\x04\x64\x61ta\x18\x04 \x01(\t\x12\x13\n\x0b\x64\x61ta_length\x18\x05 \x01(\t\x12\x0e\n\x06\x61mount\x18\x06 \x01(\t\x12\x0e\n\x06tx_fee\x18\x07 \x01(\t\x12\x10\n\x08tx_panel\x18\x08 \x01(\t\x12\x0f\n\x07tx_part\x18\t \x01(\t\x12\x10\n\x08tx_nonce\x18\n \x01(\t\x12\x18\n\x10minimum_distance\x18\x0b \x01(\t\x12\x17\n\x0fprivate_key_hex\x18\x0c \x01(\t\"s\n\x16RpcTransactionResponse\x12\x39\n\x06status\x18\x01 \x01(\x0e\x32).bc.exchange.RpcTransactionResponseStatus\x12\x0f\n\x07tx_hash\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\"\x81\x01\n\x08Transfer\x12\x0c\n\x04\x66rom\x18\x01 \x01(\t\x12\n\n\x02to\x18\x02 \x01(\t\x12\x0e\n\x06\x61mount\x18\x03 \x01(\t\x12\x0f\n\x07tx_hash\x18\x04 \x01(\t\x12\x17\n\x0ftx_output_index\x18\x05 \x01(\r\x12\x11\n\ttimestamp\x18\x06 \x01(\x04\x12\x0e\n\x06height\x18\x07 \x01(\x04\"=\n\x0fTransferRequest\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\x12\x0b\n\x03max\x18\x02 \x01(\r\x12\x0c\n\x04\x66rom\x18\x03 \x01(\t\".\n\x11GetHistoryRequest\x12\x0c\n\x04\x66rom\x18\x01 \x01(\t\x12\x0b\n\x03max\x18\x02 \x01(\x04\"V\n\x10TransferResponse\x12(\n\ttransfers\x18\x01 \x03(\x0b\x32\x15.bc.exchange.Transfer\x12\x0c\n\x04\x66rom\x18\x02 \x01(\t\x12\n\n\x02to\x18\x03 \x01(\t\"<\n\x14GetUtxoLengthRequest\x12\x13\n\x0bscript_type\x18\x01 \x01(\t\x12\x0f\n\x07\x61\x64\x64ress\x18\x02 \x01(\t\"Q\n\x0fGetUtxosRequest\x12\x13\n\x0bscript_type\x18\x01 \x01(\t\x12\x0f\n\x07\x61\x64\x64ress\x18\x02 \x01(\t\x12\x0c\n\x04\x66rom\x18\x03 \x01(\t\x12\n\n\x02to\x18\x04 \x01(\t\"\'\n\x15GetUtxoLengthResponse\x12\x0e\n\x06length\x18\x01 \x01(\r\"J\n\x1dGetSpendableCollateralRequest\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\x12\x0c\n\x04\x66rom\x18\x02 \x01(\r\x12\n\n\x02to\x18\x03 \x01(\r\"F\n\x1eGetSpendableCollateralResponse\x12$\n\toutpoints\x18\x01 \x03(\x0b\x32\x11.bc.core.OutPoint\"$\n\x11GetBalanceRequest\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\"(\n\x15GetEmbBalanceResponse\x12\x0f\n\x07\x62\x61lance\x18\x01 \x01(\t\"!\n\x12GetByteFeeResponse\x12\x0b\n\x03\x66\x65\x65\x18\x01 \x01(\t\"x\n\x12GetBalanceResponse\x12\x0e\n\x06height\x18\x01 \x01(\r\x12\x11\n\tconfirmed\x18\x02 \x01(\t\x12\x13\n\x0bunconfirmed\x18\x03 \x01(\t\x12\x16\n\x0e\x63ollateralized\x18\x04 \x01(\t\x12\x12\n\nunlockable\x18\x05 \x01(\t\"I\n\x1dGetUnlockTakerTxParamsRequest\x12\x0f\n\x07tx_hash\x18\x01 \x01(\t\x12\x17\n\x0ftx_output_index\x18\x02 \x01(\r\"M\n\x1eGetUnlockTakerTxParamsResponse\x12\x16\n\x0eunlock_scripts\x18\x01 \x03(\t\x12\x13\n\x0bvalue_in_tx\x18\x02 \x01(\x0c\"\xd8\x03\n\x0eMakerOrderInfo\x12\x14\n\x0ctrade_height\x18\x01 \x01(\x04\x12\x0f\n\x07\x64\x65posit\x18\x02 \x01(\x04\x12\x12\n\nsettlement\x18\x03 \x01(\x04\x12\x13\n\x0bshift_maker\x18\x04 \x01(\x04\x12\x13\n\x0bshift_taker\x18\x05 \x01(\x04\x12\x18\n\x10sends_from_chain\x18\x06 \x01(\t\x12\x19\n\x11receives_to_chain\x18\x07 \x01(\t\x12\x1a\n\x12sends_from_address\x18\x08 \x01(\t\x12\x1b\n\x13receives_to_address\x18\t \x01(\t\x12\x12\n\nsends_unit\x18\n \x01(\t\x12\x15\n\rreceives_unit\x18\x0b \x01(\t\x12 \n\x18\x64ouble_hashed_bc_address\x18\x0c \x01(\t\x12\x1a\n\x12\x63ollateralized_nrg\x18\r \x01(\t\x12\x14\n\x0coriginal_nrg\x18\x0e \x01(\t\x12\x10\n\x08nrg_unit\x18\x0f \x01(\t\x12\x0f\n\x07tx_hash\x18\x10 \x01(\t\x12\x17\n\x0ftx_output_index\x18\x11 \x01(\r\x12\x12\n\nis_settled\x18\x12 \x01(\x08\x12\x16\n\x0e\x66ixed_unit_fee\x18\x13 \x01(\t\x12\x0c\n\x04\x62\x61se\x18\x14 \x01(\r\"\xec\x01\n\x0eTakerOrderInfo\x12\x1a\n\x12sends_from_address\x18\x01 \x01(\t\x12\x1b\n\x13receives_to_address\x18\x02 \x01(\t\x12 \n\x18\x64ouble_hashed_bc_address\x18\x03 \x01(\t\x12\x12\n\nis_settled\x18\x04 \x01(\x08\x12\x0f\n\x07tx_hash\x18\x05 \x01(\t\x12\x17\n\x0ftx_output_index\x18\x06 \x01(\r\x12\x18\n\x10total_collateral\x18\x07 \x01(\t\x12\x14\n\x0ctrade_height\x18\x08 \x01(\x04\x12\x11\n\ttimestamp\x18\t \x01(\x04\"|\n\x10MatchedOrderInfo\x12*\n\x05maker\x18\x01 \x01(\x0b\x32\x1b.bc.exchange.MakerOrderInfo\x12*\n\x05taker\x18\x02 \x01(\x0b\x32\x1b.bc.exchange.TakerOrderInfo\x12\x10\n\x08unlocked\x18\x07 \x01(\x08\"D\n\x15GetOpenOrdersResponse\x12+\n\x06orders\x18\x01 \x03(\x0b\x32\x1b.bc.exchange.MakerOrderInfo\"I\n\x18GetMatchedOrdersResponse\x12-\n\x06orders\x18\x01 \x03(\x0b\x32\x1d.bc.exchange.MatchedOrderInfo\"`\n\x1bGetHistoricalOrdersResponse\x12-\n\x06orders\x18\x01 \x03(\x0b\x32\x1d.bc.exchange.MatchedOrderInfo\x12\x12\n\nnext_block\x18\x02 \x01(\x04\"\x97\x01\n\nTakerOrder\x12\x1a\n\x12sends_from_address\x18\x01 \x01(\t\x12\x1b\n\x13receives_to_address\x18\x02 \x01(\t\x12\x15\n\rmaker_tx_hash\x18\x03 \x01(\t\x12\x1d\n\x15maker_tx_output_index\x18\x04 \x01(\r\x12\x1a\n\x12\x63ollateralized_nrg\x18\x05 \x01(\t\"9\n\x12GetBlake2blRequest\x12\x14\n\x0cto_be_hashed\x18\x01 \x01(\t\x12\r\n\x05times\x18\x02 \x01(\r\"#\n\x13GetBlake2blResponse\x12\x0c\n\x04hash\x18\x01 \x01(\t\"&\n\x14VanityConvertRequest\x12\x0e\n\x06vanity\x18\x01 \x01(\t\":\n\x15VanityConvertResponse\x12\x12\n\nbc_address\x18\x01 \x01(\t\x12\r\n\x05\x65rror\x18\x02 \x01(\t\">\n\x1aGetRoveredBlockHashRequest\x12\x12\n\nblockchain\x18\x01 \x01(\t\x12\x0c\n\x04hash\x18\x02 \x01(\t\"B\n\x1cGetRoveredBlockHeightRequest\x12\x12\n\nblockchain\x18\x01 \x01(\t\x12\x0e\n\x06height\x18\x02 \x01(\r\"#\n\x13GetBlockHashRequest\x12\x0c\n\x04hash\x18\x01 \x01(\t\"\'\n\x15GetBlockHeightRequest\x12\x0e\n\x06height\x18\x01 \x01(\r\"<\n\x10GetBlocksRequest\x12\x14\n\x0cstart_height\x18\x01 \x01(\r\x12\x12\n\nend_height\x18\x02 \x01(\r\"5\n\x11GetBlocksResponse\x12 \n\x06\x62locks\x18\x01 \x03(\x0b\x32\x10.bc.core.BcBlock\"W\n\x17GetRoveredBlocksRequest\x12\x12\n\nblockchain\x18\x01 \x01(\t\x12\x14\n\x0cstart_height\x18\x02 \x01(\r\x12\x12\n\nend_height\x18\x03 \x01(\r\"C\n\x15GetRawMempoolResponse\x12*\n\x0ctransactions\x18\x01 \x03(\x0b\x32\x14.bc.core.Transaction\":\n\x18GetRoveredBlocksResponse\x12\x1e\n\x06\x62locks\x18\x01 \x03(\x0b\x32\x0e.bc.core.Block\"\x1c\n\x0cGetTxRequest\x12\x0c\n\x04hash\x18\x01 \x01(\t\"6\n\x12GetMarkedTxRequest\x12\x12\n\nblockchain\x18\x01 \x01(\t\x12\x0c\n\x04hash\x18\x02 \x01(\t\"1\n\x12GetOutPointRequest\x12\x0c\n\x04hash\x18\x01 \x01(\t\x12\r\n\x05index\x18\x02 \x01(\r\"(\n\x16GetTradeStatusResponse\x12\x0e\n\x06status\x18\x01 \x01(\r\",\n\x19GetOutPointStatusResponse\x12\x0f\n\x07unspent\x18\x01 \x01(\x08\"\x1b\n\x0b\x43urrentWork\x12\x0c\n\x04work\x18\x01 \x01(\t\"\x1c\n\nSyncStatus\x12\x0e\n\x06status\x18\x01 \x01(\t\"?\n\x10SettingsResponse\x12\x14\n\x0cngrok_tunnel\x18\x01 \x01(\t\x12\x15\n\rbuild_version\x18\x02 \x01(\t\"&\n\x14GetNrgSupplyResponse\x12\x0e\n\x06\x61mount\x18\x01 \x01(\t\"7\n\x0cGetMarkedTxs\x12\'\n\x03txs\x18\x01 \x03(\x0b\x32\x1a.bc.core.MarkedTransaction*8\n\x1cRpcTransactionResponseStatus\x12\x0b\n\x07Success\x10\x00\x12\x0b\n\x07\x46\x61ilure\x10\x01\x32\x96 \n\x02\x42\x63\x12P\n\x13GetRoveredBlockHash\x12\'.bc.exchange.GetRoveredBlockHashRequest\x1a\x0e.bc.core.Block\"\x00\x12T\n\x15GetRoveredBlockHeight\x12).bc.exchange.GetRoveredBlockHeightRequest\x1a\x0e.bc.core.Block\"\x00\x12\x61\n\x10GetRoveredBlocks\x12$.bc.exchange.GetRoveredBlocksRequest\x1a%.bc.exchange.GetRoveredBlocksResponse\"\x00\x12P\n\x16GetLatestRoveredBlocks\x12\r.bc.core.Null\x1a%.bc.exchange.GetRoveredBlocksResponse\"\x00\x12\x42\n\x0cGetNrgSupply\x12\r.bc.core.Null\x1a!.bc.exchange.GetNrgSupplyResponse\"\x00\x12\x44\n\x0cGetBlockHash\x12 .bc.exchange.GetBlockHashRequest\x1a\x10.bc.core.BcBlock\"\x00\x12H\n\x0eGetBlockHeight\x12\".bc.exchange.GetBlockHeightRequest\x1a\x10.bc.core.BcBlock\"\x00\x12W\n\x0fGetBlocksHeight\x12\".bc.exchange.GetBlockHeightRequest\x1a\x1e.bc.exchange.GetBlocksResponse\"\x00\x12L\n\tGetBlocks\x12\x1d.bc.exchange.GetBlocksRequest\x1a\x1e.bc.exchange.GetBlocksResponse\"\x00\x12\x33\n\x0eGetLatestBlock\x12\r.bc.core.Null\x1a\x10.bc.core.BcBlock\"\x00\x12\x37\n\x12GetLatestUTXOBlock\x12\r.bc.core.Null\x1a\x10.bc.core.BcBlock\"\x00\x12:\n\x05GetTx\x12\x19.bc.exchange.GetTxRequest\x1a\x14.bc.core.Transaction\"\x00\x12L\n\x0bGetMarkedTx\x12\x1f.bc.exchange.GetMarkedTxRequest\x1a\x1a.bc.core.MarkedTransaction\"\x00\x12[\n\x1bGetMarkedTxsForMatchedOrder\x12\x1f.bc.exchange.GetOutPointRequest\x1a\x19.bc.exchange.GetMarkedTxs\"\x00\x12X\n\x0eGetTradeStatus\x12\x1f.bc.exchange.GetOutPointRequest\x1a#.bc.exchange.GetTradeStatusResponse\"\x00\x12^\n\x11GetOutpointStatus\x12\x1f.bc.exchange.GetOutPointRequest\x1a&.bc.exchange.GetOutPointStatusResponse\"\x00\x12I\n\x0eGetTxClaimedBy\x12\x1f.bc.exchange.GetOutPointRequest\x1a\x14.bc.core.Transaction\"\x00\x12\x44\n\rGetRawMempool\x12\r.bc.core.Null\x1a\".bc.exchange.GetRawMempoolResponse\"\x00\x12=\n\x0cGetBlockByTx\x12\x19.bc.exchange.GetTxRequest\x1a\x10.bc.core.BcBlock\"\x00\x12O\n\x1aGetRoveredBlockForMarkedTx\x12\x1f.bc.exchange.GetMarkedTxRequest\x1a\x0e.bc.core.Block\"\x00\x12\x32\n\x04Help\x12\r.bc.core.Null\x1a\x19.bc.exchange.HelpResponse\"\x00\x12\x34\n\x05Stats\x12\r.bc.core.Null\x1a\x1a.bc.exchange.StatsResponse\"\x00\x12=\n\x0bGetSettings\x12\r.bc.core.Null\x1a\x1d.bc.exchange.SettingsResponse\"\x00\x12Q\n\x07NewFeed\x12\x1f.bc.exchange.RpcFeedTransaction\x1a#.bc.exchange.RpcTransactionResponse\"\x00\x12Z\n\nUpdateFeed\x12%.bc.exchange.RpcUpdateFeedTransaction\x1a#.bc.exchange.RpcTransactionResponse\"\x00\x12K\n\x05NewTx\x12\x1b.bc.exchange.RpcTransaction\x1a#.bc.exchange.RpcTransactionResponse\"\x00\x12\x45\n\x06SendTx\x12\x14.bc.core.Transaction\x1a#.bc.exchange.RpcTransactionResponse\"\x00\x12U\n\rGetEmbBalance\x12\x1e.bc.exchange.GetBalanceRequest\x1a\".bc.exchange.GetEmbBalanceResponse\"\x00\x12O\n\nGetBalance\x12\x1e.bc.exchange.GetBalanceRequest\x1a\x1f.bc.exchange.GetBalanceResponse\"\x00\x12\x42\n\tGetWallet\x12\x1e.bc.exchange.GetBalanceRequest\x1a\x13.bc.core.WalletData\"\x00\x12Z\n\x15GetSpendableOutpoints\x12*.bc.exchange.GetSpendableCollateralRequest\x1a\x13.bc.core.WalletData\"\x00\x12s\n\x16GetSpendableCollateral\x12*.bc.exchange.GetSpendableCollateralRequest\x1a+.bc.exchange.GetSpendableCollateralResponse\"\x00\x12s\n\x16GetUnlockTakerTxParams\x12*.bc.exchange.GetUnlockTakerTxParamsRequest\x1a+.bc.exchange.GetUnlockTakerTxParamsResponse\"\x00\x12H\n\x14GetByteFeeMultiplier\x12\r.bc.core.Null\x1a\x1f.bc.exchange.GetByteFeeResponse\"\x00\x12M\n\x0cGetTransfers\x12\x1c.bc.exchange.TransferRequest\x1a\x1d.bc.exchange.TransferResponse\"\x00\x12V\n\x10GetTakerForMaker\x12\x1f.bc.exchange.GetOutPointRequest\x1a\x1f.bc.exchange.GetOutPointRequest\"\x00\x12U\n\x0cGetOpenOrder\x12\x1f.bc.exchange.GetOutPointRequest\x1a\".bc.exchange.GetOpenOrdersResponse\"\x00\x12]\n\x14GetOpenCallbackOrder\x12\x1f.bc.exchange.GetOutPointRequest\x1a\".bc.exchange.GetOpenOrdersResponse\"\x00\x12[\n\x0fGetMatchedOrder\x12\x1f.bc.exchange.GetOutPointRequest\x1a%.bc.exchange.GetMatchedOrdersResponse\"\x00\x12\x61\n\rGetOpenOrders\x12*.bc.exchange.GetSpendableCollateralRequest\x1a\".bc.exchange.GetOpenOrdersResponse\"\x00\x12g\n\x10GetMatchedOrders\x12*.bc.exchange.GetSpendableCollateralRequest\x1a%.bc.exchange.GetMatchedOrdersResponse\"\x00\x12\x61\n\x13GetHistoricalOrders\x12\x1e.bc.exchange.GetHistoryRequest\x1a(.bc.exchange.GetHistoricalOrdersResponse\"\x00\x12Z\n\x12GetUnmatchedOrders\x12\x1e.bc.exchange.GetBalanceRequest\x1a\".bc.exchange.GetOpenOrdersResponse\"\x00\x12:\n\x08GetUtxos\x12\x1c.bc.exchange.GetUtxosRequest\x1a\x0e.bc.core.Utxos\"\x00\x12X\n\rGetUTXOLength\x12!.bc.exchange.GetUtxoLengthRequest\x1a\".bc.exchange.GetUtxoLengthResponse\"\x00\x12X\n\rGetSTXOLength\x12!.bc.exchange.GetUtxoLengthRequest\x1a\".bc.exchange.GetUtxoLengthResponse\"\x00\x12R\n\x0bGetBlake2bl\x12\x1f.bc.exchange.GetBlake2blRequest\x1a .bc.exchange.GetBlake2blResponse\"\x00\x12`\n\x15GetBcAddressViaVanity\x12!.bc.exchange.VanityConvertRequest\x1a\".bc.exchange.VanityConvertResponse\"\x00\x12;\n\x0eGetCurrentWork\x12\r.bc.core.Null\x1a\x18.bc.exchange.CurrentWork\"\x00\x12\x39\n\rGetSyncStatus\x12\r.bc.core.Null\x1a\x17.bc.exchange.SyncStatus\"\x00\x12=\n\x11GetFastSyncStatus\x12\r.bc.core.Null\x1a\x17.bc.exchange.SyncStatus\"\x00\x62\x06proto3'
   ,
   dependencies=[core__pb2.DESCRIPTOR,])
 
 _RPCTRANSACTIONRESPONSESTATUS = _descriptor.EnumDescriptor(
   name='RpcTransactionResponseStatus',
-  full_name='bc.RpcTransactionResponseStatus',
+  full_name='bc.exchange.RpcTransactionResponseStatus',
   filename=None,
   file=DESCRIPTOR,
   create_key=_descriptor._internal_create_key,
@@ -45,8 +45,8 @@ _RPCTRANSACTIONRESPONSESTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3270,
-  serialized_end=3326,
+  serialized_start=4223,
+  serialized_end=4279,
 )
 _sym_db.RegisterEnumDescriptor(_RPCTRANSACTIONRESPONSESTATUS)
 
@@ -58,14 +58,14 @@ Failure = 1
 
 _HELPRESPONSE = _descriptor.Descriptor(
   name='HelpResponse',
-  full_name='bc.HelpResponse',
+  full_name='bc.exchange.HelpResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='help_text', full_name='bc.HelpResponse.help_text', index=0,
+      name='help_text', full_name='bc.exchange.HelpResponse.help_text', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -83,22 +83,29 @@ _HELPRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=28,
-  serialized_end=61,
+  serialized_start=37,
+  serialized_end=70,
 )
 
 
 _STATSRESPONSE = _descriptor.Descriptor(
   name='StatsResponse',
-  full_name='bc.StatsResponse',
+  full_name='bc.exchange.StatsResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='calls', full_name='bc.StatsResponse.calls', index=0,
+      name='calls', full_name='bc.exchange.StatsResponse.calls', index=0,
       number=1, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='latest_gpu_miner_update', full_name='bc.exchange.StatsResponse.latest_gpu_miner_update', index=1,
+      number=2, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -115,49 +122,49 @@ _STATSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=63,
-  serialized_end=93,
+  serialized_start=72,
+  serialized_end=135,
 )
 
 
 _RPCTRANSACTION = _descriptor.Descriptor(
   name='RpcTransaction',
-  full_name='bc.RpcTransaction',
+  full_name='bc.exchange.RpcTransaction',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='from_addr', full_name='bc.RpcTransaction.from_addr', index=0,
+      name='from_addr', full_name='bc.exchange.RpcTransaction.from_addr', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='to_addr', full_name='bc.RpcTransaction.to_addr', index=1,
+      name='to_addr', full_name='bc.exchange.RpcTransaction.to_addr', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='amount', full_name='bc.RpcTransaction.amount', index=2,
+      name='amount', full_name='bc.exchange.RpcTransaction.amount', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='tx_fee', full_name='bc.RpcTransaction.tx_fee', index=3,
+      name='tx_fee', full_name='bc.exchange.RpcTransaction.tx_fee', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='private_key_hex', full_name='bc.RpcTransaction.private_key_hex', index=4,
+      name='private_key_hex', full_name='bc.exchange.RpcTransaction.private_key_hex', index=4,
       number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -175,35 +182,204 @@ _RPCTRANSACTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=95,
-  serialized_end=204,
+  serialized_start=137,
+  serialized_end=246,
 )
 
 
-_RPCTRANSACTIONRESPONSE = _descriptor.Descriptor(
-  name='RpcTransactionResponse',
-  full_name='bc.RpcTransactionResponse',
+_RPCFEEDTRANSACTION = _descriptor.Descriptor(
+  name='RpcFeedTransaction',
+  full_name='bc.exchange.RpcFeedTransaction',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='status', full_name='bc.RpcTransactionResponse.status', index=0,
-      number=1, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
+      name='owner_addr', full_name='bc.exchange.RpcFeedTransaction.owner_addr', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='tx_hash', full_name='bc.RpcTransactionResponse.tx_hash', index=1,
+      name='feed_addr', full_name='bc.exchange.RpcFeedTransaction.feed_addr', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='error', full_name='bc.RpcTransactionResponse.error', index=2,
+      name='amount', full_name='bc.exchange.RpcFeedTransaction.amount', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='tx_fee', full_name='bc.exchange.RpcFeedTransaction.tx_fee', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='private_key_hex', full_name='bc.exchange.RpcFeedTransaction.private_key_hex', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=248,
+  serialized_end=364,
+)
+
+
+_RPCUPDATEFEEDTRANSACTION = _descriptor.Descriptor(
+  name='RpcUpdateFeedTransaction',
+  full_name='bc.exchange.RpcUpdateFeedTransaction',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='owner_addr', full_name='bc.exchange.RpcUpdateFeedTransaction.owner_addr', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='feed_addr', full_name='bc.exchange.RpcUpdateFeedTransaction.feed_addr', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='sender_addr', full_name='bc.exchange.RpcUpdateFeedTransaction.sender_addr', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='data', full_name='bc.exchange.RpcUpdateFeedTransaction.data', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='data_length', full_name='bc.exchange.RpcUpdateFeedTransaction.data_length', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='amount', full_name='bc.exchange.RpcUpdateFeedTransaction.amount', index=5,
+      number=6, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='tx_fee', full_name='bc.exchange.RpcUpdateFeedTransaction.tx_fee', index=6,
+      number=7, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='tx_panel', full_name='bc.exchange.RpcUpdateFeedTransaction.tx_panel', index=7,
+      number=8, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='tx_part', full_name='bc.exchange.RpcUpdateFeedTransaction.tx_part', index=8,
+      number=9, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='tx_nonce', full_name='bc.exchange.RpcUpdateFeedTransaction.tx_nonce', index=9,
+      number=10, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='minimum_distance', full_name='bc.exchange.RpcUpdateFeedTransaction.minimum_distance', index=10,
+      number=11, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='private_key_hex', full_name='bc.exchange.RpcUpdateFeedTransaction.private_key_hex', index=11,
+      number=12, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=367,
+  serialized_end=624,
+)
+
+
+_RPCTRANSACTIONRESPONSE = _descriptor.Descriptor(
+  name='RpcTransactionResponse',
+  full_name='bc.exchange.RpcTransactionResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='status', full_name='bc.exchange.RpcTransactionResponse.status', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='tx_hash', full_name='bc.exchange.RpcTransactionResponse.tx_hash', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='bc.exchange.RpcTransactionResponse.error', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -221,63 +397,63 @@ _RPCTRANSACTIONRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=206,
-  serialized_end=312,
+  serialized_start=626,
+  serialized_end=741,
 )
 
 
 _TRANSFER = _descriptor.Descriptor(
   name='Transfer',
-  full_name='bc.Transfer',
+  full_name='bc.exchange.Transfer',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='from', full_name='bc.Transfer.from', index=0,
+      name='from', full_name='bc.exchange.Transfer.from', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='to', full_name='bc.Transfer.to', index=1,
+      name='to', full_name='bc.exchange.Transfer.to', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='amount', full_name='bc.Transfer.amount', index=2,
+      name='amount', full_name='bc.exchange.Transfer.amount', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='tx_hash', full_name='bc.Transfer.tx_hash', index=3,
+      name='tx_hash', full_name='bc.exchange.Transfer.tx_hash', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='tx_output_index', full_name='bc.Transfer.tx_output_index', index=4,
+      name='tx_output_index', full_name='bc.exchange.Transfer.tx_output_index', index=4,
       number=5, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='timestamp', full_name='bc.Transfer.timestamp', index=5,
+      name='timestamp', full_name='bc.exchange.Transfer.timestamp', index=5,
       number=6, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='height', full_name='bc.Transfer.height', index=6,
+      name='height', full_name='bc.exchange.Transfer.height', index=6,
       number=7, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -295,35 +471,35 @@ _TRANSFER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=315,
-  serialized_end=444,
+  serialized_start=744,
+  serialized_end=873,
 )
 
 
 _TRANSFERREQUEST = _descriptor.Descriptor(
   name='TransferRequest',
-  full_name='bc.TransferRequest',
+  full_name='bc.exchange.TransferRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='address', full_name='bc.TransferRequest.address', index=0,
+      name='address', full_name='bc.exchange.TransferRequest.address', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='max', full_name='bc.TransferRequest.max', index=1,
+      name='max', full_name='bc.exchange.TransferRequest.max', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='from', full_name='bc.TransferRequest.from', index=2,
+      name='from', full_name='bc.exchange.TransferRequest.from', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -341,511 +517,76 @@ _TRANSFERREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=446,
-  serialized_end=507,
+  serialized_start=875,
+  serialized_end=936,
 )
 
 
 _GETHISTORYREQUEST = _descriptor.Descriptor(
   name='GetHistoryRequest',
-  full_name='bc.GetHistoryRequest',
+  full_name='bc.exchange.GetHistoryRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='from', full_name='bc.GetHistoryRequest.from', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=509,
-  serialized_end=542,
-)
-
-
-_TRANSFERRESPONSE = _descriptor.Descriptor(
-  name='TransferResponse',
-  full_name='bc.TransferResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='transfers', full_name='bc.TransferResponse.transfers', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=544,
-  serialized_end=595,
-)
-
-
-_GETUTXOLENGTHREQUEST = _descriptor.Descriptor(
-  name='GetUtxoLengthRequest',
-  full_name='bc.GetUtxoLengthRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='script_type', full_name='bc.GetUtxoLengthRequest.script_type', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=597,
-  serialized_end=640,
-)
-
-
-_GETUTXOLENGTHRESPONSE = _descriptor.Descriptor(
-  name='GetUtxoLengthResponse',
-  full_name='bc.GetUtxoLengthResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='length', full_name='bc.GetUtxoLengthResponse.length', index=0,
-      number=1, type=13, cpp_type=3, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=642,
-  serialized_end=681,
-)
-
-
-_GETSPENDABLECOLLATERALREQUEST = _descriptor.Descriptor(
-  name='GetSpendableCollateralRequest',
-  full_name='bc.GetSpendableCollateralRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='address', full_name='bc.GetSpendableCollateralRequest.address', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=683,
-  serialized_end=731,
-)
-
-
-_GETSPENDABLECOLLATERALRESPONSE = _descriptor.Descriptor(
-  name='GetSpendableCollateralResponse',
-  full_name='bc.GetSpendableCollateralResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='outpoints', full_name='bc.GetSpendableCollateralResponse.outpoints', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=733,
-  serialized_end=798,
-)
-
-
-_GETBALANCEREQUEST = _descriptor.Descriptor(
-  name='GetBalanceRequest',
-  full_name='bc.GetBalanceRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='address', full_name='bc.GetBalanceRequest.address', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=800,
-  serialized_end=836,
-)
-
-
-_GETBALANCERESPONSE = _descriptor.Descriptor(
-  name='GetBalanceResponse',
-  full_name='bc.GetBalanceResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='height', full_name='bc.GetBalanceResponse.height', index=0,
-      number=1, type=13, cpp_type=3, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='confirmed', full_name='bc.GetBalanceResponse.confirmed', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='unconfirmed', full_name='bc.GetBalanceResponse.unconfirmed', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='collateralized', full_name='bc.GetBalanceResponse.collateralized', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='unlockable', full_name='bc.GetBalanceResponse.unlockable', index=4,
-      number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=838,
-  serialized_end=958,
-)
-
-
-_GETUNLOCKTAKERTXPARAMSREQUEST = _descriptor.Descriptor(
-  name='GetUnlockTakerTxParamsRequest',
-  full_name='bc.GetUnlockTakerTxParamsRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='tx_hash', full_name='bc.GetUnlockTakerTxParamsRequest.tx_hash', index=0,
+      name='from', full_name='bc.exchange.GetHistoryRequest.from', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='tx_output_index', full_name='bc.GetUnlockTakerTxParamsRequest.tx_output_index', index=1,
-      number=2, type=13, cpp_type=3, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=960,
-  serialized_end=1033,
-)
-
-
-_GETUNLOCKTAKERTXPARAMSRESPONSE = _descriptor.Descriptor(
-  name='GetUnlockTakerTxParamsResponse',
-  full_name='bc.GetUnlockTakerTxParamsResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='unlock_scripts', full_name='bc.GetUnlockTakerTxParamsResponse.unlock_scripts', index=0,
-      number=1, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='value_in_tx', full_name='bc.GetUnlockTakerTxParamsResponse.value_in_tx', index=1,
-      number=2, type=12, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"",
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1035,
-  serialized_end=1112,
-)
-
-
-_MAKERORDERINFO = _descriptor.Descriptor(
-  name='MakerOrderInfo',
-  full_name='bc.MakerOrderInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='trade_height', full_name='bc.MakerOrderInfo.trade_height', index=0,
-      number=1, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='deposit', full_name='bc.MakerOrderInfo.deposit', index=1,
+      name='max', full_name='bc.exchange.GetHistoryRequest.max', index=1,
       number=2, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=938,
+  serialized_end=984,
+)
+
+
+_TRANSFERRESPONSE = _descriptor.Descriptor(
+  name='TransferResponse',
+  full_name='bc.exchange.TransferResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
     _descriptor.FieldDescriptor(
-      name='settlement', full_name='bc.MakerOrderInfo.settlement', index=2,
-      number=3, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
+      name='transfers', full_name='bc.exchange.TransferResponse.transfers', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='shift_maker', full_name='bc.MakerOrderInfo.shift_maker', index=3,
-      number=4, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='shift_taker', full_name='bc.MakerOrderInfo.shift_taker', index=4,
-      number=5, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='sends_from_chain', full_name='bc.MakerOrderInfo.sends_from_chain', index=5,
-      number=6, type=9, cpp_type=9, label=1,
+      name='from', full_name='bc.exchange.TransferResponse.from', index=1,
+      number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='receives_to_chain', full_name='bc.MakerOrderInfo.receives_to_chain', index=6,
-      number=7, type=9, cpp_type=9, label=1,
+      name='to', full_name='bc.exchange.TransferResponse.to', index=2,
+      number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='sends_from_address', full_name='bc.MakerOrderInfo.sends_from_address', index=7,
-      number=8, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='receives_to_address', full_name='bc.MakerOrderInfo.receives_to_address', index=8,
-      number=9, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='sends_unit', full_name='bc.MakerOrderInfo.sends_unit', index=9,
-      number=10, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='receives_unit', full_name='bc.MakerOrderInfo.receives_unit', index=10,
-      number=11, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='double_hashed_bc_address', full_name='bc.MakerOrderInfo.double_hashed_bc_address', index=11,
-      number=12, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='collateralized_nrg', full_name='bc.MakerOrderInfo.collateralized_nrg', index=12,
-      number=13, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='nrg_unit', full_name='bc.MakerOrderInfo.nrg_unit', index=13,
-      number=14, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='tx_hash', full_name='bc.MakerOrderInfo.tx_hash', index=14,
-      number=15, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='tx_output_index', full_name='bc.MakerOrderInfo.tx_output_index', index=15,
-      number=16, type=13, cpp_type=3, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='is_settled', full_name='bc.MakerOrderInfo.is_settled', index=16,
-      number=17, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='fixed_unit_fee', full_name='bc.MakerOrderInfo.fixed_unit_fee', index=17,
-      number=18, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='base', full_name='bc.MakerOrderInfo.base', index=18,
-      number=19, type=13, cpp_type=3, label=1,
-      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -861,248 +602,82 @@ _MAKERORDERINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1115,
-  serialized_end=1565,
+  serialized_start=986,
+  serialized_end=1072,
 )
 
 
-_TAKERORDERINFO = _descriptor.Descriptor(
-  name='TakerOrderInfo',
-  full_name='bc.TakerOrderInfo',
+_GETUTXOLENGTHREQUEST = _descriptor.Descriptor(
+  name='GetUtxoLengthRequest',
+  full_name='bc.exchange.GetUtxoLengthRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='sends_from_address', full_name='bc.TakerOrderInfo.sends_from_address', index=0,
+      name='script_type', full_name='bc.exchange.GetUtxoLengthRequest.script_type', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='receives_to_address', full_name='bc.TakerOrderInfo.receives_to_address', index=1,
+      name='address', full_name='bc.exchange.GetUtxoLengthRequest.address', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1074,
+  serialized_end=1134,
+)
+
+
+_GETUTXOSREQUEST = _descriptor.Descriptor(
+  name='GetUtxosRequest',
+  full_name='bc.exchange.GetUtxosRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='script_type', full_name='bc.exchange.GetUtxosRequest.script_type', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='address', full_name='bc.exchange.GetUtxosRequest.address', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='double_hashed_bc_address', full_name='bc.TakerOrderInfo.double_hashed_bc_address', index=2,
+      name='from', full_name='bc.exchange.GetUtxosRequest.from', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='is_settled', full_name='bc.TakerOrderInfo.is_settled', index=3,
-      number=4, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='tx_hash', full_name='bc.TakerOrderInfo.tx_hash', index=4,
-      number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='tx_output_index', full_name='bc.TakerOrderInfo.tx_output_index', index=5,
-      number=6, type=13, cpp_type=3, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='total_collateral', full_name='bc.TakerOrderInfo.total_collateral', index=6,
-      number=7, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='trade_height', full_name='bc.TakerOrderInfo.trade_height', index=7,
-      number=8, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='timestamp', full_name='bc.TakerOrderInfo.timestamp', index=8,
-      number=9, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1568,
-  serialized_end=1804,
-)
-
-
-_MATCHEDORDERINFO = _descriptor.Descriptor(
-  name='MatchedOrderInfo',
-  full_name='bc.MatchedOrderInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='maker', full_name='bc.MatchedOrderInfo.maker', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='taker', full_name='bc.MatchedOrderInfo.taker', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='unlocked', full_name='bc.MatchedOrderInfo.unlocked', index=2,
-      number=7, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1806,
-  serialized_end=1912,
-)
-
-
-_GETOPENORDERSRESPONSE = _descriptor.Descriptor(
-  name='GetOpenOrdersResponse',
-  full_name='bc.GetOpenOrdersResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='orders', full_name='bc.GetOpenOrdersResponse.orders', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1914,
-  serialized_end=1973,
-)
-
-
-_GETMATCHEDORDERSRESPONSE = _descriptor.Descriptor(
-  name='GetMatchedOrdersResponse',
-  full_name='bc.GetMatchedOrdersResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='orders', full_name='bc.GetMatchedOrdersResponse.orders', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1975,
-  serialized_end=2039,
-)
-
-
-_TAKERORDER = _descriptor.Descriptor(
-  name='TakerOrder',
-  full_name='bc.TakerOrder',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='sends_from_address', full_name='bc.TakerOrder.sends_from_address', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='receives_to_address', full_name='bc.TakerOrder.receives_to_address', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='maker_tx_hash', full_name='bc.TakerOrder.maker_tx_hash', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='maker_tx_output_index', full_name='bc.TakerOrder.maker_tx_output_index', index=3,
-      number=4, type=13, cpp_type=3, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='collateralized_nrg', full_name='bc.TakerOrder.collateralized_nrg', index=4,
-      number=5, type=9, cpp_type=9, label=1,
+      name='to', full_name='bc.exchange.GetUtxosRequest.to', index=3,
+      number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -1119,273 +694,21 @@ _TAKERORDER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2042,
-  serialized_end=2193,
+  serialized_start=1136,
+  serialized_end=1217,
 )
 
 
-_GETBLAKE2BLREQUEST = _descriptor.Descriptor(
-  name='GetBlake2blRequest',
-  full_name='bc.GetBlake2blRequest',
+_GETUTXOLENGTHRESPONSE = _descriptor.Descriptor(
+  name='GetUtxoLengthResponse',
+  full_name='bc.exchange.GetUtxoLengthResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='to_be_hashed', full_name='bc.GetBlake2blRequest.to_be_hashed', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='times', full_name='bc.GetBlake2blRequest.times', index=1,
-      number=2, type=13, cpp_type=3, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2195,
-  serialized_end=2252,
-)
-
-
-_GETBLAKE2BLRESPONSE = _descriptor.Descriptor(
-  name='GetBlake2blResponse',
-  full_name='bc.GetBlake2blResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='hash', full_name='bc.GetBlake2blResponse.hash', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2254,
-  serialized_end=2289,
-)
-
-
-_VANITYCONVERTREQUEST = _descriptor.Descriptor(
-  name='VanityConvertRequest',
-  full_name='bc.VanityConvertRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='vanity', full_name='bc.VanityConvertRequest.vanity', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2291,
-  serialized_end=2329,
-)
-
-
-_VANITYCONVERTRESPONSE = _descriptor.Descriptor(
-  name='VanityConvertResponse',
-  full_name='bc.VanityConvertResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='bc_address', full_name='bc.VanityConvertResponse.bc_address', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='error', full_name='bc.VanityConvertResponse.error', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2331,
-  serialized_end=2389,
-)
-
-
-_GETROVEREDBLOCKHASHREQUEST = _descriptor.Descriptor(
-  name='GetRoveredBlockHashRequest',
-  full_name='bc.GetRoveredBlockHashRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='blockchain', full_name='bc.GetRoveredBlockHashRequest.blockchain', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='hash', full_name='bc.GetRoveredBlockHashRequest.hash', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2391,
-  serialized_end=2453,
-)
-
-
-_GETROVEREDBLOCKHEIGHTREQUEST = _descriptor.Descriptor(
-  name='GetRoveredBlockHeightRequest',
-  full_name='bc.GetRoveredBlockHeightRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='blockchain', full_name='bc.GetRoveredBlockHeightRequest.blockchain', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='height', full_name='bc.GetRoveredBlockHeightRequest.height', index=1,
-      number=2, type=13, cpp_type=3, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2455,
-  serialized_end=2521,
-)
-
-
-_GETBLOCKHASHREQUEST = _descriptor.Descriptor(
-  name='GetBlockHashRequest',
-  full_name='bc.GetBlockHashRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='hash', full_name='bc.GetBlockHashRequest.hash', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2523,
-  serialized_end=2558,
-)
-
-
-_GETBLOCKHEIGHTREQUEST = _descriptor.Descriptor(
-  name='GetBlockHeightRequest',
-  full_name='bc.GetBlockHeightRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='height', full_name='bc.GetBlockHeightRequest.height', index=0,
+      name='length', full_name='bc.exchange.GetUtxoLengthResponse.length', index=0,
       number=1, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -1403,106 +726,35 @@ _GETBLOCKHEIGHTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2560,
-  serialized_end=2599,
+  serialized_start=1219,
+  serialized_end=1258,
 )
 
 
-_GETBLOCKSREQUEST = _descriptor.Descriptor(
-  name='GetBlocksRequest',
-  full_name='bc.GetBlocksRequest',
+_GETSPENDABLECOLLATERALREQUEST = _descriptor.Descriptor(
+  name='GetSpendableCollateralRequest',
+  full_name='bc.exchange.GetSpendableCollateralRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='start_height', full_name='bc.GetBlocksRequest.start_height', index=0,
-      number=1, type=13, cpp_type=3, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='end_height', full_name='bc.GetBlocksRequest.end_height', index=1,
-      number=2, type=13, cpp_type=3, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2601,
-  serialized_end=2661,
-)
-
-
-_GETBLOCKSRESPONSE = _descriptor.Descriptor(
-  name='GetBlocksResponse',
-  full_name='bc.GetBlocksResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='blocks', full_name='bc.GetBlocksResponse.blocks', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2663,
-  serialized_end=2711,
-)
-
-
-_GETROVEREDBLOCKSREQUEST = _descriptor.Descriptor(
-  name='GetRoveredBlocksRequest',
-  full_name='bc.GetRoveredBlocksRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='blockchain', full_name='bc.GetRoveredBlocksRequest.blockchain', index=0,
+      name='address', full_name='bc.exchange.GetSpendableCollateralRequest.address', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='start_height', full_name='bc.GetRoveredBlocksRequest.start_height', index=1,
+      name='from', full_name='bc.exchange.GetSpendableCollateralRequest.from', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='end_height', full_name='bc.GetRoveredBlocksRequest.end_height', index=2,
+      name='to', full_name='bc.exchange.GetSpendableCollateralRequest.to', index=2,
       number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -1520,21 +772,21 @@ _GETROVEREDBLOCKSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2713,
-  serialized_end=2800,
+  serialized_start=1260,
+  serialized_end=1334,
 )
 
 
-_GETRAWMEMPOOLRESPONSE = _descriptor.Descriptor(
-  name='GetRawMempoolResponse',
-  full_name='bc.GetRawMempoolResponse',
+_GETSPENDABLECOLLATERALRESPONSE = _descriptor.Descriptor(
+  name='GetSpendableCollateralResponse',
+  full_name='bc.exchange.GetSpendableCollateralResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='transactions', full_name='bc.GetRawMempoolResponse.transactions', index=0,
+      name='outpoints', full_name='bc.exchange.GetSpendableCollateralResponse.outpoints', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -1552,53 +804,21 @@ _GETRAWMEMPOOLRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2802,
-  serialized_end=2864,
+  serialized_start=1336,
+  serialized_end=1406,
 )
 
 
-_GETROVEREDBLOCKSRESPONSE = _descriptor.Descriptor(
-  name='GetRoveredBlocksResponse',
-  full_name='bc.GetRoveredBlocksResponse',
+_GETBALANCEREQUEST = _descriptor.Descriptor(
+  name='GetBalanceRequest',
+  full_name='bc.exchange.GetBalanceRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='blocks', full_name='bc.GetRoveredBlocksResponse.blocks', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2866,
-  serialized_end=2919,
-)
-
-
-_GETTXREQUEST = _descriptor.Descriptor(
-  name='GetTxRequest',
-  full_name='bc.GetTxRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='hash', full_name='bc.GetTxRequest.hash', index=0,
+      name='address', full_name='bc.exchange.GetBalanceRequest.address', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -1616,33 +836,118 @@ _GETTXREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2921,
-  serialized_end=2949,
+  serialized_start=1408,
+  serialized_end=1444,
 )
 
 
-_GETMARKEDTXREQUEST = _descriptor.Descriptor(
-  name='GetMarkedTxRequest',
-  full_name='bc.GetMarkedTxRequest',
+_GETEMBBALANCERESPONSE = _descriptor.Descriptor(
+  name='GetEmbBalanceResponse',
+  full_name='bc.exchange.GetEmbBalanceResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='blockchain', full_name='bc.GetMarkedTxRequest.blockchain', index=0,
+      name='balance', full_name='bc.exchange.GetEmbBalanceResponse.balance', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1446,
+  serialized_end=1486,
+)
+
+
+_GETBYTEFEERESPONSE = _descriptor.Descriptor(
+  name='GetByteFeeResponse',
+  full_name='bc.exchange.GetByteFeeResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
     _descriptor.FieldDescriptor(
-      name='hash', full_name='bc.GetMarkedTxRequest.hash', index=1,
+      name='fee', full_name='bc.exchange.GetByteFeeResponse.fee', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1488,
+  serialized_end=1521,
+)
+
+
+_GETBALANCERESPONSE = _descriptor.Descriptor(
+  name='GetBalanceResponse',
+  full_name='bc.exchange.GetBalanceResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='height', full_name='bc.exchange.GetBalanceResponse.height', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='confirmed', full_name='bc.exchange.GetBalanceResponse.confirmed', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='unconfirmed', full_name='bc.exchange.GetBalanceResponse.unconfirmed', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='collateralized', full_name='bc.exchange.GetBalanceResponse.collateralized', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='unlockable', full_name='bc.exchange.GetBalanceResponse.unlockable', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -1655,28 +960,28 @@ _GETMARKEDTXREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2951,
-  serialized_end=3005,
+  serialized_start=1523,
+  serialized_end=1643,
 )
 
 
-_GETOUTPOINTREQUEST = _descriptor.Descriptor(
-  name='GetOutPointRequest',
-  full_name='bc.GetOutPointRequest',
+_GETUNLOCKTAKERTXPARAMSREQUEST = _descriptor.Descriptor(
+  name='GetUnlockTakerTxParamsRequest',
+  full_name='bc.exchange.GetUnlockTakerTxParamsRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='hash', full_name='bc.GetOutPointRequest.hash', index=0,
+      name='tx_hash', full_name='bc.exchange.GetUnlockTakerTxParamsRequest.tx_hash', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='index', full_name='bc.GetOutPointRequest.index', index=1,
+      name='tx_output_index', full_name='bc.exchange.GetUnlockTakerTxParamsRequest.tx_output_index', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -1694,22 +999,194 @@ _GETOUTPOINTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3007,
-  serialized_end=3056,
+  serialized_start=1645,
+  serialized_end=1718,
 )
 
 
-_GETTRADESTATUSRESPONSE = _descriptor.Descriptor(
-  name='GetTradeStatusResponse',
-  full_name='bc.GetTradeStatusResponse',
+_GETUNLOCKTAKERTXPARAMSRESPONSE = _descriptor.Descriptor(
+  name='GetUnlockTakerTxParamsResponse',
+  full_name='bc.exchange.GetUnlockTakerTxParamsResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='status', full_name='bc.GetTradeStatusResponse.status', index=0,
-      number=1, type=13, cpp_type=3, label=1,
+      name='unlock_scripts', full_name='bc.exchange.GetUnlockTakerTxParamsResponse.unlock_scripts', index=0,
+      number=1, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='value_in_tx', full_name='bc.exchange.GetUnlockTakerTxParamsResponse.value_in_tx', index=1,
+      number=2, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"",
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1720,
+  serialized_end=1797,
+)
+
+
+_MAKERORDERINFO = _descriptor.Descriptor(
+  name='MakerOrderInfo',
+  full_name='bc.exchange.MakerOrderInfo',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='trade_height', full_name='bc.exchange.MakerOrderInfo.trade_height', index=0,
+      number=1, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='deposit', full_name='bc.exchange.MakerOrderInfo.deposit', index=1,
+      number=2, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='settlement', full_name='bc.exchange.MakerOrderInfo.settlement', index=2,
+      number=3, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='shift_maker', full_name='bc.exchange.MakerOrderInfo.shift_maker', index=3,
+      number=4, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='shift_taker', full_name='bc.exchange.MakerOrderInfo.shift_taker', index=4,
+      number=5, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='sends_from_chain', full_name='bc.exchange.MakerOrderInfo.sends_from_chain', index=5,
+      number=6, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='receives_to_chain', full_name='bc.exchange.MakerOrderInfo.receives_to_chain', index=6,
+      number=7, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='sends_from_address', full_name='bc.exchange.MakerOrderInfo.sends_from_address', index=7,
+      number=8, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='receives_to_address', full_name='bc.exchange.MakerOrderInfo.receives_to_address', index=8,
+      number=9, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='sends_unit', full_name='bc.exchange.MakerOrderInfo.sends_unit', index=9,
+      number=10, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='receives_unit', full_name='bc.exchange.MakerOrderInfo.receives_unit', index=10,
+      number=11, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='double_hashed_bc_address', full_name='bc.exchange.MakerOrderInfo.double_hashed_bc_address', index=11,
+      number=12, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='collateralized_nrg', full_name='bc.exchange.MakerOrderInfo.collateralized_nrg', index=12,
+      number=13, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='original_nrg', full_name='bc.exchange.MakerOrderInfo.original_nrg', index=13,
+      number=14, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='nrg_unit', full_name='bc.exchange.MakerOrderInfo.nrg_unit', index=14,
+      number=15, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='tx_hash', full_name='bc.exchange.MakerOrderInfo.tx_hash', index=15,
+      number=16, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='tx_output_index', full_name='bc.exchange.MakerOrderInfo.tx_output_index', index=16,
+      number=17, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='is_settled', full_name='bc.exchange.MakerOrderInfo.is_settled', index=17,
+      number=18, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='fixed_unit_fee', full_name='bc.exchange.MakerOrderInfo.fixed_unit_fee', index=18,
+      number=19, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='base', full_name='bc.exchange.MakerOrderInfo.base', index=19,
+      number=20, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -1726,22 +1203,124 @@ _GETTRADESTATUSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3058,
-  serialized_end=3098,
+  serialized_start=1800,
+  serialized_end=2272,
 )
 
 
-_GETOUTPOINTSTATUSRESPONSE = _descriptor.Descriptor(
-  name='GetOutPointStatusResponse',
-  full_name='bc.GetOutPointStatusResponse',
+_TAKERORDERINFO = _descriptor.Descriptor(
+  name='TakerOrderInfo',
+  full_name='bc.exchange.TakerOrderInfo',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='unspent', full_name='bc.GetOutPointStatusResponse.unspent', index=0,
-      number=1, type=8, cpp_type=7, label=1,
+      name='sends_from_address', full_name='bc.exchange.TakerOrderInfo.sends_from_address', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='receives_to_address', full_name='bc.exchange.TakerOrderInfo.receives_to_address', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='double_hashed_bc_address', full_name='bc.exchange.TakerOrderInfo.double_hashed_bc_address', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='is_settled', full_name='bc.exchange.TakerOrderInfo.is_settled', index=3,
+      number=4, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='tx_hash', full_name='bc.exchange.TakerOrderInfo.tx_hash', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='tx_output_index', full_name='bc.exchange.TakerOrderInfo.tx_output_index', index=5,
+      number=6, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='total_collateral', full_name='bc.exchange.TakerOrderInfo.total_collateral', index=6,
+      number=7, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='trade_height', full_name='bc.exchange.TakerOrderInfo.trade_height', index=7,
+      number=8, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='timestamp', full_name='bc.exchange.TakerOrderInfo.timestamp', index=8,
+      number=9, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2275,
+  serialized_end=2511,
+)
+
+
+_MATCHEDORDERINFO = _descriptor.Descriptor(
+  name='MatchedOrderInfo',
+  full_name='bc.exchange.MatchedOrderInfo',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='maker', full_name='bc.exchange.MatchedOrderInfo.maker', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='taker', full_name='bc.exchange.MatchedOrderInfo.taker', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='unlocked', full_name='bc.exchange.MatchedOrderInfo.unlocked', index=2,
+      number=7, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -1758,21 +1337,223 @@ _GETOUTPOINTSTATUSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3100,
-  serialized_end=3144,
+  serialized_start=2513,
+  serialized_end=2637,
 )
 
 
-_CURRENTWORK = _descriptor.Descriptor(
-  name='CurrentWork',
-  full_name='bc.CurrentWork',
+_GETOPENORDERSRESPONSE = _descriptor.Descriptor(
+  name='GetOpenOrdersResponse',
+  full_name='bc.exchange.GetOpenOrdersResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='work', full_name='bc.CurrentWork.work', index=0,
+      name='orders', full_name='bc.exchange.GetOpenOrdersResponse.orders', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2639,
+  serialized_end=2707,
+)
+
+
+_GETMATCHEDORDERSRESPONSE = _descriptor.Descriptor(
+  name='GetMatchedOrdersResponse',
+  full_name='bc.exchange.GetMatchedOrdersResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='orders', full_name='bc.exchange.GetMatchedOrdersResponse.orders', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2709,
+  serialized_end=2782,
+)
+
+
+_GETHISTORICALORDERSRESPONSE = _descriptor.Descriptor(
+  name='GetHistoricalOrdersResponse',
+  full_name='bc.exchange.GetHistoricalOrdersResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='orders', full_name='bc.exchange.GetHistoricalOrdersResponse.orders', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='next_block', full_name='bc.exchange.GetHistoricalOrdersResponse.next_block', index=1,
+      number=2, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2784,
+  serialized_end=2880,
+)
+
+
+_TAKERORDER = _descriptor.Descriptor(
+  name='TakerOrder',
+  full_name='bc.exchange.TakerOrder',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='sends_from_address', full_name='bc.exchange.TakerOrder.sends_from_address', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='receives_to_address', full_name='bc.exchange.TakerOrder.receives_to_address', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='maker_tx_hash', full_name='bc.exchange.TakerOrder.maker_tx_hash', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='maker_tx_output_index', full_name='bc.exchange.TakerOrder.maker_tx_output_index', index=3,
+      number=4, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='collateralized_nrg', full_name='bc.exchange.TakerOrder.collateralized_nrg', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2883,
+  serialized_end=3034,
+)
+
+
+_GETBLAKE2BLREQUEST = _descriptor.Descriptor(
+  name='GetBlake2blRequest',
+  full_name='bc.exchange.GetBlake2blRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='to_be_hashed', full_name='bc.exchange.GetBlake2blRequest.to_be_hashed', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='times', full_name='bc.exchange.GetBlake2blRequest.times', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3036,
+  serialized_end=3093,
+)
+
+
+_GETBLAKE2BLRESPONSE = _descriptor.Descriptor(
+  name='GetBlake2blResponse',
+  full_name='bc.exchange.GetBlake2blResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='hash', full_name='bc.exchange.GetBlake2blResponse.hash', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -1790,21 +1571,21 @@ _CURRENTWORK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3146,
-  serialized_end=3173,
+  serialized_start=3095,
+  serialized_end=3130,
 )
 
 
-_SYNCSTATUS = _descriptor.Descriptor(
-  name='SyncStatus',
-  full_name='bc.SyncStatus',
+_VANITYCONVERTREQUEST = _descriptor.Descriptor(
+  name='VanityConvertRequest',
+  full_name='bc.exchange.VanityConvertRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='status', full_name='bc.SyncStatus.status', index=0,
+      name='vanity', full_name='bc.exchange.VanityConvertRequest.vanity', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -1822,28 +1603,28 @@ _SYNCSTATUS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3175,
-  serialized_end=3203,
+  serialized_start=3132,
+  serialized_end=3170,
 )
 
 
-_SETTINGSRESPONSE = _descriptor.Descriptor(
-  name='SettingsResponse',
-  full_name='bc.SettingsResponse',
+_VANITYCONVERTRESPONSE = _descriptor.Descriptor(
+  name='VanityConvertResponse',
+  full_name='bc.exchange.VanityConvertResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='ngrok_tunnel', full_name='bc.SettingsResponse.ngrok_tunnel', index=0,
+      name='bc_address', full_name='bc.exchange.VanityConvertResponse.bc_address', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='build_version', full_name='bc.SettingsResponse.build_version', index=1,
+      name='error', full_name='bc.exchange.VanityConvertResponse.error', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -1861,8 +1642,672 @@ _SETTINGSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3205,
-  serialized_end=3268,
+  serialized_start=3172,
+  serialized_end=3230,
+)
+
+
+_GETROVEREDBLOCKHASHREQUEST = _descriptor.Descriptor(
+  name='GetRoveredBlockHashRequest',
+  full_name='bc.exchange.GetRoveredBlockHashRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='blockchain', full_name='bc.exchange.GetRoveredBlockHashRequest.blockchain', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='hash', full_name='bc.exchange.GetRoveredBlockHashRequest.hash', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3232,
+  serialized_end=3294,
+)
+
+
+_GETROVEREDBLOCKHEIGHTREQUEST = _descriptor.Descriptor(
+  name='GetRoveredBlockHeightRequest',
+  full_name='bc.exchange.GetRoveredBlockHeightRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='blockchain', full_name='bc.exchange.GetRoveredBlockHeightRequest.blockchain', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='height', full_name='bc.exchange.GetRoveredBlockHeightRequest.height', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3296,
+  serialized_end=3362,
+)
+
+
+_GETBLOCKHASHREQUEST = _descriptor.Descriptor(
+  name='GetBlockHashRequest',
+  full_name='bc.exchange.GetBlockHashRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='hash', full_name='bc.exchange.GetBlockHashRequest.hash', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3364,
+  serialized_end=3399,
+)
+
+
+_GETBLOCKHEIGHTREQUEST = _descriptor.Descriptor(
+  name='GetBlockHeightRequest',
+  full_name='bc.exchange.GetBlockHeightRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='height', full_name='bc.exchange.GetBlockHeightRequest.height', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3401,
+  serialized_end=3440,
+)
+
+
+_GETBLOCKSREQUEST = _descriptor.Descriptor(
+  name='GetBlocksRequest',
+  full_name='bc.exchange.GetBlocksRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='start_height', full_name='bc.exchange.GetBlocksRequest.start_height', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='end_height', full_name='bc.exchange.GetBlocksRequest.end_height', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3442,
+  serialized_end=3502,
+)
+
+
+_GETBLOCKSRESPONSE = _descriptor.Descriptor(
+  name='GetBlocksResponse',
+  full_name='bc.exchange.GetBlocksResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='blocks', full_name='bc.exchange.GetBlocksResponse.blocks', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3504,
+  serialized_end=3557,
+)
+
+
+_GETROVEREDBLOCKSREQUEST = _descriptor.Descriptor(
+  name='GetRoveredBlocksRequest',
+  full_name='bc.exchange.GetRoveredBlocksRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='blockchain', full_name='bc.exchange.GetRoveredBlocksRequest.blockchain', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='start_height', full_name='bc.exchange.GetRoveredBlocksRequest.start_height', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='end_height', full_name='bc.exchange.GetRoveredBlocksRequest.end_height', index=2,
+      number=3, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3559,
+  serialized_end=3646,
+)
+
+
+_GETRAWMEMPOOLRESPONSE = _descriptor.Descriptor(
+  name='GetRawMempoolResponse',
+  full_name='bc.exchange.GetRawMempoolResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='transactions', full_name='bc.exchange.GetRawMempoolResponse.transactions', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3648,
+  serialized_end=3715,
+)
+
+
+_GETROVEREDBLOCKSRESPONSE = _descriptor.Descriptor(
+  name='GetRoveredBlocksResponse',
+  full_name='bc.exchange.GetRoveredBlocksResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='blocks', full_name='bc.exchange.GetRoveredBlocksResponse.blocks', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3717,
+  serialized_end=3775,
+)
+
+
+_GETTXREQUEST = _descriptor.Descriptor(
+  name='GetTxRequest',
+  full_name='bc.exchange.GetTxRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='hash', full_name='bc.exchange.GetTxRequest.hash', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3777,
+  serialized_end=3805,
+)
+
+
+_GETMARKEDTXREQUEST = _descriptor.Descriptor(
+  name='GetMarkedTxRequest',
+  full_name='bc.exchange.GetMarkedTxRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='blockchain', full_name='bc.exchange.GetMarkedTxRequest.blockchain', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='hash', full_name='bc.exchange.GetMarkedTxRequest.hash', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3807,
+  serialized_end=3861,
+)
+
+
+_GETOUTPOINTREQUEST = _descriptor.Descriptor(
+  name='GetOutPointRequest',
+  full_name='bc.exchange.GetOutPointRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='hash', full_name='bc.exchange.GetOutPointRequest.hash', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='index', full_name='bc.exchange.GetOutPointRequest.index', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3863,
+  serialized_end=3912,
+)
+
+
+_GETTRADESTATUSRESPONSE = _descriptor.Descriptor(
+  name='GetTradeStatusResponse',
+  full_name='bc.exchange.GetTradeStatusResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='status', full_name='bc.exchange.GetTradeStatusResponse.status', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3914,
+  serialized_end=3954,
+)
+
+
+_GETOUTPOINTSTATUSRESPONSE = _descriptor.Descriptor(
+  name='GetOutPointStatusResponse',
+  full_name='bc.exchange.GetOutPointStatusResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='unspent', full_name='bc.exchange.GetOutPointStatusResponse.unspent', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3956,
+  serialized_end=4000,
+)
+
+
+_CURRENTWORK = _descriptor.Descriptor(
+  name='CurrentWork',
+  full_name='bc.exchange.CurrentWork',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='work', full_name='bc.exchange.CurrentWork.work', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4002,
+  serialized_end=4029,
+)
+
+
+_SYNCSTATUS = _descriptor.Descriptor(
+  name='SyncStatus',
+  full_name='bc.exchange.SyncStatus',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='status', full_name='bc.exchange.SyncStatus.status', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4031,
+  serialized_end=4059,
+)
+
+
+_SETTINGSRESPONSE = _descriptor.Descriptor(
+  name='SettingsResponse',
+  full_name='bc.exchange.SettingsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='ngrok_tunnel', full_name='bc.exchange.SettingsResponse.ngrok_tunnel', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='build_version', full_name='bc.exchange.SettingsResponse.build_version', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4061,
+  serialized_end=4124,
+)
+
+
+_GETNRGSUPPLYRESPONSE = _descriptor.Descriptor(
+  name='GetNrgSupplyResponse',
+  full_name='bc.exchange.GetNrgSupplyResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='amount', full_name='bc.exchange.GetNrgSupplyResponse.amount', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4126,
+  serialized_end=4164,
+)
+
+
+_GETMARKEDTXS = _descriptor.Descriptor(
+  name='GetMarkedTxs',
+  full_name='bc.exchange.GetMarkedTxs',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='txs', full_name='bc.exchange.GetMarkedTxs.txs', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4166,
+  serialized_end=4221,
 )
 
 _RPCTRANSACTIONRESPONSE.fields_by_name['status'].enum_type = _RPCTRANSACTIONRESPONSESTATUS
@@ -1872,22 +2317,29 @@ _MATCHEDORDERINFO.fields_by_name['maker'].message_type = _MAKERORDERINFO
 _MATCHEDORDERINFO.fields_by_name['taker'].message_type = _TAKERORDERINFO
 _GETOPENORDERSRESPONSE.fields_by_name['orders'].message_type = _MAKERORDERINFO
 _GETMATCHEDORDERSRESPONSE.fields_by_name['orders'].message_type = _MATCHEDORDERINFO
+_GETHISTORICALORDERSRESPONSE.fields_by_name['orders'].message_type = _MATCHEDORDERINFO
 _GETBLOCKSRESPONSE.fields_by_name['blocks'].message_type = core__pb2._BCBLOCK
 _GETRAWMEMPOOLRESPONSE.fields_by_name['transactions'].message_type = core__pb2._TRANSACTION
 _GETROVEREDBLOCKSRESPONSE.fields_by_name['blocks'].message_type = core__pb2._BLOCK
+_GETMARKEDTXS.fields_by_name['txs'].message_type = core__pb2._MARKEDTRANSACTION
 DESCRIPTOR.message_types_by_name['HelpResponse'] = _HELPRESPONSE
 DESCRIPTOR.message_types_by_name['StatsResponse'] = _STATSRESPONSE
 DESCRIPTOR.message_types_by_name['RpcTransaction'] = _RPCTRANSACTION
+DESCRIPTOR.message_types_by_name['RpcFeedTransaction'] = _RPCFEEDTRANSACTION
+DESCRIPTOR.message_types_by_name['RpcUpdateFeedTransaction'] = _RPCUPDATEFEEDTRANSACTION
 DESCRIPTOR.message_types_by_name['RpcTransactionResponse'] = _RPCTRANSACTIONRESPONSE
 DESCRIPTOR.message_types_by_name['Transfer'] = _TRANSFER
 DESCRIPTOR.message_types_by_name['TransferRequest'] = _TRANSFERREQUEST
 DESCRIPTOR.message_types_by_name['GetHistoryRequest'] = _GETHISTORYREQUEST
 DESCRIPTOR.message_types_by_name['TransferResponse'] = _TRANSFERRESPONSE
 DESCRIPTOR.message_types_by_name['GetUtxoLengthRequest'] = _GETUTXOLENGTHREQUEST
+DESCRIPTOR.message_types_by_name['GetUtxosRequest'] = _GETUTXOSREQUEST
 DESCRIPTOR.message_types_by_name['GetUtxoLengthResponse'] = _GETUTXOLENGTHRESPONSE
 DESCRIPTOR.message_types_by_name['GetSpendableCollateralRequest'] = _GETSPENDABLECOLLATERALREQUEST
 DESCRIPTOR.message_types_by_name['GetSpendableCollateralResponse'] = _GETSPENDABLECOLLATERALRESPONSE
 DESCRIPTOR.message_types_by_name['GetBalanceRequest'] = _GETBALANCEREQUEST
+DESCRIPTOR.message_types_by_name['GetEmbBalanceResponse'] = _GETEMBBALANCERESPONSE
+DESCRIPTOR.message_types_by_name['GetByteFeeResponse'] = _GETBYTEFEERESPONSE
 DESCRIPTOR.message_types_by_name['GetBalanceResponse'] = _GETBALANCERESPONSE
 DESCRIPTOR.message_types_by_name['GetUnlockTakerTxParamsRequest'] = _GETUNLOCKTAKERTXPARAMSREQUEST
 DESCRIPTOR.message_types_by_name['GetUnlockTakerTxParamsResponse'] = _GETUNLOCKTAKERTXPARAMSRESPONSE
@@ -1896,6 +2348,7 @@ DESCRIPTOR.message_types_by_name['TakerOrderInfo'] = _TAKERORDERINFO
 DESCRIPTOR.message_types_by_name['MatchedOrderInfo'] = _MATCHEDORDERINFO
 DESCRIPTOR.message_types_by_name['GetOpenOrdersResponse'] = _GETOPENORDERSRESPONSE
 DESCRIPTOR.message_types_by_name['GetMatchedOrdersResponse'] = _GETMATCHEDORDERSRESPONSE
+DESCRIPTOR.message_types_by_name['GetHistoricalOrdersResponse'] = _GETHISTORICALORDERSRESPONSE
 DESCRIPTOR.message_types_by_name['TakerOrder'] = _TAKERORDER
 DESCRIPTOR.message_types_by_name['GetBlake2blRequest'] = _GETBLAKE2BLREQUEST
 DESCRIPTOR.message_types_by_name['GetBlake2blResponse'] = _GETBLAKE2BLRESPONSE
@@ -1918,325 +2371,383 @@ DESCRIPTOR.message_types_by_name['GetOutPointStatusResponse'] = _GETOUTPOINTSTAT
 DESCRIPTOR.message_types_by_name['CurrentWork'] = _CURRENTWORK
 DESCRIPTOR.message_types_by_name['SyncStatus'] = _SYNCSTATUS
 DESCRIPTOR.message_types_by_name['SettingsResponse'] = _SETTINGSRESPONSE
+DESCRIPTOR.message_types_by_name['GetNrgSupplyResponse'] = _GETNRGSUPPLYRESPONSE
+DESCRIPTOR.message_types_by_name['GetMarkedTxs'] = _GETMARKEDTXS
 DESCRIPTOR.enum_types_by_name['RpcTransactionResponseStatus'] = _RPCTRANSACTIONRESPONSESTATUS
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 HelpResponse = _reflection.GeneratedProtocolMessageType('HelpResponse', (_message.Message,), {
   'DESCRIPTOR' : _HELPRESPONSE,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.HelpResponse)
+  # @@protoc_insertion_point(class_scope:bc.exchange.HelpResponse)
   })
 _sym_db.RegisterMessage(HelpResponse)
 
 StatsResponse = _reflection.GeneratedProtocolMessageType('StatsResponse', (_message.Message,), {
   'DESCRIPTOR' : _STATSRESPONSE,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.StatsResponse)
+  # @@protoc_insertion_point(class_scope:bc.exchange.StatsResponse)
   })
 _sym_db.RegisterMessage(StatsResponse)
 
 RpcTransaction = _reflection.GeneratedProtocolMessageType('RpcTransaction', (_message.Message,), {
   'DESCRIPTOR' : _RPCTRANSACTION,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.RpcTransaction)
+  # @@protoc_insertion_point(class_scope:bc.exchange.RpcTransaction)
   })
 _sym_db.RegisterMessage(RpcTransaction)
+
+RpcFeedTransaction = _reflection.GeneratedProtocolMessageType('RpcFeedTransaction', (_message.Message,), {
+  'DESCRIPTOR' : _RPCFEEDTRANSACTION,
+  '__module__' : 'bc_pb2'
+  # @@protoc_insertion_point(class_scope:bc.exchange.RpcFeedTransaction)
+  })
+_sym_db.RegisterMessage(RpcFeedTransaction)
+
+RpcUpdateFeedTransaction = _reflection.GeneratedProtocolMessageType('RpcUpdateFeedTransaction', (_message.Message,), {
+  'DESCRIPTOR' : _RPCUPDATEFEEDTRANSACTION,
+  '__module__' : 'bc_pb2'
+  # @@protoc_insertion_point(class_scope:bc.exchange.RpcUpdateFeedTransaction)
+  })
+_sym_db.RegisterMessage(RpcUpdateFeedTransaction)
 
 RpcTransactionResponse = _reflection.GeneratedProtocolMessageType('RpcTransactionResponse', (_message.Message,), {
   'DESCRIPTOR' : _RPCTRANSACTIONRESPONSE,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.RpcTransactionResponse)
+  # @@protoc_insertion_point(class_scope:bc.exchange.RpcTransactionResponse)
   })
 _sym_db.RegisterMessage(RpcTransactionResponse)
 
 Transfer = _reflection.GeneratedProtocolMessageType('Transfer', (_message.Message,), {
   'DESCRIPTOR' : _TRANSFER,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.Transfer)
+  # @@protoc_insertion_point(class_scope:bc.exchange.Transfer)
   })
 _sym_db.RegisterMessage(Transfer)
 
 TransferRequest = _reflection.GeneratedProtocolMessageType('TransferRequest', (_message.Message,), {
   'DESCRIPTOR' : _TRANSFERREQUEST,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.TransferRequest)
+  # @@protoc_insertion_point(class_scope:bc.exchange.TransferRequest)
   })
 _sym_db.RegisterMessage(TransferRequest)
 
 GetHistoryRequest = _reflection.GeneratedProtocolMessageType('GetHistoryRequest', (_message.Message,), {
   'DESCRIPTOR' : _GETHISTORYREQUEST,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.GetHistoryRequest)
+  # @@protoc_insertion_point(class_scope:bc.exchange.GetHistoryRequest)
   })
 _sym_db.RegisterMessage(GetHistoryRequest)
 
 TransferResponse = _reflection.GeneratedProtocolMessageType('TransferResponse', (_message.Message,), {
   'DESCRIPTOR' : _TRANSFERRESPONSE,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.TransferResponse)
+  # @@protoc_insertion_point(class_scope:bc.exchange.TransferResponse)
   })
 _sym_db.RegisterMessage(TransferResponse)
 
 GetUtxoLengthRequest = _reflection.GeneratedProtocolMessageType('GetUtxoLengthRequest', (_message.Message,), {
   'DESCRIPTOR' : _GETUTXOLENGTHREQUEST,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.GetUtxoLengthRequest)
+  # @@protoc_insertion_point(class_scope:bc.exchange.GetUtxoLengthRequest)
   })
 _sym_db.RegisterMessage(GetUtxoLengthRequest)
+
+GetUtxosRequest = _reflection.GeneratedProtocolMessageType('GetUtxosRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETUTXOSREQUEST,
+  '__module__' : 'bc_pb2'
+  # @@protoc_insertion_point(class_scope:bc.exchange.GetUtxosRequest)
+  })
+_sym_db.RegisterMessage(GetUtxosRequest)
 
 GetUtxoLengthResponse = _reflection.GeneratedProtocolMessageType('GetUtxoLengthResponse', (_message.Message,), {
   'DESCRIPTOR' : _GETUTXOLENGTHRESPONSE,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.GetUtxoLengthResponse)
+  # @@protoc_insertion_point(class_scope:bc.exchange.GetUtxoLengthResponse)
   })
 _sym_db.RegisterMessage(GetUtxoLengthResponse)
 
 GetSpendableCollateralRequest = _reflection.GeneratedProtocolMessageType('GetSpendableCollateralRequest', (_message.Message,), {
   'DESCRIPTOR' : _GETSPENDABLECOLLATERALREQUEST,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.GetSpendableCollateralRequest)
+  # @@protoc_insertion_point(class_scope:bc.exchange.GetSpendableCollateralRequest)
   })
 _sym_db.RegisterMessage(GetSpendableCollateralRequest)
 
 GetSpendableCollateralResponse = _reflection.GeneratedProtocolMessageType('GetSpendableCollateralResponse', (_message.Message,), {
   'DESCRIPTOR' : _GETSPENDABLECOLLATERALRESPONSE,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.GetSpendableCollateralResponse)
+  # @@protoc_insertion_point(class_scope:bc.exchange.GetSpendableCollateralResponse)
   })
 _sym_db.RegisterMessage(GetSpendableCollateralResponse)
 
 GetBalanceRequest = _reflection.GeneratedProtocolMessageType('GetBalanceRequest', (_message.Message,), {
   'DESCRIPTOR' : _GETBALANCEREQUEST,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.GetBalanceRequest)
+  # @@protoc_insertion_point(class_scope:bc.exchange.GetBalanceRequest)
   })
 _sym_db.RegisterMessage(GetBalanceRequest)
+
+GetEmbBalanceResponse = _reflection.GeneratedProtocolMessageType('GetEmbBalanceResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETEMBBALANCERESPONSE,
+  '__module__' : 'bc_pb2'
+  # @@protoc_insertion_point(class_scope:bc.exchange.GetEmbBalanceResponse)
+  })
+_sym_db.RegisterMessage(GetEmbBalanceResponse)
+
+GetByteFeeResponse = _reflection.GeneratedProtocolMessageType('GetByteFeeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETBYTEFEERESPONSE,
+  '__module__' : 'bc_pb2'
+  # @@protoc_insertion_point(class_scope:bc.exchange.GetByteFeeResponse)
+  })
+_sym_db.RegisterMessage(GetByteFeeResponse)
 
 GetBalanceResponse = _reflection.GeneratedProtocolMessageType('GetBalanceResponse', (_message.Message,), {
   'DESCRIPTOR' : _GETBALANCERESPONSE,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.GetBalanceResponse)
+  # @@protoc_insertion_point(class_scope:bc.exchange.GetBalanceResponse)
   })
 _sym_db.RegisterMessage(GetBalanceResponse)
 
 GetUnlockTakerTxParamsRequest = _reflection.GeneratedProtocolMessageType('GetUnlockTakerTxParamsRequest', (_message.Message,), {
   'DESCRIPTOR' : _GETUNLOCKTAKERTXPARAMSREQUEST,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.GetUnlockTakerTxParamsRequest)
+  # @@protoc_insertion_point(class_scope:bc.exchange.GetUnlockTakerTxParamsRequest)
   })
 _sym_db.RegisterMessage(GetUnlockTakerTxParamsRequest)
 
 GetUnlockTakerTxParamsResponse = _reflection.GeneratedProtocolMessageType('GetUnlockTakerTxParamsResponse', (_message.Message,), {
   'DESCRIPTOR' : _GETUNLOCKTAKERTXPARAMSRESPONSE,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.GetUnlockTakerTxParamsResponse)
+  # @@protoc_insertion_point(class_scope:bc.exchange.GetUnlockTakerTxParamsResponse)
   })
 _sym_db.RegisterMessage(GetUnlockTakerTxParamsResponse)
 
 MakerOrderInfo = _reflection.GeneratedProtocolMessageType('MakerOrderInfo', (_message.Message,), {
   'DESCRIPTOR' : _MAKERORDERINFO,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.MakerOrderInfo)
+  # @@protoc_insertion_point(class_scope:bc.exchange.MakerOrderInfo)
   })
 _sym_db.RegisterMessage(MakerOrderInfo)
 
 TakerOrderInfo = _reflection.GeneratedProtocolMessageType('TakerOrderInfo', (_message.Message,), {
   'DESCRIPTOR' : _TAKERORDERINFO,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.TakerOrderInfo)
+  # @@protoc_insertion_point(class_scope:bc.exchange.TakerOrderInfo)
   })
 _sym_db.RegisterMessage(TakerOrderInfo)
 
 MatchedOrderInfo = _reflection.GeneratedProtocolMessageType('MatchedOrderInfo', (_message.Message,), {
   'DESCRIPTOR' : _MATCHEDORDERINFO,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.MatchedOrderInfo)
+  # @@protoc_insertion_point(class_scope:bc.exchange.MatchedOrderInfo)
   })
 _sym_db.RegisterMessage(MatchedOrderInfo)
 
 GetOpenOrdersResponse = _reflection.GeneratedProtocolMessageType('GetOpenOrdersResponse', (_message.Message,), {
   'DESCRIPTOR' : _GETOPENORDERSRESPONSE,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.GetOpenOrdersResponse)
+  # @@protoc_insertion_point(class_scope:bc.exchange.GetOpenOrdersResponse)
   })
 _sym_db.RegisterMessage(GetOpenOrdersResponse)
 
 GetMatchedOrdersResponse = _reflection.GeneratedProtocolMessageType('GetMatchedOrdersResponse', (_message.Message,), {
   'DESCRIPTOR' : _GETMATCHEDORDERSRESPONSE,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.GetMatchedOrdersResponse)
+  # @@protoc_insertion_point(class_scope:bc.exchange.GetMatchedOrdersResponse)
   })
 _sym_db.RegisterMessage(GetMatchedOrdersResponse)
+
+GetHistoricalOrdersResponse = _reflection.GeneratedProtocolMessageType('GetHistoricalOrdersResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETHISTORICALORDERSRESPONSE,
+  '__module__' : 'bc_pb2'
+  # @@protoc_insertion_point(class_scope:bc.exchange.GetHistoricalOrdersResponse)
+  })
+_sym_db.RegisterMessage(GetHistoricalOrdersResponse)
 
 TakerOrder = _reflection.GeneratedProtocolMessageType('TakerOrder', (_message.Message,), {
   'DESCRIPTOR' : _TAKERORDER,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.TakerOrder)
+  # @@protoc_insertion_point(class_scope:bc.exchange.TakerOrder)
   })
 _sym_db.RegisterMessage(TakerOrder)
 
 GetBlake2blRequest = _reflection.GeneratedProtocolMessageType('GetBlake2blRequest', (_message.Message,), {
   'DESCRIPTOR' : _GETBLAKE2BLREQUEST,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.GetBlake2blRequest)
+  # @@protoc_insertion_point(class_scope:bc.exchange.GetBlake2blRequest)
   })
 _sym_db.RegisterMessage(GetBlake2blRequest)
 
 GetBlake2blResponse = _reflection.GeneratedProtocolMessageType('GetBlake2blResponse', (_message.Message,), {
   'DESCRIPTOR' : _GETBLAKE2BLRESPONSE,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.GetBlake2blResponse)
+  # @@protoc_insertion_point(class_scope:bc.exchange.GetBlake2blResponse)
   })
 _sym_db.RegisterMessage(GetBlake2blResponse)
 
 VanityConvertRequest = _reflection.GeneratedProtocolMessageType('VanityConvertRequest', (_message.Message,), {
   'DESCRIPTOR' : _VANITYCONVERTREQUEST,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.VanityConvertRequest)
+  # @@protoc_insertion_point(class_scope:bc.exchange.VanityConvertRequest)
   })
 _sym_db.RegisterMessage(VanityConvertRequest)
 
 VanityConvertResponse = _reflection.GeneratedProtocolMessageType('VanityConvertResponse', (_message.Message,), {
   'DESCRIPTOR' : _VANITYCONVERTRESPONSE,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.VanityConvertResponse)
+  # @@protoc_insertion_point(class_scope:bc.exchange.VanityConvertResponse)
   })
 _sym_db.RegisterMessage(VanityConvertResponse)
 
 GetRoveredBlockHashRequest = _reflection.GeneratedProtocolMessageType('GetRoveredBlockHashRequest', (_message.Message,), {
   'DESCRIPTOR' : _GETROVEREDBLOCKHASHREQUEST,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.GetRoveredBlockHashRequest)
+  # @@protoc_insertion_point(class_scope:bc.exchange.GetRoveredBlockHashRequest)
   })
 _sym_db.RegisterMessage(GetRoveredBlockHashRequest)
 
 GetRoveredBlockHeightRequest = _reflection.GeneratedProtocolMessageType('GetRoveredBlockHeightRequest', (_message.Message,), {
   'DESCRIPTOR' : _GETROVEREDBLOCKHEIGHTREQUEST,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.GetRoveredBlockHeightRequest)
+  # @@protoc_insertion_point(class_scope:bc.exchange.GetRoveredBlockHeightRequest)
   })
 _sym_db.RegisterMessage(GetRoveredBlockHeightRequest)
 
 GetBlockHashRequest = _reflection.GeneratedProtocolMessageType('GetBlockHashRequest', (_message.Message,), {
   'DESCRIPTOR' : _GETBLOCKHASHREQUEST,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.GetBlockHashRequest)
+  # @@protoc_insertion_point(class_scope:bc.exchange.GetBlockHashRequest)
   })
 _sym_db.RegisterMessage(GetBlockHashRequest)
 
 GetBlockHeightRequest = _reflection.GeneratedProtocolMessageType('GetBlockHeightRequest', (_message.Message,), {
   'DESCRIPTOR' : _GETBLOCKHEIGHTREQUEST,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.GetBlockHeightRequest)
+  # @@protoc_insertion_point(class_scope:bc.exchange.GetBlockHeightRequest)
   })
 _sym_db.RegisterMessage(GetBlockHeightRequest)
 
 GetBlocksRequest = _reflection.GeneratedProtocolMessageType('GetBlocksRequest', (_message.Message,), {
   'DESCRIPTOR' : _GETBLOCKSREQUEST,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.GetBlocksRequest)
+  # @@protoc_insertion_point(class_scope:bc.exchange.GetBlocksRequest)
   })
 _sym_db.RegisterMessage(GetBlocksRequest)
 
 GetBlocksResponse = _reflection.GeneratedProtocolMessageType('GetBlocksResponse', (_message.Message,), {
   'DESCRIPTOR' : _GETBLOCKSRESPONSE,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.GetBlocksResponse)
+  # @@protoc_insertion_point(class_scope:bc.exchange.GetBlocksResponse)
   })
 _sym_db.RegisterMessage(GetBlocksResponse)
 
 GetRoveredBlocksRequest = _reflection.GeneratedProtocolMessageType('GetRoveredBlocksRequest', (_message.Message,), {
   'DESCRIPTOR' : _GETROVEREDBLOCKSREQUEST,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.GetRoveredBlocksRequest)
+  # @@protoc_insertion_point(class_scope:bc.exchange.GetRoveredBlocksRequest)
   })
 _sym_db.RegisterMessage(GetRoveredBlocksRequest)
 
 GetRawMempoolResponse = _reflection.GeneratedProtocolMessageType('GetRawMempoolResponse', (_message.Message,), {
   'DESCRIPTOR' : _GETRAWMEMPOOLRESPONSE,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.GetRawMempoolResponse)
+  # @@protoc_insertion_point(class_scope:bc.exchange.GetRawMempoolResponse)
   })
 _sym_db.RegisterMessage(GetRawMempoolResponse)
 
 GetRoveredBlocksResponse = _reflection.GeneratedProtocolMessageType('GetRoveredBlocksResponse', (_message.Message,), {
   'DESCRIPTOR' : _GETROVEREDBLOCKSRESPONSE,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.GetRoveredBlocksResponse)
+  # @@protoc_insertion_point(class_scope:bc.exchange.GetRoveredBlocksResponse)
   })
 _sym_db.RegisterMessage(GetRoveredBlocksResponse)
 
 GetTxRequest = _reflection.GeneratedProtocolMessageType('GetTxRequest', (_message.Message,), {
   'DESCRIPTOR' : _GETTXREQUEST,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.GetTxRequest)
+  # @@protoc_insertion_point(class_scope:bc.exchange.GetTxRequest)
   })
 _sym_db.RegisterMessage(GetTxRequest)
 
 GetMarkedTxRequest = _reflection.GeneratedProtocolMessageType('GetMarkedTxRequest', (_message.Message,), {
   'DESCRIPTOR' : _GETMARKEDTXREQUEST,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.GetMarkedTxRequest)
+  # @@protoc_insertion_point(class_scope:bc.exchange.GetMarkedTxRequest)
   })
 _sym_db.RegisterMessage(GetMarkedTxRequest)
 
 GetOutPointRequest = _reflection.GeneratedProtocolMessageType('GetOutPointRequest', (_message.Message,), {
   'DESCRIPTOR' : _GETOUTPOINTREQUEST,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.GetOutPointRequest)
+  # @@protoc_insertion_point(class_scope:bc.exchange.GetOutPointRequest)
   })
 _sym_db.RegisterMessage(GetOutPointRequest)
 
 GetTradeStatusResponse = _reflection.GeneratedProtocolMessageType('GetTradeStatusResponse', (_message.Message,), {
   'DESCRIPTOR' : _GETTRADESTATUSRESPONSE,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.GetTradeStatusResponse)
+  # @@protoc_insertion_point(class_scope:bc.exchange.GetTradeStatusResponse)
   })
 _sym_db.RegisterMessage(GetTradeStatusResponse)
 
 GetOutPointStatusResponse = _reflection.GeneratedProtocolMessageType('GetOutPointStatusResponse', (_message.Message,), {
   'DESCRIPTOR' : _GETOUTPOINTSTATUSRESPONSE,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.GetOutPointStatusResponse)
+  # @@protoc_insertion_point(class_scope:bc.exchange.GetOutPointStatusResponse)
   })
 _sym_db.RegisterMessage(GetOutPointStatusResponse)
 
 CurrentWork = _reflection.GeneratedProtocolMessageType('CurrentWork', (_message.Message,), {
   'DESCRIPTOR' : _CURRENTWORK,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.CurrentWork)
+  # @@protoc_insertion_point(class_scope:bc.exchange.CurrentWork)
   })
 _sym_db.RegisterMessage(CurrentWork)
 
 SyncStatus = _reflection.GeneratedProtocolMessageType('SyncStatus', (_message.Message,), {
   'DESCRIPTOR' : _SYNCSTATUS,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.SyncStatus)
+  # @@protoc_insertion_point(class_scope:bc.exchange.SyncStatus)
   })
 _sym_db.RegisterMessage(SyncStatus)
 
 SettingsResponse = _reflection.GeneratedProtocolMessageType('SettingsResponse', (_message.Message,), {
   'DESCRIPTOR' : _SETTINGSRESPONSE,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.SettingsResponse)
+  # @@protoc_insertion_point(class_scope:bc.exchange.SettingsResponse)
   })
 _sym_db.RegisterMessage(SettingsResponse)
+
+GetNrgSupplyResponse = _reflection.GeneratedProtocolMessageType('GetNrgSupplyResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETNRGSUPPLYRESPONSE,
+  '__module__' : 'bc_pb2'
+  # @@protoc_insertion_point(class_scope:bc.exchange.GetNrgSupplyResponse)
+  })
+_sym_db.RegisterMessage(GetNrgSupplyResponse)
+
+GetMarkedTxs = _reflection.GeneratedProtocolMessageType('GetMarkedTxs', (_message.Message,), {
+  'DESCRIPTOR' : _GETMARKEDTXS,
+  '__module__' : 'bc_pb2'
+  # @@protoc_insertion_point(class_scope:bc.exchange.GetMarkedTxs)
+  })
+_sym_db.RegisterMessage(GetMarkedTxs)
 
 
 
 _BC = _descriptor.ServiceDescriptor(
   name='Bc',
-  full_name='bc.Bc',
+  full_name='bc.exchange.Bc',
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=3329,
-  serialized_end=5768,
+  serialized_start=4282,
+  serialized_end=8400,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetRoveredBlockHash',
-    full_name='bc.Bc.GetRoveredBlockHash',
+    full_name='bc.exchange.Bc.GetRoveredBlockHash',
     index=0,
     containing_service=None,
     input_type=_GETROVEREDBLOCKHASHREQUEST,
@@ -2246,7 +2757,7 @@ _BC = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='GetRoveredBlockHeight',
-    full_name='bc.Bc.GetRoveredBlockHeight',
+    full_name='bc.exchange.Bc.GetRoveredBlockHeight',
     index=1,
     containing_service=None,
     input_type=_GETROVEREDBLOCKHEIGHTREQUEST,
@@ -2256,7 +2767,7 @@ _BC = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='GetRoveredBlocks',
-    full_name='bc.Bc.GetRoveredBlocks',
+    full_name='bc.exchange.Bc.GetRoveredBlocks',
     index=2,
     containing_service=None,
     input_type=_GETROVEREDBLOCKSREQUEST,
@@ -2266,7 +2777,7 @@ _BC = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='GetLatestRoveredBlocks',
-    full_name='bc.Bc.GetLatestRoveredBlocks',
+    full_name='bc.exchange.Bc.GetLatestRoveredBlocks',
     index=3,
     containing_service=None,
     input_type=core__pb2._NULL,
@@ -2275,9 +2786,19 @@ _BC = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
-    name='GetBlockHash',
-    full_name='bc.Bc.GetBlockHash',
+    name='GetNrgSupply',
+    full_name='bc.exchange.Bc.GetNrgSupply',
     index=4,
+    containing_service=None,
+    input_type=core__pb2._NULL,
+    output_type=_GETNRGSUPPLYRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetBlockHash',
+    full_name='bc.exchange.Bc.GetBlockHash',
+    index=5,
     containing_service=None,
     input_type=_GETBLOCKHASHREQUEST,
     output_type=core__pb2._BCBLOCK,
@@ -2286,8 +2807,8 @@ _BC = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='GetBlockHeight',
-    full_name='bc.Bc.GetBlockHeight',
-    index=5,
+    full_name='bc.exchange.Bc.GetBlockHeight',
+    index=6,
     containing_service=None,
     input_type=_GETBLOCKHEIGHTREQUEST,
     output_type=core__pb2._BCBLOCK,
@@ -2296,8 +2817,8 @@ _BC = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='GetBlocksHeight',
-    full_name='bc.Bc.GetBlocksHeight',
-    index=6,
+    full_name='bc.exchange.Bc.GetBlocksHeight',
+    index=7,
     containing_service=None,
     input_type=_GETBLOCKHEIGHTREQUEST,
     output_type=_GETBLOCKSRESPONSE,
@@ -2306,8 +2827,8 @@ _BC = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='GetBlocks',
-    full_name='bc.Bc.GetBlocks',
-    index=7,
+    full_name='bc.exchange.Bc.GetBlocks',
+    index=8,
     containing_service=None,
     input_type=_GETBLOCKSREQUEST,
     output_type=_GETBLOCKSRESPONSE,
@@ -2316,8 +2837,18 @@ _BC = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='GetLatestBlock',
-    full_name='bc.Bc.GetLatestBlock',
-    index=8,
+    full_name='bc.exchange.Bc.GetLatestBlock',
+    index=9,
+    containing_service=None,
+    input_type=core__pb2._NULL,
+    output_type=core__pb2._BCBLOCK,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetLatestUTXOBlock',
+    full_name='bc.exchange.Bc.GetLatestUTXOBlock',
+    index=10,
     containing_service=None,
     input_type=core__pb2._NULL,
     output_type=core__pb2._BCBLOCK,
@@ -2326,8 +2857,8 @@ _BC = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='GetTx',
-    full_name='bc.Bc.GetTx',
-    index=9,
+    full_name='bc.exchange.Bc.GetTx',
+    index=11,
     containing_service=None,
     input_type=_GETTXREQUEST,
     output_type=core__pb2._TRANSACTION,
@@ -2336,8 +2867,8 @@ _BC = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='GetMarkedTx',
-    full_name='bc.Bc.GetMarkedTx',
-    index=10,
+    full_name='bc.exchange.Bc.GetMarkedTx',
+    index=12,
     containing_service=None,
     input_type=_GETMARKEDTXREQUEST,
     output_type=core__pb2._MARKEDTRANSACTION,
@@ -2345,9 +2876,19 @@ _BC = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='GetMarkedTxsForMatchedOrder',
+    full_name='bc.exchange.Bc.GetMarkedTxsForMatchedOrder',
+    index=13,
+    containing_service=None,
+    input_type=_GETOUTPOINTREQUEST,
+    output_type=_GETMARKEDTXS,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='GetTradeStatus',
-    full_name='bc.Bc.GetTradeStatus',
-    index=11,
+    full_name='bc.exchange.Bc.GetTradeStatus',
+    index=14,
     containing_service=None,
     input_type=_GETOUTPOINTREQUEST,
     output_type=_GETTRADESTATUSRESPONSE,
@@ -2356,8 +2897,8 @@ _BC = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='GetOutpointStatus',
-    full_name='bc.Bc.GetOutpointStatus',
-    index=12,
+    full_name='bc.exchange.Bc.GetOutpointStatus',
+    index=15,
     containing_service=None,
     input_type=_GETOUTPOINTREQUEST,
     output_type=_GETOUTPOINTSTATUSRESPONSE,
@@ -2366,8 +2907,8 @@ _BC = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='GetTxClaimedBy',
-    full_name='bc.Bc.GetTxClaimedBy',
-    index=13,
+    full_name='bc.exchange.Bc.GetTxClaimedBy',
+    index=16,
     containing_service=None,
     input_type=_GETOUTPOINTREQUEST,
     output_type=core__pb2._TRANSACTION,
@@ -2376,8 +2917,8 @@ _BC = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='GetRawMempool',
-    full_name='bc.Bc.GetRawMempool',
-    index=14,
+    full_name='bc.exchange.Bc.GetRawMempool',
+    index=17,
     containing_service=None,
     input_type=core__pb2._NULL,
     output_type=_GETRAWMEMPOOLRESPONSE,
@@ -2386,8 +2927,8 @@ _BC = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='GetBlockByTx',
-    full_name='bc.Bc.GetBlockByTx',
-    index=15,
+    full_name='bc.exchange.Bc.GetBlockByTx',
+    index=18,
     containing_service=None,
     input_type=_GETTXREQUEST,
     output_type=core__pb2._BCBLOCK,
@@ -2396,8 +2937,8 @@ _BC = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='GetRoveredBlockForMarkedTx',
-    full_name='bc.Bc.GetRoveredBlockForMarkedTx',
-    index=16,
+    full_name='bc.exchange.Bc.GetRoveredBlockForMarkedTx',
+    index=19,
     containing_service=None,
     input_type=_GETMARKEDTXREQUEST,
     output_type=core__pb2._BLOCK,
@@ -2406,8 +2947,8 @@ _BC = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='Help',
-    full_name='bc.Bc.Help',
-    index=17,
+    full_name='bc.exchange.Bc.Help',
+    index=20,
     containing_service=None,
     input_type=core__pb2._NULL,
     output_type=_HELPRESPONSE,
@@ -2416,8 +2957,8 @@ _BC = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='Stats',
-    full_name='bc.Bc.Stats',
-    index=18,
+    full_name='bc.exchange.Bc.Stats',
+    index=21,
     containing_service=None,
     input_type=core__pb2._NULL,
     output_type=_STATSRESPONSE,
@@ -2426,8 +2967,8 @@ _BC = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='GetSettings',
-    full_name='bc.Bc.GetSettings',
-    index=19,
+    full_name='bc.exchange.Bc.GetSettings',
+    index=22,
     containing_service=None,
     input_type=core__pb2._NULL,
     output_type=_SETTINGSRESPONSE,
@@ -2435,9 +2976,29 @@ _BC = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='NewFeed',
+    full_name='bc.exchange.Bc.NewFeed',
+    index=23,
+    containing_service=None,
+    input_type=_RPCFEEDTRANSACTION,
+    output_type=_RPCTRANSACTIONRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='UpdateFeed',
+    full_name='bc.exchange.Bc.UpdateFeed',
+    index=24,
+    containing_service=None,
+    input_type=_RPCUPDATEFEEDTRANSACTION,
+    output_type=_RPCTRANSACTIONRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='NewTx',
-    full_name='bc.Bc.NewTx',
-    index=20,
+    full_name='bc.exchange.Bc.NewTx',
+    index=25,
     containing_service=None,
     input_type=_RPCTRANSACTION,
     output_type=_RPCTRANSACTIONRESPONSE,
@@ -2446,8 +3007,8 @@ _BC = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='SendTx',
-    full_name='bc.Bc.SendTx',
-    index=21,
+    full_name='bc.exchange.Bc.SendTx',
+    index=26,
     containing_service=None,
     input_type=core__pb2._TRANSACTION,
     output_type=_RPCTRANSACTIONRESPONSE,
@@ -2455,9 +3016,19 @@ _BC = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='GetEmbBalance',
+    full_name='bc.exchange.Bc.GetEmbBalance',
+    index=27,
+    containing_service=None,
+    input_type=_GETBALANCEREQUEST,
+    output_type=_GETEMBBALANCERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='GetBalance',
-    full_name='bc.Bc.GetBalance',
-    index=22,
+    full_name='bc.exchange.Bc.GetBalance',
+    index=28,
     containing_service=None,
     input_type=_GETBALANCEREQUEST,
     output_type=_GETBALANCERESPONSE,
@@ -2466,8 +3037,8 @@ _BC = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='GetWallet',
-    full_name='bc.Bc.GetWallet',
-    index=23,
+    full_name='bc.exchange.Bc.GetWallet',
+    index=29,
     containing_service=None,
     input_type=_GETBALANCEREQUEST,
     output_type=core__pb2._WALLETDATA,
@@ -2476,18 +3047,18 @@ _BC = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='GetSpendableOutpoints',
-    full_name='bc.Bc.GetSpendableOutpoints',
-    index=24,
+    full_name='bc.exchange.Bc.GetSpendableOutpoints',
+    index=30,
     containing_service=None,
-    input_type=_GETBALANCEREQUEST,
+    input_type=_GETSPENDABLECOLLATERALREQUEST,
     output_type=core__pb2._WALLETDATA,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
     name='GetSpendableCollateral',
-    full_name='bc.Bc.GetSpendableCollateral',
-    index=25,
+    full_name='bc.exchange.Bc.GetSpendableCollateral',
+    index=31,
     containing_service=None,
     input_type=_GETSPENDABLECOLLATERALREQUEST,
     output_type=_GETSPENDABLECOLLATERALRESPONSE,
@@ -2496,8 +3067,8 @@ _BC = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='GetUnlockTakerTxParams',
-    full_name='bc.Bc.GetUnlockTakerTxParams',
-    index=26,
+    full_name='bc.exchange.Bc.GetUnlockTakerTxParams',
+    index=32,
     containing_service=None,
     input_type=_GETUNLOCKTAKERTXPARAMSREQUEST,
     output_type=_GETUNLOCKTAKERTXPARAMSRESPONSE,
@@ -2505,9 +3076,19 @@ _BC = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='GetByteFeeMultiplier',
+    full_name='bc.exchange.Bc.GetByteFeeMultiplier',
+    index=33,
+    containing_service=None,
+    input_type=core__pb2._NULL,
+    output_type=_GETBYTEFEERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='GetTransfers',
-    full_name='bc.Bc.GetTransfers',
-    index=27,
+    full_name='bc.exchange.Bc.GetTransfers',
+    index=34,
     containing_service=None,
     input_type=_TRANSFERREQUEST,
     output_type=_TRANSFERRESPONSE,
@@ -2515,39 +3096,79 @@ _BC = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
-    name='GetOpenOrders',
-    full_name='bc.Bc.GetOpenOrders',
-    index=28,
+    name='GetTakerForMaker',
+    full_name='bc.exchange.Bc.GetTakerForMaker',
+    index=35,
     containing_service=None,
-    input_type=_GETBALANCEREQUEST,
+    input_type=_GETOUTPOINTREQUEST,
+    output_type=_GETOUTPOINTREQUEST,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetOpenOrder',
+    full_name='bc.exchange.Bc.GetOpenOrder',
+    index=36,
+    containing_service=None,
+    input_type=_GETOUTPOINTREQUEST,
+    output_type=_GETOPENORDERSRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetOpenCallbackOrder',
+    full_name='bc.exchange.Bc.GetOpenCallbackOrder',
+    index=37,
+    containing_service=None,
+    input_type=_GETOUTPOINTREQUEST,
+    output_type=_GETOPENORDERSRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetMatchedOrder',
+    full_name='bc.exchange.Bc.GetMatchedOrder',
+    index=38,
+    containing_service=None,
+    input_type=_GETOUTPOINTREQUEST,
+    output_type=_GETMATCHEDORDERSRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetOpenOrders',
+    full_name='bc.exchange.Bc.GetOpenOrders',
+    index=39,
+    containing_service=None,
+    input_type=_GETSPENDABLECOLLATERALREQUEST,
     output_type=_GETOPENORDERSRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
     name='GetMatchedOrders',
-    full_name='bc.Bc.GetMatchedOrders',
-    index=29,
+    full_name='bc.exchange.Bc.GetMatchedOrders',
+    index=40,
     containing_service=None,
-    input_type=_GETBALANCEREQUEST,
+    input_type=_GETSPENDABLECOLLATERALREQUEST,
     output_type=_GETMATCHEDORDERSRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
     name='GetHistoricalOrders',
-    full_name='bc.Bc.GetHistoricalOrders',
-    index=30,
+    full_name='bc.exchange.Bc.GetHistoricalOrders',
+    index=41,
     containing_service=None,
     input_type=_GETHISTORYREQUEST,
-    output_type=_GETMATCHEDORDERSRESPONSE,
+    output_type=_GETHISTORICALORDERSRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
     name='GetUnmatchedOrders',
-    full_name='bc.Bc.GetUnmatchedOrders',
-    index=31,
+    full_name='bc.exchange.Bc.GetUnmatchedOrders',
+    index=42,
     containing_service=None,
     input_type=_GETBALANCEREQUEST,
     output_type=_GETOPENORDERSRESPONSE,
@@ -2555,9 +3176,19 @@ _BC = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='GetUtxos',
+    full_name='bc.exchange.Bc.GetUtxos',
+    index=43,
+    containing_service=None,
+    input_type=_GETUTXOSREQUEST,
+    output_type=core__pb2._UTXOS,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='GetUTXOLength',
-    full_name='bc.Bc.GetUTXOLength',
-    index=32,
+    full_name='bc.exchange.Bc.GetUTXOLength',
+    index=44,
     containing_service=None,
     input_type=_GETUTXOLENGTHREQUEST,
     output_type=_GETUTXOLENGTHRESPONSE,
@@ -2566,8 +3197,8 @@ _BC = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='GetSTXOLength',
-    full_name='bc.Bc.GetSTXOLength',
-    index=33,
+    full_name='bc.exchange.Bc.GetSTXOLength',
+    index=45,
     containing_service=None,
     input_type=_GETUTXOLENGTHREQUEST,
     output_type=_GETUTXOLENGTHRESPONSE,
@@ -2576,8 +3207,8 @@ _BC = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='GetBlake2bl',
-    full_name='bc.Bc.GetBlake2bl',
-    index=34,
+    full_name='bc.exchange.Bc.GetBlake2bl',
+    index=46,
     containing_service=None,
     input_type=_GETBLAKE2BLREQUEST,
     output_type=_GETBLAKE2BLRESPONSE,
@@ -2586,8 +3217,8 @@ _BC = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='GetBcAddressViaVanity',
-    full_name='bc.Bc.GetBcAddressViaVanity',
-    index=35,
+    full_name='bc.exchange.Bc.GetBcAddressViaVanity',
+    index=47,
     containing_service=None,
     input_type=_VANITYCONVERTREQUEST,
     output_type=_VANITYCONVERTRESPONSE,
@@ -2596,8 +3227,8 @@ _BC = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='GetCurrentWork',
-    full_name='bc.Bc.GetCurrentWork',
-    index=36,
+    full_name='bc.exchange.Bc.GetCurrentWork',
+    index=48,
     containing_service=None,
     input_type=core__pb2._NULL,
     output_type=_CURRENTWORK,
@@ -2606,8 +3237,18 @@ _BC = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='GetSyncStatus',
-    full_name='bc.Bc.GetSyncStatus',
-    index=37,
+    full_name='bc.exchange.Bc.GetSyncStatus',
+    index=49,
+    containing_service=None,
+    input_type=core__pb2._NULL,
+    output_type=_SYNCSTATUS,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetFastSyncStatus',
+    full_name='bc.exchange.Bc.GetFastSyncStatus',
+    index=50,
     containing_service=None,
     input_type=core__pb2._NULL,
     output_type=_SYNCSTATUS,

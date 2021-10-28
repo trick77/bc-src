@@ -16,192 +16,257 @@ class BcStub(object):
             channel: A grpc.Channel.
         """
         self.GetRoveredBlockHash = channel.unary_unary(
-                '/bc.Bc/GetRoveredBlockHash',
+                '/bc.exchange.Bc/GetRoveredBlockHash',
                 request_serializer=bc__pb2.GetRoveredBlockHashRequest.SerializeToString,
                 response_deserializer=core__pb2.Block.FromString,
                 )
         self.GetRoveredBlockHeight = channel.unary_unary(
-                '/bc.Bc/GetRoveredBlockHeight',
+                '/bc.exchange.Bc/GetRoveredBlockHeight',
                 request_serializer=bc__pb2.GetRoveredBlockHeightRequest.SerializeToString,
                 response_deserializer=core__pb2.Block.FromString,
                 )
         self.GetRoveredBlocks = channel.unary_unary(
-                '/bc.Bc/GetRoveredBlocks',
+                '/bc.exchange.Bc/GetRoveredBlocks',
                 request_serializer=bc__pb2.GetRoveredBlocksRequest.SerializeToString,
                 response_deserializer=bc__pb2.GetRoveredBlocksResponse.FromString,
                 )
         self.GetLatestRoveredBlocks = channel.unary_unary(
-                '/bc.Bc/GetLatestRoveredBlocks',
+                '/bc.exchange.Bc/GetLatestRoveredBlocks',
                 request_serializer=core__pb2.Null.SerializeToString,
                 response_deserializer=bc__pb2.GetRoveredBlocksResponse.FromString,
                 )
+        self.GetNrgSupply = channel.unary_unary(
+                '/bc.exchange.Bc/GetNrgSupply',
+                request_serializer=core__pb2.Null.SerializeToString,
+                response_deserializer=bc__pb2.GetNrgSupplyResponse.FromString,
+                )
         self.GetBlockHash = channel.unary_unary(
-                '/bc.Bc/GetBlockHash',
+                '/bc.exchange.Bc/GetBlockHash',
                 request_serializer=bc__pb2.GetBlockHashRequest.SerializeToString,
                 response_deserializer=core__pb2.BcBlock.FromString,
                 )
         self.GetBlockHeight = channel.unary_unary(
-                '/bc.Bc/GetBlockHeight',
+                '/bc.exchange.Bc/GetBlockHeight',
                 request_serializer=bc__pb2.GetBlockHeightRequest.SerializeToString,
                 response_deserializer=core__pb2.BcBlock.FromString,
                 )
         self.GetBlocksHeight = channel.unary_unary(
-                '/bc.Bc/GetBlocksHeight',
+                '/bc.exchange.Bc/GetBlocksHeight',
                 request_serializer=bc__pb2.GetBlockHeightRequest.SerializeToString,
                 response_deserializer=bc__pb2.GetBlocksResponse.FromString,
                 )
         self.GetBlocks = channel.unary_unary(
-                '/bc.Bc/GetBlocks',
+                '/bc.exchange.Bc/GetBlocks',
                 request_serializer=bc__pb2.GetBlocksRequest.SerializeToString,
                 response_deserializer=bc__pb2.GetBlocksResponse.FromString,
                 )
         self.GetLatestBlock = channel.unary_unary(
-                '/bc.Bc/GetLatestBlock',
+                '/bc.exchange.Bc/GetLatestBlock',
+                request_serializer=core__pb2.Null.SerializeToString,
+                response_deserializer=core__pb2.BcBlock.FromString,
+                )
+        self.GetLatestUTXOBlock = channel.unary_unary(
+                '/bc.exchange.Bc/GetLatestUTXOBlock',
                 request_serializer=core__pb2.Null.SerializeToString,
                 response_deserializer=core__pb2.BcBlock.FromString,
                 )
         self.GetTx = channel.unary_unary(
-                '/bc.Bc/GetTx',
+                '/bc.exchange.Bc/GetTx',
                 request_serializer=bc__pb2.GetTxRequest.SerializeToString,
                 response_deserializer=core__pb2.Transaction.FromString,
                 )
         self.GetMarkedTx = channel.unary_unary(
-                '/bc.Bc/GetMarkedTx',
+                '/bc.exchange.Bc/GetMarkedTx',
                 request_serializer=bc__pb2.GetMarkedTxRequest.SerializeToString,
                 response_deserializer=core__pb2.MarkedTransaction.FromString,
                 )
+        self.GetMarkedTxsForMatchedOrder = channel.unary_unary(
+                '/bc.exchange.Bc/GetMarkedTxsForMatchedOrder',
+                request_serializer=bc__pb2.GetOutPointRequest.SerializeToString,
+                response_deserializer=bc__pb2.GetMarkedTxs.FromString,
+                )
         self.GetTradeStatus = channel.unary_unary(
-                '/bc.Bc/GetTradeStatus',
+                '/bc.exchange.Bc/GetTradeStatus',
                 request_serializer=bc__pb2.GetOutPointRequest.SerializeToString,
                 response_deserializer=bc__pb2.GetTradeStatusResponse.FromString,
                 )
         self.GetOutpointStatus = channel.unary_unary(
-                '/bc.Bc/GetOutpointStatus',
+                '/bc.exchange.Bc/GetOutpointStatus',
                 request_serializer=bc__pb2.GetOutPointRequest.SerializeToString,
                 response_deserializer=bc__pb2.GetOutPointStatusResponse.FromString,
                 )
         self.GetTxClaimedBy = channel.unary_unary(
-                '/bc.Bc/GetTxClaimedBy',
+                '/bc.exchange.Bc/GetTxClaimedBy',
                 request_serializer=bc__pb2.GetOutPointRequest.SerializeToString,
                 response_deserializer=core__pb2.Transaction.FromString,
                 )
         self.GetRawMempool = channel.unary_unary(
-                '/bc.Bc/GetRawMempool',
+                '/bc.exchange.Bc/GetRawMempool',
                 request_serializer=core__pb2.Null.SerializeToString,
                 response_deserializer=bc__pb2.GetRawMempoolResponse.FromString,
                 )
         self.GetBlockByTx = channel.unary_unary(
-                '/bc.Bc/GetBlockByTx',
+                '/bc.exchange.Bc/GetBlockByTx',
                 request_serializer=bc__pb2.GetTxRequest.SerializeToString,
                 response_deserializer=core__pb2.BcBlock.FromString,
                 )
         self.GetRoveredBlockForMarkedTx = channel.unary_unary(
-                '/bc.Bc/GetRoveredBlockForMarkedTx',
+                '/bc.exchange.Bc/GetRoveredBlockForMarkedTx',
                 request_serializer=bc__pb2.GetMarkedTxRequest.SerializeToString,
                 response_deserializer=core__pb2.Block.FromString,
                 )
         self.Help = channel.unary_unary(
-                '/bc.Bc/Help',
+                '/bc.exchange.Bc/Help',
                 request_serializer=core__pb2.Null.SerializeToString,
                 response_deserializer=bc__pb2.HelpResponse.FromString,
                 )
         self.Stats = channel.unary_unary(
-                '/bc.Bc/Stats',
+                '/bc.exchange.Bc/Stats',
                 request_serializer=core__pb2.Null.SerializeToString,
                 response_deserializer=bc__pb2.StatsResponse.FromString,
                 )
         self.GetSettings = channel.unary_unary(
-                '/bc.Bc/GetSettings',
+                '/bc.exchange.Bc/GetSettings',
                 request_serializer=core__pb2.Null.SerializeToString,
                 response_deserializer=bc__pb2.SettingsResponse.FromString,
                 )
+        self.NewFeed = channel.unary_unary(
+                '/bc.exchange.Bc/NewFeed',
+                request_serializer=bc__pb2.RpcFeedTransaction.SerializeToString,
+                response_deserializer=bc__pb2.RpcTransactionResponse.FromString,
+                )
+        self.UpdateFeed = channel.unary_unary(
+                '/bc.exchange.Bc/UpdateFeed',
+                request_serializer=bc__pb2.RpcUpdateFeedTransaction.SerializeToString,
+                response_deserializer=bc__pb2.RpcTransactionResponse.FromString,
+                )
         self.NewTx = channel.unary_unary(
-                '/bc.Bc/NewTx',
+                '/bc.exchange.Bc/NewTx',
                 request_serializer=bc__pb2.RpcTransaction.SerializeToString,
                 response_deserializer=bc__pb2.RpcTransactionResponse.FromString,
                 )
         self.SendTx = channel.unary_unary(
-                '/bc.Bc/SendTx',
+                '/bc.exchange.Bc/SendTx',
                 request_serializer=core__pb2.Transaction.SerializeToString,
                 response_deserializer=bc__pb2.RpcTransactionResponse.FromString,
                 )
+        self.GetEmbBalance = channel.unary_unary(
+                '/bc.exchange.Bc/GetEmbBalance',
+                request_serializer=bc__pb2.GetBalanceRequest.SerializeToString,
+                response_deserializer=bc__pb2.GetEmbBalanceResponse.FromString,
+                )
         self.GetBalance = channel.unary_unary(
-                '/bc.Bc/GetBalance',
+                '/bc.exchange.Bc/GetBalance',
                 request_serializer=bc__pb2.GetBalanceRequest.SerializeToString,
                 response_deserializer=bc__pb2.GetBalanceResponse.FromString,
                 )
         self.GetWallet = channel.unary_unary(
-                '/bc.Bc/GetWallet',
+                '/bc.exchange.Bc/GetWallet',
                 request_serializer=bc__pb2.GetBalanceRequest.SerializeToString,
                 response_deserializer=core__pb2.WalletData.FromString,
                 )
         self.GetSpendableOutpoints = channel.unary_unary(
-                '/bc.Bc/GetSpendableOutpoints',
-                request_serializer=bc__pb2.GetBalanceRequest.SerializeToString,
+                '/bc.exchange.Bc/GetSpendableOutpoints',
+                request_serializer=bc__pb2.GetSpendableCollateralRequest.SerializeToString,
                 response_deserializer=core__pb2.WalletData.FromString,
                 )
         self.GetSpendableCollateral = channel.unary_unary(
-                '/bc.Bc/GetSpendableCollateral',
+                '/bc.exchange.Bc/GetSpendableCollateral',
                 request_serializer=bc__pb2.GetSpendableCollateralRequest.SerializeToString,
                 response_deserializer=bc__pb2.GetSpendableCollateralResponse.FromString,
                 )
         self.GetUnlockTakerTxParams = channel.unary_unary(
-                '/bc.Bc/GetUnlockTakerTxParams',
+                '/bc.exchange.Bc/GetUnlockTakerTxParams',
                 request_serializer=bc__pb2.GetUnlockTakerTxParamsRequest.SerializeToString,
                 response_deserializer=bc__pb2.GetUnlockTakerTxParamsResponse.FromString,
                 )
+        self.GetByteFeeMultiplier = channel.unary_unary(
+                '/bc.exchange.Bc/GetByteFeeMultiplier',
+                request_serializer=core__pb2.Null.SerializeToString,
+                response_deserializer=bc__pb2.GetByteFeeResponse.FromString,
+                )
         self.GetTransfers = channel.unary_unary(
-                '/bc.Bc/GetTransfers',
+                '/bc.exchange.Bc/GetTransfers',
                 request_serializer=bc__pb2.TransferRequest.SerializeToString,
                 response_deserializer=bc__pb2.TransferResponse.FromString,
                 )
+        self.GetTakerForMaker = channel.unary_unary(
+                '/bc.exchange.Bc/GetTakerForMaker',
+                request_serializer=bc__pb2.GetOutPointRequest.SerializeToString,
+                response_deserializer=bc__pb2.GetOutPointRequest.FromString,
+                )
+        self.GetOpenOrder = channel.unary_unary(
+                '/bc.exchange.Bc/GetOpenOrder',
+                request_serializer=bc__pb2.GetOutPointRequest.SerializeToString,
+                response_deserializer=bc__pb2.GetOpenOrdersResponse.FromString,
+                )
+        self.GetOpenCallbackOrder = channel.unary_unary(
+                '/bc.exchange.Bc/GetOpenCallbackOrder',
+                request_serializer=bc__pb2.GetOutPointRequest.SerializeToString,
+                response_deserializer=bc__pb2.GetOpenOrdersResponse.FromString,
+                )
+        self.GetMatchedOrder = channel.unary_unary(
+                '/bc.exchange.Bc/GetMatchedOrder',
+                request_serializer=bc__pb2.GetOutPointRequest.SerializeToString,
+                response_deserializer=bc__pb2.GetMatchedOrdersResponse.FromString,
+                )
         self.GetOpenOrders = channel.unary_unary(
-                '/bc.Bc/GetOpenOrders',
-                request_serializer=bc__pb2.GetBalanceRequest.SerializeToString,
+                '/bc.exchange.Bc/GetOpenOrders',
+                request_serializer=bc__pb2.GetSpendableCollateralRequest.SerializeToString,
                 response_deserializer=bc__pb2.GetOpenOrdersResponse.FromString,
                 )
         self.GetMatchedOrders = channel.unary_unary(
-                '/bc.Bc/GetMatchedOrders',
-                request_serializer=bc__pb2.GetBalanceRequest.SerializeToString,
+                '/bc.exchange.Bc/GetMatchedOrders',
+                request_serializer=bc__pb2.GetSpendableCollateralRequest.SerializeToString,
                 response_deserializer=bc__pb2.GetMatchedOrdersResponse.FromString,
                 )
         self.GetHistoricalOrders = channel.unary_unary(
-                '/bc.Bc/GetHistoricalOrders',
+                '/bc.exchange.Bc/GetHistoricalOrders',
                 request_serializer=bc__pb2.GetHistoryRequest.SerializeToString,
-                response_deserializer=bc__pb2.GetMatchedOrdersResponse.FromString,
+                response_deserializer=bc__pb2.GetHistoricalOrdersResponse.FromString,
                 )
         self.GetUnmatchedOrders = channel.unary_unary(
-                '/bc.Bc/GetUnmatchedOrders',
+                '/bc.exchange.Bc/GetUnmatchedOrders',
                 request_serializer=bc__pb2.GetBalanceRequest.SerializeToString,
                 response_deserializer=bc__pb2.GetOpenOrdersResponse.FromString,
                 )
+        self.GetUtxos = channel.unary_unary(
+                '/bc.exchange.Bc/GetUtxos',
+                request_serializer=bc__pb2.GetUtxosRequest.SerializeToString,
+                response_deserializer=core__pb2.Utxos.FromString,
+                )
         self.GetUTXOLength = channel.unary_unary(
-                '/bc.Bc/GetUTXOLength',
+                '/bc.exchange.Bc/GetUTXOLength',
                 request_serializer=bc__pb2.GetUtxoLengthRequest.SerializeToString,
                 response_deserializer=bc__pb2.GetUtxoLengthResponse.FromString,
                 )
         self.GetSTXOLength = channel.unary_unary(
-                '/bc.Bc/GetSTXOLength',
+                '/bc.exchange.Bc/GetSTXOLength',
                 request_serializer=bc__pb2.GetUtxoLengthRequest.SerializeToString,
                 response_deserializer=bc__pb2.GetUtxoLengthResponse.FromString,
                 )
         self.GetBlake2bl = channel.unary_unary(
-                '/bc.Bc/GetBlake2bl',
+                '/bc.exchange.Bc/GetBlake2bl',
                 request_serializer=bc__pb2.GetBlake2blRequest.SerializeToString,
                 response_deserializer=bc__pb2.GetBlake2blResponse.FromString,
                 )
         self.GetBcAddressViaVanity = channel.unary_unary(
-                '/bc.Bc/GetBcAddressViaVanity',
+                '/bc.exchange.Bc/GetBcAddressViaVanity',
                 request_serializer=bc__pb2.VanityConvertRequest.SerializeToString,
                 response_deserializer=bc__pb2.VanityConvertResponse.FromString,
                 )
         self.GetCurrentWork = channel.unary_unary(
-                '/bc.Bc/GetCurrentWork',
+                '/bc.exchange.Bc/GetCurrentWork',
                 request_serializer=core__pb2.Null.SerializeToString,
                 response_deserializer=bc__pb2.CurrentWork.FromString,
                 )
         self.GetSyncStatus = channel.unary_unary(
-                '/bc.Bc/GetSyncStatus',
+                '/bc.exchange.Bc/GetSyncStatus',
+                request_serializer=core__pb2.Null.SerializeToString,
+                response_deserializer=bc__pb2.SyncStatus.FromString,
+                )
+        self.GetFastSyncStatus = channel.unary_unary(
+                '/bc.exchange.Bc/GetFastSyncStatus',
                 request_serializer=core__pb2.Null.SerializeToString,
                 response_deserializer=bc__pb2.SyncStatus.FromString,
                 )
@@ -229,6 +294,12 @@ class BcServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GetLatestRoveredBlocks(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetNrgSupply(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -264,6 +335,12 @@ class BcServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetLatestUTXOBlock(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetTx(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -271,6 +348,12 @@ class BcServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GetMarkedTx(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetMarkedTxsForMatchedOrder(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -330,6 +413,18 @@ class BcServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def NewFeed(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateFeed(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def NewTx(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -337,6 +432,12 @@ class BcServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def SendTx(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetEmbBalance(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -372,7 +473,37 @@ class BcServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetByteFeeMultiplier(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetTransfers(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetTakerForMaker(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetOpenOrder(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetOpenCallbackOrder(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetMatchedOrder(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -397,6 +528,12 @@ class BcServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GetUnmatchedOrders(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetUtxos(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -438,6 +575,12 @@ class BcServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetFastSyncStatus(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_BcServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -460,6 +603,11 @@ def add_BcServicer_to_server(servicer, server):
                     servicer.GetLatestRoveredBlocks,
                     request_deserializer=core__pb2.Null.FromString,
                     response_serializer=bc__pb2.GetRoveredBlocksResponse.SerializeToString,
+            ),
+            'GetNrgSupply': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetNrgSupply,
+                    request_deserializer=core__pb2.Null.FromString,
+                    response_serializer=bc__pb2.GetNrgSupplyResponse.SerializeToString,
             ),
             'GetBlockHash': grpc.unary_unary_rpc_method_handler(
                     servicer.GetBlockHash,
@@ -486,6 +634,11 @@ def add_BcServicer_to_server(servicer, server):
                     request_deserializer=core__pb2.Null.FromString,
                     response_serializer=core__pb2.BcBlock.SerializeToString,
             ),
+            'GetLatestUTXOBlock': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetLatestUTXOBlock,
+                    request_deserializer=core__pb2.Null.FromString,
+                    response_serializer=core__pb2.BcBlock.SerializeToString,
+            ),
             'GetTx': grpc.unary_unary_rpc_method_handler(
                     servicer.GetTx,
                     request_deserializer=bc__pb2.GetTxRequest.FromString,
@@ -495,6 +648,11 @@ def add_BcServicer_to_server(servicer, server):
                     servicer.GetMarkedTx,
                     request_deserializer=bc__pb2.GetMarkedTxRequest.FromString,
                     response_serializer=core__pb2.MarkedTransaction.SerializeToString,
+            ),
+            'GetMarkedTxsForMatchedOrder': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetMarkedTxsForMatchedOrder,
+                    request_deserializer=bc__pb2.GetOutPointRequest.FromString,
+                    response_serializer=bc__pb2.GetMarkedTxs.SerializeToString,
             ),
             'GetTradeStatus': grpc.unary_unary_rpc_method_handler(
                     servicer.GetTradeStatus,
@@ -541,6 +699,16 @@ def add_BcServicer_to_server(servicer, server):
                     request_deserializer=core__pb2.Null.FromString,
                     response_serializer=bc__pb2.SettingsResponse.SerializeToString,
             ),
+            'NewFeed': grpc.unary_unary_rpc_method_handler(
+                    servicer.NewFeed,
+                    request_deserializer=bc__pb2.RpcFeedTransaction.FromString,
+                    response_serializer=bc__pb2.RpcTransactionResponse.SerializeToString,
+            ),
+            'UpdateFeed': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateFeed,
+                    request_deserializer=bc__pb2.RpcUpdateFeedTransaction.FromString,
+                    response_serializer=bc__pb2.RpcTransactionResponse.SerializeToString,
+            ),
             'NewTx': grpc.unary_unary_rpc_method_handler(
                     servicer.NewTx,
                     request_deserializer=bc__pb2.RpcTransaction.FromString,
@@ -550,6 +718,11 @@ def add_BcServicer_to_server(servicer, server):
                     servicer.SendTx,
                     request_deserializer=core__pb2.Transaction.FromString,
                     response_serializer=bc__pb2.RpcTransactionResponse.SerializeToString,
+            ),
+            'GetEmbBalance': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetEmbBalance,
+                    request_deserializer=bc__pb2.GetBalanceRequest.FromString,
+                    response_serializer=bc__pb2.GetEmbBalanceResponse.SerializeToString,
             ),
             'GetBalance': grpc.unary_unary_rpc_method_handler(
                     servicer.GetBalance,
@@ -563,7 +736,7 @@ def add_BcServicer_to_server(servicer, server):
             ),
             'GetSpendableOutpoints': grpc.unary_unary_rpc_method_handler(
                     servicer.GetSpendableOutpoints,
-                    request_deserializer=bc__pb2.GetBalanceRequest.FromString,
+                    request_deserializer=bc__pb2.GetSpendableCollateralRequest.FromString,
                     response_serializer=core__pb2.WalletData.SerializeToString,
             ),
             'GetSpendableCollateral': grpc.unary_unary_rpc_method_handler(
@@ -576,30 +749,60 @@ def add_BcServicer_to_server(servicer, server):
                     request_deserializer=bc__pb2.GetUnlockTakerTxParamsRequest.FromString,
                     response_serializer=bc__pb2.GetUnlockTakerTxParamsResponse.SerializeToString,
             ),
+            'GetByteFeeMultiplier': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetByteFeeMultiplier,
+                    request_deserializer=core__pb2.Null.FromString,
+                    response_serializer=bc__pb2.GetByteFeeResponse.SerializeToString,
+            ),
             'GetTransfers': grpc.unary_unary_rpc_method_handler(
                     servicer.GetTransfers,
                     request_deserializer=bc__pb2.TransferRequest.FromString,
                     response_serializer=bc__pb2.TransferResponse.SerializeToString,
             ),
+            'GetTakerForMaker': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetTakerForMaker,
+                    request_deserializer=bc__pb2.GetOutPointRequest.FromString,
+                    response_serializer=bc__pb2.GetOutPointRequest.SerializeToString,
+            ),
+            'GetOpenOrder': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOpenOrder,
+                    request_deserializer=bc__pb2.GetOutPointRequest.FromString,
+                    response_serializer=bc__pb2.GetOpenOrdersResponse.SerializeToString,
+            ),
+            'GetOpenCallbackOrder': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOpenCallbackOrder,
+                    request_deserializer=bc__pb2.GetOutPointRequest.FromString,
+                    response_serializer=bc__pb2.GetOpenOrdersResponse.SerializeToString,
+            ),
+            'GetMatchedOrder': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetMatchedOrder,
+                    request_deserializer=bc__pb2.GetOutPointRequest.FromString,
+                    response_serializer=bc__pb2.GetMatchedOrdersResponse.SerializeToString,
+            ),
             'GetOpenOrders': grpc.unary_unary_rpc_method_handler(
                     servicer.GetOpenOrders,
-                    request_deserializer=bc__pb2.GetBalanceRequest.FromString,
+                    request_deserializer=bc__pb2.GetSpendableCollateralRequest.FromString,
                     response_serializer=bc__pb2.GetOpenOrdersResponse.SerializeToString,
             ),
             'GetMatchedOrders': grpc.unary_unary_rpc_method_handler(
                     servicer.GetMatchedOrders,
-                    request_deserializer=bc__pb2.GetBalanceRequest.FromString,
+                    request_deserializer=bc__pb2.GetSpendableCollateralRequest.FromString,
                     response_serializer=bc__pb2.GetMatchedOrdersResponse.SerializeToString,
             ),
             'GetHistoricalOrders': grpc.unary_unary_rpc_method_handler(
                     servicer.GetHistoricalOrders,
                     request_deserializer=bc__pb2.GetHistoryRequest.FromString,
-                    response_serializer=bc__pb2.GetMatchedOrdersResponse.SerializeToString,
+                    response_serializer=bc__pb2.GetHistoricalOrdersResponse.SerializeToString,
             ),
             'GetUnmatchedOrders': grpc.unary_unary_rpc_method_handler(
                     servicer.GetUnmatchedOrders,
                     request_deserializer=bc__pb2.GetBalanceRequest.FromString,
                     response_serializer=bc__pb2.GetOpenOrdersResponse.SerializeToString,
+            ),
+            'GetUtxos': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetUtxos,
+                    request_deserializer=bc__pb2.GetUtxosRequest.FromString,
+                    response_serializer=core__pb2.Utxos.SerializeToString,
             ),
             'GetUTXOLength': grpc.unary_unary_rpc_method_handler(
                     servicer.GetUTXOLength,
@@ -631,9 +834,14 @@ def add_BcServicer_to_server(servicer, server):
                     request_deserializer=core__pb2.Null.FromString,
                     response_serializer=bc__pb2.SyncStatus.SerializeToString,
             ),
+            'GetFastSyncStatus': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetFastSyncStatus,
+                    request_deserializer=core__pb2.Null.FromString,
+                    response_serializer=bc__pb2.SyncStatus.SerializeToString,
+            ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'bc.Bc', rpc_method_handlers)
+            'bc.exchange.Bc', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -652,7 +860,7 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/GetRoveredBlockHash',
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetRoveredBlockHash',
             bc__pb2.GetRoveredBlockHashRequest.SerializeToString,
             core__pb2.Block.FromString,
             options, channel_credentials,
@@ -669,7 +877,7 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/GetRoveredBlockHeight',
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetRoveredBlockHeight',
             bc__pb2.GetRoveredBlockHeightRequest.SerializeToString,
             core__pb2.Block.FromString,
             options, channel_credentials,
@@ -686,7 +894,7 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/GetRoveredBlocks',
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetRoveredBlocks',
             bc__pb2.GetRoveredBlocksRequest.SerializeToString,
             bc__pb2.GetRoveredBlocksResponse.FromString,
             options, channel_credentials,
@@ -703,9 +911,26 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/GetLatestRoveredBlocks',
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetLatestRoveredBlocks',
             core__pb2.Null.SerializeToString,
             bc__pb2.GetRoveredBlocksResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetNrgSupply(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetNrgSupply',
+            core__pb2.Null.SerializeToString,
+            bc__pb2.GetNrgSupplyResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -720,7 +945,7 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/GetBlockHash',
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetBlockHash',
             bc__pb2.GetBlockHashRequest.SerializeToString,
             core__pb2.BcBlock.FromString,
             options, channel_credentials,
@@ -737,7 +962,7 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/GetBlockHeight',
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetBlockHeight',
             bc__pb2.GetBlockHeightRequest.SerializeToString,
             core__pb2.BcBlock.FromString,
             options, channel_credentials,
@@ -754,7 +979,7 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/GetBlocksHeight',
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetBlocksHeight',
             bc__pb2.GetBlockHeightRequest.SerializeToString,
             bc__pb2.GetBlocksResponse.FromString,
             options, channel_credentials,
@@ -771,7 +996,7 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/GetBlocks',
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetBlocks',
             bc__pb2.GetBlocksRequest.SerializeToString,
             bc__pb2.GetBlocksResponse.FromString,
             options, channel_credentials,
@@ -788,7 +1013,24 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/GetLatestBlock',
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetLatestBlock',
+            core__pb2.Null.SerializeToString,
+            core__pb2.BcBlock.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetLatestUTXOBlock(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetLatestUTXOBlock',
             core__pb2.Null.SerializeToString,
             core__pb2.BcBlock.FromString,
             options, channel_credentials,
@@ -805,7 +1047,7 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/GetTx',
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetTx',
             bc__pb2.GetTxRequest.SerializeToString,
             core__pb2.Transaction.FromString,
             options, channel_credentials,
@@ -822,9 +1064,26 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/GetMarkedTx',
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetMarkedTx',
             bc__pb2.GetMarkedTxRequest.SerializeToString,
             core__pb2.MarkedTransaction.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetMarkedTxsForMatchedOrder(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetMarkedTxsForMatchedOrder',
+            bc__pb2.GetOutPointRequest.SerializeToString,
+            bc__pb2.GetMarkedTxs.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -839,7 +1098,7 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/GetTradeStatus',
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetTradeStatus',
             bc__pb2.GetOutPointRequest.SerializeToString,
             bc__pb2.GetTradeStatusResponse.FromString,
             options, channel_credentials,
@@ -856,7 +1115,7 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/GetOutpointStatus',
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetOutpointStatus',
             bc__pb2.GetOutPointRequest.SerializeToString,
             bc__pb2.GetOutPointStatusResponse.FromString,
             options, channel_credentials,
@@ -873,7 +1132,7 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/GetTxClaimedBy',
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetTxClaimedBy',
             bc__pb2.GetOutPointRequest.SerializeToString,
             core__pb2.Transaction.FromString,
             options, channel_credentials,
@@ -890,7 +1149,7 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/GetRawMempool',
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetRawMempool',
             core__pb2.Null.SerializeToString,
             bc__pb2.GetRawMempoolResponse.FromString,
             options, channel_credentials,
@@ -907,7 +1166,7 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/GetBlockByTx',
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetBlockByTx',
             bc__pb2.GetTxRequest.SerializeToString,
             core__pb2.BcBlock.FromString,
             options, channel_credentials,
@@ -924,7 +1183,7 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/GetRoveredBlockForMarkedTx',
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetRoveredBlockForMarkedTx',
             bc__pb2.GetMarkedTxRequest.SerializeToString,
             core__pb2.Block.FromString,
             options, channel_credentials,
@@ -941,7 +1200,7 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/Help',
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/Help',
             core__pb2.Null.SerializeToString,
             bc__pb2.HelpResponse.FromString,
             options, channel_credentials,
@@ -958,7 +1217,7 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/Stats',
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/Stats',
             core__pb2.Null.SerializeToString,
             bc__pb2.StatsResponse.FromString,
             options, channel_credentials,
@@ -975,9 +1234,43 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/GetSettings',
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetSettings',
             core__pb2.Null.SerializeToString,
             bc__pb2.SettingsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def NewFeed(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/NewFeed',
+            bc__pb2.RpcFeedTransaction.SerializeToString,
+            bc__pb2.RpcTransactionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateFeed(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/UpdateFeed',
+            bc__pb2.RpcUpdateFeedTransaction.SerializeToString,
+            bc__pb2.RpcTransactionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -992,7 +1285,7 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/NewTx',
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/NewTx',
             bc__pb2.RpcTransaction.SerializeToString,
             bc__pb2.RpcTransactionResponse.FromString,
             options, channel_credentials,
@@ -1009,9 +1302,26 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/SendTx',
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/SendTx',
             core__pb2.Transaction.SerializeToString,
             bc__pb2.RpcTransactionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetEmbBalance(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetEmbBalance',
+            bc__pb2.GetBalanceRequest.SerializeToString,
+            bc__pb2.GetEmbBalanceResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -1026,7 +1336,7 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/GetBalance',
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetBalance',
             bc__pb2.GetBalanceRequest.SerializeToString,
             bc__pb2.GetBalanceResponse.FromString,
             options, channel_credentials,
@@ -1043,7 +1353,7 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/GetWallet',
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetWallet',
             bc__pb2.GetBalanceRequest.SerializeToString,
             core__pb2.WalletData.FromString,
             options, channel_credentials,
@@ -1060,8 +1370,8 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/GetSpendableOutpoints',
-            bc__pb2.GetBalanceRequest.SerializeToString,
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetSpendableOutpoints',
+            bc__pb2.GetSpendableCollateralRequest.SerializeToString,
             core__pb2.WalletData.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -1077,7 +1387,7 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/GetSpendableCollateral',
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetSpendableCollateral',
             bc__pb2.GetSpendableCollateralRequest.SerializeToString,
             bc__pb2.GetSpendableCollateralResponse.FromString,
             options, channel_credentials,
@@ -1094,9 +1404,26 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/GetUnlockTakerTxParams',
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetUnlockTakerTxParams',
             bc__pb2.GetUnlockTakerTxParamsRequest.SerializeToString,
             bc__pb2.GetUnlockTakerTxParamsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetByteFeeMultiplier(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetByteFeeMultiplier',
+            core__pb2.Null.SerializeToString,
+            bc__pb2.GetByteFeeResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -1111,9 +1438,77 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/GetTransfers',
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetTransfers',
             bc__pb2.TransferRequest.SerializeToString,
             bc__pb2.TransferResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetTakerForMaker(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetTakerForMaker',
+            bc__pb2.GetOutPointRequest.SerializeToString,
+            bc__pb2.GetOutPointRequest.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetOpenOrder(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetOpenOrder',
+            bc__pb2.GetOutPointRequest.SerializeToString,
+            bc__pb2.GetOpenOrdersResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetOpenCallbackOrder(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetOpenCallbackOrder',
+            bc__pb2.GetOutPointRequest.SerializeToString,
+            bc__pb2.GetOpenOrdersResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetMatchedOrder(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetMatchedOrder',
+            bc__pb2.GetOutPointRequest.SerializeToString,
+            bc__pb2.GetMatchedOrdersResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -1128,8 +1523,8 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/GetOpenOrders',
-            bc__pb2.GetBalanceRequest.SerializeToString,
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetOpenOrders',
+            bc__pb2.GetSpendableCollateralRequest.SerializeToString,
             bc__pb2.GetOpenOrdersResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -1145,8 +1540,8 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/GetMatchedOrders',
-            bc__pb2.GetBalanceRequest.SerializeToString,
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetMatchedOrders',
+            bc__pb2.GetSpendableCollateralRequest.SerializeToString,
             bc__pb2.GetMatchedOrdersResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -1162,9 +1557,9 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/GetHistoricalOrders',
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetHistoricalOrders',
             bc__pb2.GetHistoryRequest.SerializeToString,
-            bc__pb2.GetMatchedOrdersResponse.FromString,
+            bc__pb2.GetHistoricalOrdersResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -1179,9 +1574,26 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/GetUnmatchedOrders',
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetUnmatchedOrders',
             bc__pb2.GetBalanceRequest.SerializeToString,
             bc__pb2.GetOpenOrdersResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetUtxos(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetUtxos',
+            bc__pb2.GetUtxosRequest.SerializeToString,
+            core__pb2.Utxos.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -1196,7 +1608,7 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/GetUTXOLength',
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetUTXOLength',
             bc__pb2.GetUtxoLengthRequest.SerializeToString,
             bc__pb2.GetUtxoLengthResponse.FromString,
             options, channel_credentials,
@@ -1213,7 +1625,7 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/GetSTXOLength',
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetSTXOLength',
             bc__pb2.GetUtxoLengthRequest.SerializeToString,
             bc__pb2.GetUtxoLengthResponse.FromString,
             options, channel_credentials,
@@ -1230,7 +1642,7 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/GetBlake2bl',
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetBlake2bl',
             bc__pb2.GetBlake2blRequest.SerializeToString,
             bc__pb2.GetBlake2blResponse.FromString,
             options, channel_credentials,
@@ -1247,7 +1659,7 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/GetBcAddressViaVanity',
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetBcAddressViaVanity',
             bc__pb2.VanityConvertRequest.SerializeToString,
             bc__pb2.VanityConvertResponse.FromString,
             options, channel_credentials,
@@ -1264,7 +1676,7 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/GetCurrentWork',
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetCurrentWork',
             core__pb2.Null.SerializeToString,
             bc__pb2.CurrentWork.FromString,
             options, channel_credentials,
@@ -1281,7 +1693,24 @@ class Bc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/bc.Bc/GetSyncStatus',
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetSyncStatus',
+            core__pb2.Null.SerializeToString,
+            bc__pb2.SyncStatus.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetFastSyncStatus(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/GetFastSyncStatus',
             core__pb2.Null.SerializeToString,
             bc__pb2.SyncStatus.FromString,
             options, channel_credentials,
