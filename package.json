@@ -1,6 +1,6 @@
 {
   "name": "olnode",
-  "version": "1.4.6",
+  "version": "1.4.7",
   "description": "EMB & OL MINER",
   "main": "lib/src/init.js",
   "scripts": {
@@ -109,7 +109,7 @@
     "@liskhq/lisk-cryptography": "^3.1.0",
     "@liskhq/lisk-p2p": "^0.7.1",
     "@liskhq/lisk-validator": "^0.6.0",
-    "@overline/proto": "0.3.0",
+    "@overline/proto": "0.2.0",
     "@pm2/io": "^5.0.0",
     "atob": "2.1.2",
     "avon": "akloboucnik/avon#node-12-compatibility",
