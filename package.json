@@ -1,6 +1,6 @@
 {
   "name": "olnode",
-  "version": "1.4.7",
+  "version": "1.4.8",
   "description": "EMB & OL MINER",
   "main": "lib/src/init.js",
   "scripts": {
@@ -103,7 +103,7 @@
     "@ethereumjs/devp2p": "4.2.0",
     "@ethereumjs/tx": "^3.3.0",
     "@ethereumjs/vm": "^5.5.2",
-    "@grpc/grpc-js": "^1.4.1",
+    "@grpc/grpc-js": "^1.4.4",
     "@liskhq/lisk-chain": "^0.3.2",
     "@liskhq/lisk-codec": "^0.2.0",
     "@liskhq/lisk-cryptography": "^3.1.0",
@@ -111,6 +111,7 @@
     "@liskhq/lisk-validator": "^0.6.0",
     "@overline/proto": "0.3.0",
     "@pm2/io": "^5.0.0",
+    "async": "^3.2.2",
     "atob": "2.1.2",
     "avon": "akloboucnik/avon#node-12-compatibility",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
