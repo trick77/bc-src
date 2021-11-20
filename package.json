@@ -1,6 +1,6 @@
 {
   "name": "olnode",
-  "version": "1.4.8",
+  "version": "1.4.9",
   "description": "EMB & OL MINER",
   "main": "lib/src/init.js",
   "scripts": {
@@ -98,10 +98,10 @@
   "dependencies": {
     "@cityofzion/neo-js": "0.14.0",
     "@cityofzion/neon-js": "4.9.0",
-    "@ethereumjs/block": "3.5.1",
-    "@ethereumjs/common": "2.5.0",
+    "@ethereumjs/block": "3.6.0",
+    "@ethereumjs/common": "2.6.0",
     "@ethereumjs/devp2p": "4.2.0",
-    "@ethereumjs/tx": "^3.3.0",
+    "@ethereumjs/tx": "^3.4.0",
     "@ethereumjs/vm": "^5.5.2",
     "@grpc/grpc-js": "^1.4.4",
     "@liskhq/lisk-chain": "^0.3.2",
@@ -116,7 +116,7 @@
     "avon": "akloboucnik/avon#node-12-compatibility",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "basic-auth": "2.0.1",
-    "bcjs": "blockcollider/bcjs#v0.2.1",
+    "bcjs": "blockcollider/bcjs#v0.2.2",
     "bdns": "^0.1.1",
     "bitcoinjs-lib": "^5.2.0",
     "bitcore-p2p": "^8.25.12",
