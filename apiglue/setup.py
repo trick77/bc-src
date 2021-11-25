@@ -41,7 +41,7 @@ def get_version():
     return g["__version__"]
 
 
-INSTALL_REQUIRES = ['grpcio-tools', 'jsonrpcserver']
+INSTALL_REQUIRES = ['grpcio-tools', 'jsonrpcserver<5']
 EXTRAS_REQUIRE = {}
 
 setup(name="apiglue",
