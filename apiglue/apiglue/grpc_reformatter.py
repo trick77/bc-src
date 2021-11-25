@@ -77,9 +77,9 @@ def ol_getWork():
     lcl_workstate = WorkState()
     lcl_workstate.__dict__.update(gbl_workstate.__dict__)
     done = check_work_completed.get(lcl_workstate.work_id) 
-    return [lcl_workstate.work or "", lcl_workstate.merkle_root or "", lcl_workstate.difficulty or "",
-            lcl_workstate.number or str(0), lcl_workstate.work_id or "", lcl_workstate.miner_key or "",
-            lcl_workstate.timestamp or str(0), lcl_workstate.last_block_hash or "", str(done)]
+    return [lcl_workstate.work, lcl_workstate.merkle_root, lcl_workstate.difficulty,
+            str(lcl_workstate.number), lcl_workstate.work_id, lcl_workstate.miner_key,
+            str(lcl_workstate.timestamp), lcl_workstate.last_block_hash, str(done)]
 
 @method
 def ol_submitWork(work_id, nonce, difficulty, distance, timestamp, iterations, time_diff):
