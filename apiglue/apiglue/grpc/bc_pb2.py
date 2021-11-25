@@ -21,10 +21,31 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x08\x62\x63.proto\x12\x0b\x62\x63.exchange\x1a\ncore.proto\"!\n\x0cHelpResponse\x12\x11\n\thelp_text\x18\x01 \x01(\t\"?\n\rStatsResponse\x12\r\n\x05\x63\x61lls\x18\x01 \x01(\x03\x12\x1f\n\x17latest_gpu_miner_update\x18\x02 \x01(\x04\"m\n\x0eRpcTransaction\x12\x11\n\tfrom_addr\x18\x01 \x01(\t\x12\x0f\n\x07to_addr\x18\x02 \x01(\t\x12\x0e\n\x06\x61mount\x18\x03 \x01(\t\x12\x0e\n\x06tx_fee\x18\x04 \x01(\t\x12\x17\n\x0fprivate_key_hex\x18\x05 \x01(\t\"t\n\x12RpcFeedTransaction\x12\x12\n\nowner_addr\x18\x01 \x01(\t\x12\x11\n\tfeed_addr\x18\x02 \x01(\t\x12\x0e\n\x06\x61mount\x18\x03 \x01(\t\x12\x0e\n\x06tx_fee\x18\x04 \x01(\t\x12\x17\n\x0fprivate_key_hex\x18\x05 \x01(\t\"\x81\x02\n\x18RpcUpdateFeedTransaction\x12\x12\n\nowner_addr\x18\x01 \x01(\t\x12\x11\n\tfeed_addr\x18\x02 \x01(\t\x12\x13\n\x0bsender_addr\x18\x03 \x01(\t\x12\x0c\n\x04\x64\x61ta\x18\x04 \x01(\t\x12\x13\n\x0b\x64\x61ta_length\x18\x05 \x01(\t\x12\x0e\n\x06\x61mount\x18\x06 \x01(\t\x12\x0e\n\x06tx_fee\x18\x07 \x01(\t\x12\x10\n\x08tx_panel\x18\x08 \x01(\t\x12\x0f\n\x07tx_part\x18\t \x01(\t\x12\x10\n\x08tx_nonce\x18\n \x01(\t\x12\x18\n\x10minimum_distance\x18\x0b \x01(\t\x12\x17\n\x0fprivate_key_hex\x18\x0c \x01(\t\"s\n\x16RpcTransactionResponse\x12\x39\n\x06status\x18\x01 \x01(\x0e\x32).bc.exchange.RpcTransactionResponseStatus\x12\x0f\n\x07tx_hash\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\"\x81\x01\n\x08Transfer\x12\x0c\n\x04\x66rom\x18\x01 \x01(\t\x12\n\n\x02to\x18\x02 \x01(\t\x12\x0e\n\x06\x61mount\x18\x03 \x01(\t\x12\x0f\n\x07tx_hash\x18\x04 \x01(\t\x12\x17\n\x0ftx_output_index\x18\x05 \x01(\r\x12\x11\n\ttimestamp\x18\x06 \x01(\x04\x12\x0e\n\x06height\x18\x07 \x01(\x04\"=\n\x0fTransferRequest\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\x12\x0b\n\x03max\x18\x02 \x01(\r\x12\x0c\n\x04\x66rom\x18\x03 \x01(\t\".\n\x11GetHistoryRequest\x12\x0c\n\x04\x66rom\x18\x01 \x01(\t\x12\x0b\n\x03max\x18\x02 \x01(\x04\"V\n\x10TransferResponse\x12(\n\ttransfers\x18\x01 \x03(\x0b\x32\x15.bc.exchange.Transfer\x12\x0c\n\x04\x66rom\x18\x02 \x01(\t\x12\n\n\x02to\x18\x03 \x01(\t\"<\n\x14GetUtxoLengthRequest\x12\x13\n\x0bscript_type\x18\x01 \x01(\t\x12\x0f\n\x07\x61\x64\x64ress\x18\x02 \x01(\t\"Q\n\x0fGetUtxosRequest\x12\x13\n\x0bscript_type\x18\x01 \x01(\t\x12\x0f\n\x07\x61\x64\x64ress\x18\x02 \x01(\t\x12\x0c\n\x04\x66rom\x18\x03 \x01(\t\x12\n\n\x02to\x18\x04 \x01(\t\"\'\n\x15GetUtxoLengthResponse\x12\x0e\n\x06length\x18\x01 \x01(\r\"J\n\x1dGetSpendableCollateralRequest\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\x12\x0c\n\x04\x66rom\x18\x02 \x01(\r\x12\n\n\x02to\x18\x03 \x01(\r\"F\n\x1eGetSpendableCollateralResponse\x12$\n\toutpoints\x18\x01 \x03(\x0b\x32\x11.bc.core.OutPoint\"$\n\x11GetBalanceRequest\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\"(\n\x15GetEmbBalanceResponse\x12\x0f\n\x07\x62\x61lance\x18\x01 \x01(\t\"!\n\x12GetByteFeeResponse\x12\x0b\n\x03\x66\x65\x65\x18\x01 \x01(\t\"x\n\x12GetBalanceResponse\x12\x0e\n\x06height\x18\x01 \x01(\r\x12\x11\n\tconfirmed\x18\x02 \x01(\t\x12\x13\n\x0bunconfirmed\x18\x03 \x01(\t\x12\x16\n\x0e\x63ollateralized\x18\x04 \x01(\t\x12\x12\n\nunlockable\x18\x05 \x01(\t\"I\n\x1dGetUnlockTakerTxParamsRequest\x12\x0f\n\x07tx_hash\x18\x01 \x01(\t\x12\x17\n\x0ftx_output_index\x18\x02 \x01(\r\"M\n\x1eGetUnlockTakerTxParamsResponse\x12\x16\n\x0eunlock_scripts\x18\x01 \x03(\t\x12\x13\n\x0bvalue_in_tx\x18\x02 \x01(\x0c\"\xd8\x03\n\x0eMakerOrderInfo\x12\x14\n\x0ctrade_height\x18\x01 \x01(\x04\x12\x0f\n\x07\x64\x65posit\x18\x02 \x01(\x04\x12\x12\n\nsettlement\x18\x03 \x01(\x04\x12\x13\n\x0bshift_maker\x18\x04 \x01(\x04\x12\x13\n\x0bshift_taker\x18\x05 \x01(\x04\x12\x18\n\x10sends_from_chain\x18\x06 \x01(\t\x12\x19\n\x11receives_to_chain\x18\x07 \x01(\t\x12\x1a\n\x12sends_from_address\x18\x08 \x01(\t\x12\x1b\n\x13receives_to_address\x18\t \x01(\t\x12\x12\n\nsends_unit\x18\n \x01(\t\x12\x15\n\rreceives_unit\x18\x0b \x01(\t\x12 \n\x18\x64ouble_hashed_bc_address\x18\x0c \x01(\t\x12\x1a\n\x12\x63ollateralized_nrg\x18\r \x01(\t\x12\x14\n\x0coriginal_nrg\x18\x0e \x01(\t\x12\x10\n\x08nrg_unit\x18\x0f \x01(\t\x12\x0f\n\x07tx_hash\x18\x10 \x01(\t\x12\x17\n\x0ftx_output_index\x18\x11 \x01(\r\x12\x12\n\nis_settled\x18\x12 \x01(\x08\x12\x16\n\x0e\x66ixed_unit_fee\x18\x13 \x01(\t\x12\x0c\n\x04\x62\x61se\x18\x14 \x01(\r\"\xec\x01\n\x0eTakerOrderInfo\x12\x1a\n\x12sends_from_address\x18\x01 \x01(\t\x12\x1b\n\x13receives_to_address\x18\x02 \x01(\t\x12 \n\x18\x64ouble_hashed_bc_address\x18\x03 \x01(\t\x12\x12\n\nis_settled\x18\x04 \x01(\x08\x12\x0f\n\x07tx_hash\x18\x05 \x01(\t\x12\x17\n\x0ftx_output_index\x18\x06 \x01(\r\x12\x18\n\x10total_collateral\x18\x07 \x01(\t\x12\x14\n\x0ctrade_height\x18\x08 \x01(\x04\x12\x11\n\ttimestamp\x18\t \x01(\x04\"|\n\x10MatchedOrderInfo\x12*\n\x05maker\x18\x01 \x01(\x0b\x32\x1b.bc.exchange.MakerOrderInfo\x12*\n\x05taker\x18\x02 \x01(\x0b\x32\x1b.bc.exchange.TakerOrderInfo\x12\x10\n\x08unlocked\x18\x07 \x01(\x08\"D\n\x15GetOpenOrdersResponse\x12+\n\x06orders\x18\x01 \x03(\x0b\x32\x1b.bc.exchange.MakerOrderInfo\"I\n\x18GetMatchedOrdersResponse\x12-\n\x06orders\x18\x01 \x03(\x0b\x32\x1d.bc.exchange.MatchedOrderInfo\"`\n\x1bGetHistoricalOrdersResponse\x12-\n\x06orders\x18\x01 \x03(\x0b\x32\x1d.bc.exchange.MatchedOrderInfo\x12\x12\n\nnext_block\x18\x02 \x01(\x04\"\x97\x01\n\nTakerOrder\x12\x1a\n\x12sends_from_address\x18\x01 \x01(\t\x12\x1b\n\x13receives_to_address\x18\x02 \x01(\t\x12\x15\n\rmaker_tx_hash\x18\x03 \x01(\t\x12\x1d\n\x15maker_tx_output_index\x18\x04 \x01(\r\x12\x1a\n\x12\x63ollateralized_nrg\x18\x05 \x01(\t\"9\n\x12GetBlake2blRequest\x12\x14\n\x0cto_be_hashed\x18\x01 \x01(\t\x12\r\n\x05times\x18\x02 \x01(\r\"#\n\x13GetBlake2blResponse\x12\x0c\n\x04hash\x18\x01 \x01(\t\"&\n\x14VanityConvertRequest\x12\x0e\n\x06vanity\x18\x01 \x01(\t\":\n\x15VanityConvertResponse\x12\x12\n\nbc_address\x18\x01 \x01(\t\x12\r\n\x05\x65rror\x18\x02 \x01(\t\">\n\x1aGetRoveredBlockHashRequest\x12\x12\n\nblockchain\x18\x01 \x01(\t\x12\x0c\n\x04hash\x18\x02 \x01(\t\"B\n\x1cGetRoveredBlockHeightRequest\x12\x12\n\nblockchain\x18\x01 \x01(\t\x12\x0e\n\x06height\x18\x02 \x01(\r\"#\n\x13GetBlockHashRequest\x12\x0c\n\x04hash\x18\x01 \x01(\t\"\'\n\x15GetBlockHeightRequest\x12\x0e\n\x06height\x18\x01 \x01(\r\"<\n\x10GetBlocksRequest\x12\x14\n\x0cstart_height\x18\x01 \x01(\r\x12\x12\n\nend_height\x18\x02 \x01(\r\"5\n\x11GetBlocksResponse\x12 \n\x06\x62locks\x18\x01 \x03(\x0b\x32\x10.bc.core.BcBlock\"W\n\x17GetRoveredBlocksRequest\x12\x12\n\nblockchain\x18\x01 \x01(\t\x12\x14\n\x0cstart_height\x18\x02 \x01(\r\x12\x12\n\nend_height\x18\x03 \x01(\r\"C\n\x15GetRawMempoolResponse\x12*\n\x0ctransactions\x18\x01 \x03(\x0b\x32\x14.bc.core.Transaction\":\n\x18GetRoveredBlocksResponse\x12\x1e\n\x06\x62locks\x18\x01 \x03(\x0b\x32\x0e.bc.core.Block\"\x1c\n\x0cGetTxRequest\x12\x0c\n\x04hash\x18\x01 \x01(\t\"6\n\x12GetMarkedTxRequest\x12\x12\n\nblockchain\x18\x01 \x01(\t\x12\x0c\n\x04hash\x18\x02 \x01(\t\"1\n\x12GetOutPointRequest\x12\x0c\n\x04hash\x18\x01 \x01(\t\x12\r\n\x05index\x18\x02 \x01(\r\"(\n\x16GetTradeStatusResponse\x12\x0e\n\x06status\x18\x01 \x01(\r\",\n\x19GetOutPointStatusResponse\x12\x0f\n\x07unspent\x18\x01 \x01(\x08\"\x1b\n\x0b\x43urrentWork\x12\x0c\n\x04work\x18\x01 \x01(\t\"\x1c\n\nSyncStatus\x12\x0e\n\x06status\x18\x01 \x01(\t\"?\n\x10SettingsResponse\x12\x14\n\x0cngrok_tunnel\x18\x01 \x01(\t\x12\x15\n\rbuild_version\x18\x02 \x01(\t\"&\n\x14GetNrgSupplyResponse\x12\x0e\n\x06\x61mount\x18\x01 \x01(\t\"7\n\x0cGetMarkedTxs\x12\'\n\x03txs\x18\x01 \x03(\x0b\x32\x1a.bc.core.MarkedTransaction*8\n\x1cRpcTransactionResponseStatus\x12\x0b\n\x07Success\x10\x00\x12\x0b\n\x07\x46\x61ilure\x10\x01\x32\x96 \n\x02\x42\x63\x12P\n\x13GetRoveredBlockHash\x12\'.bc.exchange.GetRoveredBlockHashRequest\x1a\x0e.bc.core.Block\"\x00\x12T\n\x15GetRoveredBlockHeight\x12).bc.exchange.GetRoveredBlockHeightRequest\x1a\x0e.bc.core.Block\"\x00\x12\x61\n\x10GetRoveredBlocks\x12$.bc.exchange.GetRoveredBlocksRequest\x1a%.bc.exchange.GetRoveredBlocksResponse\"\x00\x12P\n\x16GetLatestRoveredBlocks\x12\r.bc.core.Null\x1a%.bc.exchange.GetRoveredBlocksResponse\"\x00\x12\x42\n\x0cGetNrgSupply\x12\r.bc.core.Null\x1a!.bc.exchange.GetNrgSupplyResponse\"\x00\x12\x44\n\x0cGetBlockHash\x12 .bc.exchange.GetBlockHashRequest\x1a\x10.bc.core.BcBlock\"\x00\x12H\n\x0eGetBlockHeight\x12\".bc.exchange.GetBlockHeightRequest\x1a\x10.bc.core.BcBlock\"\x00\x12W\n\x0fGetBlocksHeight\x12\".bc.exchange.GetBlockHeightRequest\x1a\x1e.bc.exchange.GetBlocksResponse\"\x00\x12L\n\tGetBlocks\x12\x1d.bc.exchange.GetBlocksRequest\x1a\x1e.bc.exchange.GetBlocksResponse\"\x00\x12\x33\n\x0eGetLatestBlock\x12\r.bc.core.Null\x1a\x10.bc.core.BcBlock\"\x00\x12\x37\n\x12GetLatestUTXOBlock\x12\r.bc.core.Null\x1a\x10.bc.core.BcBlock\"\x00\x12:\n\x05GetTx\x12\x19.bc.exchange.GetTxRequest\x1a\x14.bc.core.Transaction\"\x00\x12L\n\x0bGetMarkedTx\x12\x1f.bc.exchange.GetMarkedTxRequest\x1a\x1a.bc.core.MarkedTransaction\"\x00\x12[\n\x1bGetMarkedTxsForMatchedOrder\x12\x1f.bc.exchange.GetOutPointRequest\x1a\x19.bc.exchange.GetMarkedTxs\"\x00\x12X\n\x0eGetTradeStatus\x12\x1f.bc.exchange.GetOutPointRequest\x1a#.bc.exchange.GetTradeStatusResponse\"\x00\x12^\n\x11GetOutpointStatus\x12\x1f.bc.exchange.GetOutPointRequest\x1a&.bc.exchange.GetOutPointStatusResponse\"\x00\x12I\n\x0eGetTxClaimedBy\x12\x1f.bc.exchange.GetOutPointRequest\x1a\x14.bc.core.Transaction\"\x00\x12\x44\n\rGetRawMempool\x12\r.bc.core.Null\x1a\".bc.exchange.GetRawMempoolResponse\"\x00\x12=\n\x0cGetBlockByTx\x12\x19.bc.exchange.GetTxRequest\x1a\x10.bc.core.BcBlock\"\x00\x12O\n\x1aGetRoveredBlockForMarkedTx\x12\x1f.bc.exchange.GetMarkedTxRequest\x1a\x0e.bc.core.Block\"\x00\x12\x32\n\x04Help\x12\r.bc.core.Null\x1a\x19.bc.exchange.HelpResponse\"\x00\x12\x34\n\x05Stats\x12\r.bc.core.Null\x1a\x1a.bc.exchange.StatsResponse\"\x00\x12=\n\x0bGetSettings\x12\r.bc.core.Null\x1a\x1d.bc.exchange.SettingsResponse\"\x00\x12Q\n\x07NewFeed\x12\x1f.bc.exchange.RpcFeedTransaction\x1a#.bc.exchange.RpcTransactionResponse\"\x00\x12Z\n\nUpdateFeed\x12%.bc.exchange.RpcUpdateFeedTransaction\x1a#.bc.exchange.RpcTransactionResponse\"\x00\x12K\n\x05NewTx\x12\x1b.bc.exchange.RpcTransaction\x1a#.bc.exchange.RpcTransactionResponse\"\x00\x12\x45\n\x06SendTx\x12\x14.bc.core.Transaction\x1a#.bc.exchange.RpcTransactionResponse\"\x00\x12U\n\rGetEmbBalance\x12\x1e.bc.exchange.GetBalanceRequest\x1a\".bc.exchange.GetEmbBalanceResponse\"\x00\x12O\n\nGetBalance\x12\x1e.bc.exchange.GetBalanceRequest\x1a\x1f.bc.exchange.GetBalanceResponse\"\x00\x12\x42\n\tGetWallet\x12\x1e.bc.exchange.GetBalanceRequest\x1a\x13.bc.core.WalletData\"\x00\x12Z\n\x15GetSpendableOutpoints\x12*.bc.exchange.GetSpendableCollateralRequest\x1a\x13.bc.core.WalletData\"\x00\x12s\n\x16GetSpendableCollateral\x12*.bc.exchange.GetSpendableCollateralRequest\x1a+.bc.exchange.GetSpendableCollateralResponse\"\x00\x12s\n\x16GetUnlockTakerTxParams\x12*.bc.exchange.GetUnlockTakerTxParamsRequest\x1a+.bc.exchange.GetUnlockTakerTxParamsResponse\"\x00\x12H\n\x14GetByteFeeMultiplier\x12\r.bc.core.Null\x1a\x1f.bc.exchange.GetByteFeeResponse\"\x00\x12M\n\x0cGetTransfers\x12\x1c.bc.exchange.TransferRequest\x1a\x1d.bc.exchange.TransferResponse\"\x00\x12V\n\x10GetTakerForMaker\x12\x1f.bc.exchange.GetOutPointRequest\x1a\x1f.bc.exchange.GetOutPointRequest\"\x00\x12U\n\x0cGetOpenOrder\x12\x1f.bc.exchange.GetOutPointRequest\x1a\".bc.exchange.GetOpenOrdersResponse\"\x00\x12]\n\x14GetOpenCallbackOrder\x12\x1f.bc.exchange.GetOutPointRequest\x1a\".bc.exchange.GetOpenOrdersResponse\"\x00\x12[\n\x0fGetMatchedOrder\x12\x1f.bc.exchange.GetOutPointRequest\x1a%.bc.exchange.GetMatchedOrdersResponse\"\x00\x12\x61\n\rGetOpenOrders\x12*.bc.exchange.GetSpendableCollateralRequest\x1a\".bc.exchange.GetOpenOrdersResponse\"\x00\x12g\n\x10GetMatchedOrders\x12*.bc.exchange.GetSpendableCollateralRequest\x1a%.bc.exchange.GetMatchedOrdersResponse\"\x00\x12\x61\n\x13GetHistoricalOrders\x12\x1e.bc.exchange.GetHistoryRequest\x1a(.bc.exchange.GetHistoricalOrdersResponse\"\x00\x12Z\n\x12GetUnmatchedOrders\x12\x1e.bc.exchange.GetBalanceRequest\x1a\".bc.exchange.GetOpenOrdersResponse\"\x00\x12:\n\x08GetUtxos\x12\x1c.bc.exchange.GetUtxosRequest\x1a\x0e.bc.core.Utxos\"\x00\x12X\n\rGetUTXOLength\x12!.bc.exchange.GetUtxoLengthRequest\x1a\".bc.exchange.GetUtxoLengthResponse\"\x00\x12X\n\rGetSTXOLength\x12!.bc.exchange.GetUtxoLengthRequest\x1a\".bc.exchange.GetUtxoLengthResponse\"\x00\x12R\n\x0bGetBlake2bl\x12\x1f.bc.exchange.GetBlake2blRequest\x1a .bc.exchange.GetBlake2blResponse\"\x00\x12`\n\x15GetBcAddressViaVanity\x12!.bc.exchange.VanityConvertRequest\x1a\".bc.exchange.VanityConvertResponse\"\x00\x12;\n\x0eGetCurrentWork\x12\r.bc.core.Null\x1a\x18.bc.exchange.CurrentWork\"\x00\x12\x39\n\rGetSyncStatus\x12\r.bc.core.Null\x1a\x17.bc.exchange.SyncStatus\"\x00\x12=\n\x11GetFastSyncStatus\x12\r.bc.core.Null\x1a\x17.bc.exchange.SyncStatus\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x08\x62\x63.proto\x12\x0b\x62\x63.exchange\x1a\ncore.proto\"!\n\x0cHelpResponse\x12\x11\n\thelp_text\x18\x01 \x01(\t\"?\n\rStatsResponse\x12\r\n\x05\x63\x61lls\x18\x01 \x01(\x03\x12\x1f\n\x17latest_gpu_miner_update\x18\x02 \x01(\x04\"m\n\x0eRpcTransaction\x12\x11\n\tfrom_addr\x18\x01 \x01(\t\x12\x0f\n\x07to_addr\x18\x02 \x01(\t\x12\x0e\n\x06\x61mount\x18\x03 \x01(\t\x12\x0e\n\x06tx_fee\x18\x04 \x01(\t\x12\x17\n\x0fprivate_key_hex\x18\x05 \x01(\t\"\xa6\x02\n\x19RpcFeedTransactionRequest\x12\x12\n\nowner_addr\x18\x01 \x01(\t\x12\x11\n\tfeed_addr\x18\x02 \x01(\t\x12\x37\n\tdata_type\x18\x03 \x01(\x0e\x32$.bc.exchange.FeedTransactionDataType\x12\x13\n\x0b\x64\x61ta_length\x18\x04 \x01(\x04\x12\x0c\n\x04\x64\x61ta\x18\x05 \x01(\t\x12\x0e\n\x06\x61mount\x18\x06 \x01(\t\x12\x0e\n\x06tx_fee\x18\x07 \x01(\t\x12\x0f\n\x07tx_part\x18\x08 \x01(\t\x12\x10\n\x08tx_panel\x18\t \x01(\t\x12\x10\n\x08tx_nonce\x18\n \x01(\t\x12\x18\n\x10minimum_distance\x18\x0b \x01(\t\x12\x17\n\x0fprivate_key_hex\x18\x0c \x01(\t\"\xc1\x02\n\x1fRpcUpdateFeedTransactionRequest\x12\x12\n\nowner_addr\x18\x01 \x01(\t\x12\x11\n\tfeed_addr\x18\x02 \x01(\t\x12\x13\n\x0bsender_addr\x18\x03 \x01(\t\x12\x37\n\tdata_type\x18\x04 \x01(\x0e\x32$.bc.exchange.FeedTransactionDataType\x12\x13\n\x0b\x64\x61ta_length\x18\x05 \x01(\x04\x12\x0c\n\x04\x64\x61ta\x18\x06 \x01(\t\x12\x0e\n\x06\x61mount\x18\x07 \x01(\t\x12\x0e\n\x06tx_fee\x18\x08 \x01(\t\x12\x10\n\x08tx_panel\x18\t \x01(\t\x12\x0f\n\x07tx_part\x18\n \x01(\t\x12\x10\n\x08tx_nonce\x18\x0b \x01(\t\x12\x18\n\x10minimum_distance\x18\x0c \x01(\t\x12\x17\n\x0fprivate_key_hex\x18\r \x01(\t\"s\n\x16RpcTransactionResponse\x12\x39\n\x06status\x18\x01 \x01(\x0e\x32).bc.exchange.RpcTransactionResponseStatus\x12\x0f\n\x07tx_hash\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\"\x81\x01\n\x08Transfer\x12\x0c\n\x04\x66rom\x18\x01 \x01(\t\x12\n\n\x02to\x18\x02 \x01(\t\x12\x0e\n\x06\x61mount\x18\x03 \x01(\t\x12\x0f\n\x07tx_hash\x18\x04 \x01(\t\x12\x17\n\x0ftx_output_index\x18\x05 \x01(\r\x12\x11\n\ttimestamp\x18\x06 \x01(\x04\x12\x0e\n\x06height\x18\x07 \x01(\x04\"=\n\x0fTransferRequest\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\x12\x0b\n\x03max\x18\x02 \x01(\r\x12\x0c\n\x04\x66rom\x18\x03 \x01(\t\".\n\x11GetHistoryRequest\x12\x0c\n\x04\x66rom\x18\x01 \x01(\t\x12\x0b\n\x03max\x18\x02 \x01(\x04\"V\n\x10TransferResponse\x12(\n\ttransfers\x18\x01 \x03(\x0b\x32\x15.bc.exchange.Transfer\x12\x0c\n\x04\x66rom\x18\x02 \x01(\t\x12\n\n\x02to\x18\x03 \x01(\t\"<\n\x14GetUtxoLengthRequest\x12\x13\n\x0bscript_type\x18\x01 \x01(\t\x12\x0f\n\x07\x61\x64\x64ress\x18\x02 \x01(\t\"Q\n\x0fGetUtxosRequest\x12\x13\n\x0bscript_type\x18\x01 \x01(\t\x12\x0f\n\x07\x61\x64\x64ress\x18\x02 \x01(\t\x12\x0c\n\x04\x66rom\x18\x03 \x01(\t\x12\n\n\x02to\x18\x04 \x01(\t\"\'\n\x15GetUtxoLengthResponse\x12\x0e\n\x06length\x18\x01 \x01(\r\"J\n\x1dGetSpendableCollateralRequest\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\x12\x0c\n\x04\x66rom\x18\x02 \x01(\r\x12\n\n\x02to\x18\x03 \x01(\r\"F\n\x1eGetSpendableCollateralResponse\x12$\n\toutpoints\x18\x01 \x03(\x0b\x32\x11.bc.core.OutPoint\"$\n\x11GetBalanceRequest\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\"(\n\x15GetEmbBalanceResponse\x12\x0f\n\x07\x62\x61lance\x18\x01 \x01(\t\"!\n\x12GetByteFeeResponse\x12\x0b\n\x03\x66\x65\x65\x18\x01 \x01(\t\"x\n\x12GetBalanceResponse\x12\x0e\n\x06height\x18\x01 \x01(\r\x12\x11\n\tconfirmed\x18\x02 \x01(\t\x12\x13\n\x0bunconfirmed\x18\x03 \x01(\t\x12\x16\n\x0e\x63ollateralized\x18\x04 \x01(\t\x12\x12\n\nunlockable\x18\x05 \x01(\t\"I\n\x1dGetUnlockTakerTxParamsRequest\x12\x0f\n\x07tx_hash\x18\x01 \x01(\t\x12\x17\n\x0ftx_output_index\x18\x02 \x01(\r\"M\n\x1eGetUnlockTakerTxParamsResponse\x12\x16\n\x0eunlock_scripts\x18\x01 \x03(\t\x12\x13\n\x0bvalue_in_tx\x18\x02 \x01(\x0c\"\xd8\x03\n\x0eMakerOrderInfo\x12\x14\n\x0ctrade_height\x18\x01 \x01(\x04\x12\x0f\n\x07\x64\x65posit\x18\x02 \x01(\x04\x12\x12\n\nsettlement\x18\x03 \x01(\x04\x12\x13\n\x0bshift_maker\x18\x04 \x01(\x04\x12\x13\n\x0bshift_taker\x18\x05 \x01(\x04\x12\x18\n\x10sends_from_chain\x18\x06 \x01(\t\x12\x19\n\x11receives_to_chain\x18\x07 \x01(\t\x12\x1a\n\x12sends_from_address\x18\x08 \x01(\t\x12\x1b\n\x13receives_to_address\x18\t \x01(\t\x12\x12\n\nsends_unit\x18\n \x01(\t\x12\x15\n\rreceives_unit\x18\x0b \x01(\t\x12 \n\x18\x64ouble_hashed_bc_address\x18\x0c \x01(\t\x12\x1a\n\x12\x63ollateralized_nrg\x18\r \x01(\t\x12\x14\n\x0coriginal_nrg\x18\x0e \x01(\t\x12\x10\n\x08nrg_unit\x18\x0f \x01(\t\x12\x0f\n\x07tx_hash\x18\x10 \x01(\t\x12\x17\n\x0ftx_output_index\x18\x11 \x01(\r\x12\x12\n\nis_settled\x18\x12 \x01(\x08\x12\x16\n\x0e\x66ixed_unit_fee\x18\x13 \x01(\t\x12\x0c\n\x04\x62\x61se\x18\x14 \x01(\r\"\xec\x01\n\x0eTakerOrderInfo\x12\x1a\n\x12sends_from_address\x18\x01 \x01(\t\x12\x1b\n\x13receives_to_address\x18\x02 \x01(\t\x12 \n\x18\x64ouble_hashed_bc_address\x18\x03 \x01(\t\x12\x12\n\nis_settled\x18\x04 \x01(\x08\x12\x0f\n\x07tx_hash\x18\x05 \x01(\t\x12\x17\n\x0ftx_output_index\x18\x06 \x01(\r\x12\x18\n\x10total_collateral\x18\x07 \x01(\t\x12\x14\n\x0ctrade_height\x18\x08 \x01(\x04\x12\x11\n\ttimestamp\x18\t \x01(\x04\"|\n\x10MatchedOrderInfo\x12*\n\x05maker\x18\x01 \x01(\x0b\x32\x1b.bc.exchange.MakerOrderInfo\x12*\n\x05taker\x18\x02 \x01(\x0b\x32\x1b.bc.exchange.TakerOrderInfo\x12\x10\n\x08unlocked\x18\x07 \x01(\x08\"D\n\x15GetOpenOrdersResponse\x12+\n\x06orders\x18\x01 \x03(\x0b\x32\x1b.bc.exchange.MakerOrderInfo\"I\n\x18GetMatchedOrdersResponse\x12-\n\x06orders\x18\x01 \x03(\x0b\x32\x1d.bc.exchange.MatchedOrderInfo\"`\n\x1bGetHistoricalOrdersResponse\x12-\n\x06orders\x18\x01 \x03(\x0b\x32\x1d.bc.exchange.MatchedOrderInfo\x12\x12\n\nnext_block\x18\x02 \x01(\x04\"\x97\x01\n\nTakerOrder\x12\x1a\n\x12sends_from_address\x18\x01 \x01(\t\x12\x1b\n\x13receives_to_address\x18\x02 \x01(\t\x12\x15\n\rmaker_tx_hash\x18\x03 \x01(\t\x12\x1d\n\x15maker_tx_output_index\x18\x04 \x01(\r\x12\x1a\n\x12\x63ollateralized_nrg\x18\x05 \x01(\t\"9\n\x12GetBlake2blRequest\x12\x14\n\x0cto_be_hashed\x18\x01 \x01(\t\x12\r\n\x05times\x18\x02 \x01(\r\"#\n\x13GetBlake2blResponse\x12\x0c\n\x04hash\x18\x01 \x01(\t\"&\n\x14VanityConvertRequest\x12\x0e\n\x06vanity\x18\x01 \x01(\t\":\n\x15VanityConvertResponse\x12\x12\n\nbc_address\x18\x01 \x01(\t\x12\r\n\x05\x65rror\x18\x02 \x01(\t\">\n\x1aGetRoveredBlockHashRequest\x12\x12\n\nblockchain\x18\x01 \x01(\t\x12\x0c\n\x04hash\x18\x02 \x01(\t\"B\n\x1cGetRoveredBlockHeightRequest\x12\x12\n\nblockchain\x18\x01 \x01(\t\x12\x0e\n\x06height\x18\x02 \x01(\r\"#\n\x13GetBlockHashRequest\x12\x0c\n\x04hash\x18\x01 \x01(\t\"\'\n\x15GetBlockHeightRequest\x12\x0e\n\x06height\x18\x01 \x01(\r\"<\n\x10GetBlocksRequest\x12\x14\n\x0cstart_height\x18\x01 \x01(\r\x12\x12\n\nend_height\x18\x02 \x01(\r\"5\n\x11GetBlocksResponse\x12 \n\x06\x62locks\x18\x01 \x03(\x0b\x32\x10.bc.core.BcBlock\"W\n\x17GetRoveredBlocksRequest\x12\x12\n\nblockchain\x18\x01 \x01(\t\x12\x14\n\x0cstart_height\x18\x02 \x01(\r\x12\x12\n\nend_height\x18\x03 \x01(\r\"C\n\x15GetRawMempoolResponse\x12*\n\x0ctransactions\x18\x01 \x03(\x0b\x32\x14.bc.core.Transaction\":\n\x18GetRoveredBlocksResponse\x12\x1e\n\x06\x62locks\x18\x01 \x03(\x0b\x32\x0e.bc.core.Block\"\x1c\n\x0cGetTxRequest\x12\x0c\n\x04hash\x18\x01 \x01(\t\"6\n\x12GetMarkedTxRequest\x12\x12\n\nblockchain\x18\x01 \x01(\t\x12\x0c\n\x04hash\x18\x02 \x01(\t\"1\n\x12GetOutPointRequest\x12\x0c\n\x04hash\x18\x01 \x01(\t\x12\r\n\x05index\x18\x02 \x01(\r\"(\n\x16GetTradeStatusResponse\x12\x0e\n\x06status\x18\x01 \x01(\r\",\n\x19GetOutPointStatusResponse\x12\x0f\n\x07unspent\x18\x01 \x01(\x08\"\x1b\n\x0b\x43urrentWork\x12\x0c\n\x04work\x18\x01 \x01(\t\"\x1c\n\nSyncStatus\x12\x0e\n\x06status\x18\x01 \x01(\t\"?\n\x10SettingsResponse\x12\x14\n\x0cngrok_tunnel\x18\x01 \x01(\t\x12\x15\n\rbuild_version\x18\x02 \x01(\t\"&\n\x14GetNrgSupplyResponse\x12\x0e\n\x06\x61mount\x18\x01 \x01(\t\"7\n\x0cGetMarkedTxs\x12\'\n\x03txs\x18\x01 \x03(\x0b\x32\x1a.bc.core.MarkedTransaction*$\n\x17\x46\x65\x65\x64TransactionDataType\x12\t\n\x05TYPE1\x10\x00*8\n\x1cRpcTransactionResponseStatus\x12\x0b\n\x07Success\x10\x00\x12\x0b\n\x07\x46\x61ilure\x10\x01\x32\xa4 \n\x02\x42\x63\x12P\n\x13GetRoveredBlockHash\x12\'.bc.exchange.GetRoveredBlockHashRequest\x1a\x0e.bc.core.Block\"\x00\x12T\n\x15GetRoveredBlockHeight\x12).bc.exchange.GetRoveredBlockHeightRequest\x1a\x0e.bc.core.Block\"\x00\x12\x61\n\x10GetRoveredBlocks\x12$.bc.exchange.GetRoveredBlocksRequest\x1a%.bc.exchange.GetRoveredBlocksResponse\"\x00\x12P\n\x16GetLatestRoveredBlocks\x12\r.bc.core.Null\x1a%.bc.exchange.GetRoveredBlocksResponse\"\x00\x12\x42\n\x0cGetNrgSupply\x12\r.bc.core.Null\x1a!.bc.exchange.GetNrgSupplyResponse\"\x00\x12\x44\n\x0cGetBlockHash\x12 .bc.exchange.GetBlockHashRequest\x1a\x10.bc.core.BcBlock\"\x00\x12H\n\x0eGetBlockHeight\x12\".bc.exchange.GetBlockHeightRequest\x1a\x10.bc.core.BcBlock\"\x00\x12W\n\x0fGetBlocksHeight\x12\".bc.exchange.GetBlockHeightRequest\x1a\x1e.bc.exchange.GetBlocksResponse\"\x00\x12L\n\tGetBlocks\x12\x1d.bc.exchange.GetBlocksRequest\x1a\x1e.bc.exchange.GetBlocksResponse\"\x00\x12\x33\n\x0eGetLatestBlock\x12\r.bc.core.Null\x1a\x10.bc.core.BcBlock\"\x00\x12\x37\n\x12GetLatestUTXOBlock\x12\r.bc.core.Null\x1a\x10.bc.core.BcBlock\"\x00\x12:\n\x05GetTx\x12\x19.bc.exchange.GetTxRequest\x1a\x14.bc.core.Transaction\"\x00\x12L\n\x0bGetMarkedTx\x12\x1f.bc.exchange.GetMarkedTxRequest\x1a\x1a.bc.core.MarkedTransaction\"\x00\x12[\n\x1bGetMarkedTxsForMatchedOrder\x12\x1f.bc.exchange.GetOutPointRequest\x1a\x19.bc.exchange.GetMarkedTxs\"\x00\x12X\n\x0eGetTradeStatus\x12\x1f.bc.exchange.GetOutPointRequest\x1a#.bc.exchange.GetTradeStatusResponse\"\x00\x12^\n\x11GetOutpointStatus\x12\x1f.bc.exchange.GetOutPointRequest\x1a&.bc.exchange.GetOutPointStatusResponse\"\x00\x12I\n\x0eGetTxClaimedBy\x12\x1f.bc.exchange.GetOutPointRequest\x1a\x14.bc.core.Transaction\"\x00\x12\x44\n\rGetRawMempool\x12\r.bc.core.Null\x1a\".bc.exchange.GetRawMempoolResponse\"\x00\x12=\n\x0cGetBlockByTx\x12\x19.bc.exchange.GetTxRequest\x1a\x10.bc.core.BcBlock\"\x00\x12O\n\x1aGetRoveredBlockForMarkedTx\x12\x1f.bc.exchange.GetMarkedTxRequest\x1a\x0e.bc.core.Block\"\x00\x12\x32\n\x04Help\x12\r.bc.core.Null\x1a\x19.bc.exchange.HelpResponse\"\x00\x12\x34\n\x05Stats\x12\r.bc.core.Null\x1a\x1a.bc.exchange.StatsResponse\"\x00\x12=\n\x0bGetSettings\x12\r.bc.core.Null\x1a\x1d.bc.exchange.SettingsResponse\"\x00\x12X\n\x07NewFeed\x12&.bc.exchange.RpcFeedTransactionRequest\x1a#.bc.exchange.RpcTransactionResponse\"\x00\x12\x61\n\nUpdateFeed\x12,.bc.exchange.RpcUpdateFeedTransactionRequest\x1a#.bc.exchange.RpcTransactionResponse\"\x00\x12K\n\x05NewTx\x12\x1b.bc.exchange.RpcTransaction\x1a#.bc.exchange.RpcTransactionResponse\"\x00\x12\x45\n\x06SendTx\x12\x14.bc.core.Transaction\x1a#.bc.exchange.RpcTransactionResponse\"\x00\x12U\n\rGetEmbBalance\x12\x1e.bc.exchange.GetBalanceRequest\x1a\".bc.exchange.GetEmbBalanceResponse\"\x00\x12O\n\nGetBalance\x12\x1e.bc.exchange.GetBalanceRequest\x1a\x1f.bc.exchange.GetBalanceResponse\"\x00\x12\x42\n\tGetWallet\x12\x1e.bc.exchange.GetBalanceRequest\x1a\x13.bc.core.WalletData\"\x00\x12Z\n\x15GetSpendableOutpoints\x12*.bc.exchange.GetSpendableCollateralRequest\x1a\x13.bc.core.WalletData\"\x00\x12s\n\x16GetSpendableCollateral\x12*.bc.exchange.GetSpendableCollateralRequest\x1a+.bc.exchange.GetSpendableCollateralResponse\"\x00\x12s\n\x16GetUnlockTakerTxParams\x12*.bc.exchange.GetUnlockTakerTxParamsRequest\x1a+.bc.exchange.GetUnlockTakerTxParamsResponse\"\x00\x12H\n\x14GetByteFeeMultiplier\x12\r.bc.core.Null\x1a\x1f.bc.exchange.GetByteFeeResponse\"\x00\x12M\n\x0cGetTransfers\x12\x1c.bc.exchange.TransferRequest\x1a\x1d.bc.exchange.TransferResponse\"\x00\x12V\n\x10GetTakerForMaker\x12\x1f.bc.exchange.GetOutPointRequest\x1a\x1f.bc.exchange.GetOutPointRequest\"\x00\x12U\n\x0cGetOpenOrder\x12\x1f.bc.exchange.GetOutPointRequest\x1a\".bc.exchange.GetOpenOrdersResponse\"\x00\x12]\n\x14GetOpenCallbackOrder\x12\x1f.bc.exchange.GetOutPointRequest\x1a\".bc.exchange.GetOpenOrdersResponse\"\x00\x12[\n\x0fGetMatchedOrder\x12\x1f.bc.exchange.GetOutPointRequest\x1a%.bc.exchange.GetMatchedOrdersResponse\"\x00\x12\x61\n\rGetOpenOrders\x12*.bc.exchange.GetSpendableCollateralRequest\x1a\".bc.exchange.GetOpenOrdersResponse\"\x00\x12g\n\x10GetMatchedOrders\x12*.bc.exchange.GetSpendableCollateralRequest\x1a%.bc.exchange.GetMatchedOrdersResponse\"\x00\x12\x61\n\x13GetHistoricalOrders\x12\x1e.bc.exchange.GetHistoryRequest\x1a(.bc.exchange.GetHistoricalOrdersResponse\"\x00\x12Z\n\x12GetUnmatchedOrders\x12\x1e.bc.exchange.GetBalanceRequest\x1a\".bc.exchange.GetOpenOrdersResponse\"\x00\x12:\n\x08GetUtxos\x12\x1c.bc.exchange.GetUtxosRequest\x1a\x0e.bc.core.Utxos\"\x00\x12X\n\rGetUTXOLength\x12!.bc.exchange.GetUtxoLengthRequest\x1a\".bc.exchange.GetUtxoLengthResponse\"\x00\x12X\n\rGetSTXOLength\x12!.bc.exchange.GetUtxoLengthRequest\x1a\".bc.exchange.GetUtxoLengthResponse\"\x00\x12R\n\x0bGetBlake2bl\x12\x1f.bc.exchange.GetBlake2blRequest\x1a .bc.exchange.GetBlake2blResponse\"\x00\x12`\n\x15GetBcAddressViaVanity\x12!.bc.exchange.VanityConvertRequest\x1a\".bc.exchange.VanityConvertResponse\"\x00\x12;\n\x0eGetCurrentWork\x12\r.bc.core.Null\x1a\x18.bc.exchange.CurrentWork\"\x00\x12\x39\n\rGetSyncStatus\x12\r.bc.core.Null\x1a\x17.bc.exchange.SyncStatus\"\x00\x12=\n\x11GetFastSyncStatus\x12\r.bc.core.Null\x1a\x17.bc.exchange.SyncStatus\"\x00\x62\x06proto3'
   ,
   dependencies=[core__pb2.DESCRIPTOR,])
 
+_FEEDTRANSACTIONDATATYPE = _descriptor.EnumDescriptor(
+  name='FeedTransactionDataType',
+  full_name='bc.exchange.FeedTransactionDataType',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='TYPE1', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=4466,
+  serialized_end=4502,
+)
+_sym_db.RegisterEnumDescriptor(_FEEDTRANSACTIONDATATYPE)
+
+FeedTransactionDataType = enum_type_wrapper.EnumTypeWrapper(_FEEDTRANSACTIONDATATYPE)
 _RPCTRANSACTIONRESPONSESTATUS = _descriptor.EnumDescriptor(
   name='RpcTransactionResponseStatus',
   full_name='bc.exchange.RpcTransactionResponseStatus',
@@ -45,12 +66,13 @@ _RPCTRANSACTIONRESPONSESTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4223,
-  serialized_end=4279,
+  serialized_start=4504,
+  serialized_end=4560,
 )
 _sym_db.RegisterEnumDescriptor(_RPCTRANSACTIONRESPONSESTATUS)
 
 RpcTransactionResponseStatus = enum_type_wrapper.EnumTypeWrapper(_RPCTRANSACTIONRESPONSESTATUS)
+TYPE1 = 0
 Success = 0
 Failure = 1
 
@@ -187,153 +209,93 @@ _RPCTRANSACTION = _descriptor.Descriptor(
 )
 
 
-_RPCFEEDTRANSACTION = _descriptor.Descriptor(
-  name='RpcFeedTransaction',
-  full_name='bc.exchange.RpcFeedTransaction',
+_RPCFEEDTRANSACTIONREQUEST = _descriptor.Descriptor(
+  name='RpcFeedTransactionRequest',
+  full_name='bc.exchange.RpcFeedTransactionRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='owner_addr', full_name='bc.exchange.RpcFeedTransaction.owner_addr', index=0,
+      name='owner_addr', full_name='bc.exchange.RpcFeedTransactionRequest.owner_addr', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='feed_addr', full_name='bc.exchange.RpcFeedTransaction.feed_addr', index=1,
+      name='feed_addr', full_name='bc.exchange.RpcFeedTransactionRequest.feed_addr', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='amount', full_name='bc.exchange.RpcFeedTransaction.amount', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
+      name='data_type', full_name='bc.exchange.RpcFeedTransactionRequest.data_type', index=2,
+      number=3, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='tx_fee', full_name='bc.exchange.RpcFeedTransaction.tx_fee', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
+      name='data_length', full_name='bc.exchange.RpcFeedTransactionRequest.data_length', index=3,
+      number=4, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='private_key_hex', full_name='bc.exchange.RpcFeedTransaction.private_key_hex', index=4,
-      number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=248,
-  serialized_end=364,
-)
-
-
-_RPCUPDATEFEEDTRANSACTION = _descriptor.Descriptor(
-  name='RpcUpdateFeedTransaction',
-  full_name='bc.exchange.RpcUpdateFeedTransaction',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='owner_addr', full_name='bc.exchange.RpcUpdateFeedTransaction.owner_addr', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='feed_addr', full_name='bc.exchange.RpcUpdateFeedTransaction.feed_addr', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='sender_addr', full_name='bc.exchange.RpcUpdateFeedTransaction.sender_addr', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='data', full_name='bc.exchange.RpcUpdateFeedTransaction.data', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='data_length', full_name='bc.exchange.RpcUpdateFeedTransaction.data_length', index=4,
+      name='data', full_name='bc.exchange.RpcFeedTransactionRequest.data', index=4,
       number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='amount', full_name='bc.exchange.RpcUpdateFeedTransaction.amount', index=5,
+      name='amount', full_name='bc.exchange.RpcFeedTransactionRequest.amount', index=5,
       number=6, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='tx_fee', full_name='bc.exchange.RpcUpdateFeedTransaction.tx_fee', index=6,
+      name='tx_fee', full_name='bc.exchange.RpcFeedTransactionRequest.tx_fee', index=6,
       number=7, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='tx_panel', full_name='bc.exchange.RpcUpdateFeedTransaction.tx_panel', index=7,
+      name='tx_part', full_name='bc.exchange.RpcFeedTransactionRequest.tx_part', index=7,
       number=8, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='tx_part', full_name='bc.exchange.RpcUpdateFeedTransaction.tx_part', index=8,
+      name='tx_panel', full_name='bc.exchange.RpcFeedTransactionRequest.tx_panel', index=8,
       number=9, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='tx_nonce', full_name='bc.exchange.RpcUpdateFeedTransaction.tx_nonce', index=9,
+      name='tx_nonce', full_name='bc.exchange.RpcFeedTransactionRequest.tx_nonce', index=9,
       number=10, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='minimum_distance', full_name='bc.exchange.RpcUpdateFeedTransaction.minimum_distance', index=10,
+      name='minimum_distance', full_name='bc.exchange.RpcFeedTransactionRequest.minimum_distance', index=10,
       number=11, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='private_key_hex', full_name='bc.exchange.RpcUpdateFeedTransaction.private_key_hex', index=11,
+      name='private_key_hex', full_name='bc.exchange.RpcFeedTransactionRequest.private_key_hex', index=11,
       number=12, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -351,8 +313,124 @@ _RPCUPDATEFEEDTRANSACTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=367,
-  serialized_end=624,
+  serialized_start=249,
+  serialized_end=543,
+)
+
+
+_RPCUPDATEFEEDTRANSACTIONREQUEST = _descriptor.Descriptor(
+  name='RpcUpdateFeedTransactionRequest',
+  full_name='bc.exchange.RpcUpdateFeedTransactionRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='owner_addr', full_name='bc.exchange.RpcUpdateFeedTransactionRequest.owner_addr', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='feed_addr', full_name='bc.exchange.RpcUpdateFeedTransactionRequest.feed_addr', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='sender_addr', full_name='bc.exchange.RpcUpdateFeedTransactionRequest.sender_addr', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='data_type', full_name='bc.exchange.RpcUpdateFeedTransactionRequest.data_type', index=3,
+      number=4, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='data_length', full_name='bc.exchange.RpcUpdateFeedTransactionRequest.data_length', index=4,
+      number=5, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='data', full_name='bc.exchange.RpcUpdateFeedTransactionRequest.data', index=5,
+      number=6, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='amount', full_name='bc.exchange.RpcUpdateFeedTransactionRequest.amount', index=6,
+      number=7, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='tx_fee', full_name='bc.exchange.RpcUpdateFeedTransactionRequest.tx_fee', index=7,
+      number=8, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='tx_panel', full_name='bc.exchange.RpcUpdateFeedTransactionRequest.tx_panel', index=8,
+      number=9, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='tx_part', full_name='bc.exchange.RpcUpdateFeedTransactionRequest.tx_part', index=9,
+      number=10, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='tx_nonce', full_name='bc.exchange.RpcUpdateFeedTransactionRequest.tx_nonce', index=10,
+      number=11, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='minimum_distance', full_name='bc.exchange.RpcUpdateFeedTransactionRequest.minimum_distance', index=11,
+      number=12, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='private_key_hex', full_name='bc.exchange.RpcUpdateFeedTransactionRequest.private_key_hex', index=12,
+      number=13, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=546,
+  serialized_end=867,
 )
 
 
@@ -397,8 +475,8 @@ _RPCTRANSACTIONRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=626,
-  serialized_end=741,
+  serialized_start=869,
+  serialized_end=984,
 )
 
 
@@ -471,8 +549,8 @@ _TRANSFER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=744,
-  serialized_end=873,
+  serialized_start=987,
+  serialized_end=1116,
 )
 
 
@@ -517,8 +595,8 @@ _TRANSFERREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=875,
-  serialized_end=936,
+  serialized_start=1118,
+  serialized_end=1179,
 )
 
 
@@ -556,8 +634,8 @@ _GETHISTORYREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=938,
-  serialized_end=984,
+  serialized_start=1181,
+  serialized_end=1227,
 )
 
 
@@ -602,8 +680,8 @@ _TRANSFERRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=986,
-  serialized_end=1072,
+  serialized_start=1229,
+  serialized_end=1315,
 )
 
 
@@ -641,8 +719,8 @@ _GETUTXOLENGTHREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1074,
-  serialized_end=1134,
+  serialized_start=1317,
+  serialized_end=1377,
 )
 
 
@@ -694,8 +772,8 @@ _GETUTXOSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1136,
-  serialized_end=1217,
+  serialized_start=1379,
+  serialized_end=1460,
 )
 
 
@@ -726,8 +804,8 @@ _GETUTXOLENGTHRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1219,
-  serialized_end=1258,
+  serialized_start=1462,
+  serialized_end=1501,
 )
 
 
@@ -772,8 +850,8 @@ _GETSPENDABLECOLLATERALREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1260,
-  serialized_end=1334,
+  serialized_start=1503,
+  serialized_end=1577,
 )
 
 
@@ -804,8 +882,8 @@ _GETSPENDABLECOLLATERALRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1336,
-  serialized_end=1406,
+  serialized_start=1579,
+  serialized_end=1649,
 )
 
 
@@ -836,8 +914,8 @@ _GETBALANCEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1408,
-  serialized_end=1444,
+  serialized_start=1651,
+  serialized_end=1687,
 )
 
 
@@ -868,8 +946,8 @@ _GETEMBBALANCERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1446,
-  serialized_end=1486,
+  serialized_start=1689,
+  serialized_end=1729,
 )
 
 
@@ -900,8 +978,8 @@ _GETBYTEFEERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1488,
-  serialized_end=1521,
+  serialized_start=1731,
+  serialized_end=1764,
 )
 
 
@@ -960,8 +1038,8 @@ _GETBALANCERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1523,
-  serialized_end=1643,
+  serialized_start=1766,
+  serialized_end=1886,
 )
 
 
@@ -999,8 +1077,8 @@ _GETUNLOCKTAKERTXPARAMSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1645,
-  serialized_end=1718,
+  serialized_start=1888,
+  serialized_end=1961,
 )
 
 
@@ -1038,8 +1116,8 @@ _GETUNLOCKTAKERTXPARAMSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1720,
-  serialized_end=1797,
+  serialized_start=1963,
+  serialized_end=2040,
 )
 
 
@@ -1203,8 +1281,8 @@ _MAKERORDERINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1800,
-  serialized_end=2272,
+  serialized_start=2043,
+  serialized_end=2515,
 )
 
 
@@ -1291,8 +1369,8 @@ _TAKERORDERINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2275,
-  serialized_end=2511,
+  serialized_start=2518,
+  serialized_end=2754,
 )
 
 
@@ -1337,8 +1415,8 @@ _MATCHEDORDERINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2513,
-  serialized_end=2637,
+  serialized_start=2756,
+  serialized_end=2880,
 )
 
 
@@ -1369,8 +1447,8 @@ _GETOPENORDERSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2639,
-  serialized_end=2707,
+  serialized_start=2882,
+  serialized_end=2950,
 )
 
 
@@ -1401,8 +1479,8 @@ _GETMATCHEDORDERSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2709,
-  serialized_end=2782,
+  serialized_start=2952,
+  serialized_end=3025,
 )
 
 
@@ -1440,8 +1518,8 @@ _GETHISTORICALORDERSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2784,
-  serialized_end=2880,
+  serialized_start=3027,
+  serialized_end=3123,
 )
 
 
@@ -1500,8 +1578,8 @@ _TAKERORDER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2883,
-  serialized_end=3034,
+  serialized_start=3126,
+  serialized_end=3277,
 )
 
 
@@ -1539,8 +1617,8 @@ _GETBLAKE2BLREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3036,
-  serialized_end=3093,
+  serialized_start=3279,
+  serialized_end=3336,
 )
 
 
@@ -1571,8 +1649,8 @@ _GETBLAKE2BLRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3095,
-  serialized_end=3130,
+  serialized_start=3338,
+  serialized_end=3373,
 )
 
 
@@ -1603,8 +1681,8 @@ _VANITYCONVERTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3132,
-  serialized_end=3170,
+  serialized_start=3375,
+  serialized_end=3413,
 )
 
 
@@ -1642,8 +1720,8 @@ _VANITYCONVERTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3172,
-  serialized_end=3230,
+  serialized_start=3415,
+  serialized_end=3473,
 )
 
 
@@ -1681,8 +1759,8 @@ _GETROVEREDBLOCKHASHREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3232,
-  serialized_end=3294,
+  serialized_start=3475,
+  serialized_end=3537,
 )
 
 
@@ -1720,8 +1798,8 @@ _GETROVEREDBLOCKHEIGHTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3296,
-  serialized_end=3362,
+  serialized_start=3539,
+  serialized_end=3605,
 )
 
 
@@ -1752,8 +1830,8 @@ _GETBLOCKHASHREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3364,
-  serialized_end=3399,
+  serialized_start=3607,
+  serialized_end=3642,
 )
 
 
@@ -1784,8 +1862,8 @@ _GETBLOCKHEIGHTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3401,
-  serialized_end=3440,
+  serialized_start=3644,
+  serialized_end=3683,
 )
 
 
@@ -1823,8 +1901,8 @@ _GETBLOCKSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3442,
-  serialized_end=3502,
+  serialized_start=3685,
+  serialized_end=3745,
 )
 
 
@@ -1855,8 +1933,8 @@ _GETBLOCKSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3504,
-  serialized_end=3557,
+  serialized_start=3747,
+  serialized_end=3800,
 )
 
 
@@ -1901,8 +1979,8 @@ _GETROVEREDBLOCKSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3559,
-  serialized_end=3646,
+  serialized_start=3802,
+  serialized_end=3889,
 )
 
 
@@ -1933,8 +2011,8 @@ _GETRAWMEMPOOLRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3648,
-  serialized_end=3715,
+  serialized_start=3891,
+  serialized_end=3958,
 )
 
 
@@ -1965,8 +2043,8 @@ _GETROVEREDBLOCKSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3717,
-  serialized_end=3775,
+  serialized_start=3960,
+  serialized_end=4018,
 )
 
 
@@ -1997,8 +2075,8 @@ _GETTXREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3777,
-  serialized_end=3805,
+  serialized_start=4020,
+  serialized_end=4048,
 )
 
 
@@ -2036,8 +2114,8 @@ _GETMARKEDTXREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3807,
-  serialized_end=3861,
+  serialized_start=4050,
+  serialized_end=4104,
 )
 
 
@@ -2075,8 +2153,8 @@ _GETOUTPOINTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3863,
-  serialized_end=3912,
+  serialized_start=4106,
+  serialized_end=4155,
 )
 
 
@@ -2107,8 +2185,8 @@ _GETTRADESTATUSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3914,
-  serialized_end=3954,
+  serialized_start=4157,
+  serialized_end=4197,
 )
 
 
@@ -2139,8 +2217,8 @@ _GETOUTPOINTSTATUSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3956,
-  serialized_end=4000,
+  serialized_start=4199,
+  serialized_end=4243,
 )
 
 
@@ -2171,8 +2249,8 @@ _CURRENTWORK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4002,
-  serialized_end=4029,
+  serialized_start=4245,
+  serialized_end=4272,
 )
 
 
@@ -2203,8 +2281,8 @@ _SYNCSTATUS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4031,
-  serialized_end=4059,
+  serialized_start=4274,
+  serialized_end=4302,
 )
 
 
@@ -2242,8 +2320,8 @@ _SETTINGSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4061,
-  serialized_end=4124,
+  serialized_start=4304,
+  serialized_end=4367,
 )
 
 
@@ -2274,8 +2352,8 @@ _GETNRGSUPPLYRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4126,
-  serialized_end=4164,
+  serialized_start=4369,
+  serialized_end=4407,
 )
 
 
@@ -2306,10 +2384,12 @@ _GETMARKEDTXS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4166,
-  serialized_end=4221,
+  serialized_start=4409,
+  serialized_end=4464,
 )
 
+_RPCFEEDTRANSACTIONREQUEST.fields_by_name['data_type'].enum_type = _FEEDTRANSACTIONDATATYPE
+_RPCUPDATEFEEDTRANSACTIONREQUEST.fields_by_name['data_type'].enum_type = _FEEDTRANSACTIONDATATYPE
 _RPCTRANSACTIONRESPONSE.fields_by_name['status'].enum_type = _RPCTRANSACTIONRESPONSESTATUS
 _TRANSFERRESPONSE.fields_by_name['transfers'].message_type = _TRANSFER
 _GETSPENDABLECOLLATERALRESPONSE.fields_by_name['outpoints'].message_type = core__pb2._OUTPOINT
@@ -2325,8 +2405,8 @@ _GETMARKEDTXS.fields_by_name['txs'].message_type = core__pb2._MARKEDTRANSACTION
 DESCRIPTOR.message_types_by_name['HelpResponse'] = _HELPRESPONSE
 DESCRIPTOR.message_types_by_name['StatsResponse'] = _STATSRESPONSE
 DESCRIPTOR.message_types_by_name['RpcTransaction'] = _RPCTRANSACTION
-DESCRIPTOR.message_types_by_name['RpcFeedTransaction'] = _RPCFEEDTRANSACTION
-DESCRIPTOR.message_types_by_name['RpcUpdateFeedTransaction'] = _RPCUPDATEFEEDTRANSACTION
+DESCRIPTOR.message_types_by_name['RpcFeedTransactionRequest'] = _RPCFEEDTRANSACTIONREQUEST
+DESCRIPTOR.message_types_by_name['RpcUpdateFeedTransactionRequest'] = _RPCUPDATEFEEDTRANSACTIONREQUEST
 DESCRIPTOR.message_types_by_name['RpcTransactionResponse'] = _RPCTRANSACTIONRESPONSE
 DESCRIPTOR.message_types_by_name['Transfer'] = _TRANSFER
 DESCRIPTOR.message_types_by_name['TransferRequest'] = _TRANSFERREQUEST
@@ -2373,6 +2453,7 @@ DESCRIPTOR.message_types_by_name['SyncStatus'] = _SYNCSTATUS
 DESCRIPTOR.message_types_by_name['SettingsResponse'] = _SETTINGSRESPONSE
 DESCRIPTOR.message_types_by_name['GetNrgSupplyResponse'] = _GETNRGSUPPLYRESPONSE
 DESCRIPTOR.message_types_by_name['GetMarkedTxs'] = _GETMARKEDTXS
+DESCRIPTOR.enum_types_by_name['FeedTransactionDataType'] = _FEEDTRANSACTIONDATATYPE
 DESCRIPTOR.enum_types_by_name['RpcTransactionResponseStatus'] = _RPCTRANSACTIONRESPONSESTATUS
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -2397,19 +2478,19 @@ RpcTransaction = _reflection.GeneratedProtocolMessageType('RpcTransaction', (_me
   })
 _sym_db.RegisterMessage(RpcTransaction)
 
-RpcFeedTransaction = _reflection.GeneratedProtocolMessageType('RpcFeedTransaction', (_message.Message,), {
-  'DESCRIPTOR' : _RPCFEEDTRANSACTION,
+RpcFeedTransactionRequest = _reflection.GeneratedProtocolMessageType('RpcFeedTransactionRequest', (_message.Message,), {
+  'DESCRIPTOR' : _RPCFEEDTRANSACTIONREQUEST,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.exchange.RpcFeedTransaction)
+  # @@protoc_insertion_point(class_scope:bc.exchange.RpcFeedTransactionRequest)
   })
-_sym_db.RegisterMessage(RpcFeedTransaction)
+_sym_db.RegisterMessage(RpcFeedTransactionRequest)
 
-RpcUpdateFeedTransaction = _reflection.GeneratedProtocolMessageType('RpcUpdateFeedTransaction', (_message.Message,), {
-  'DESCRIPTOR' : _RPCUPDATEFEEDTRANSACTION,
+RpcUpdateFeedTransactionRequest = _reflection.GeneratedProtocolMessageType('RpcUpdateFeedTransactionRequest', (_message.Message,), {
+  'DESCRIPTOR' : _RPCUPDATEFEEDTRANSACTIONREQUEST,
   '__module__' : 'bc_pb2'
-  # @@protoc_insertion_point(class_scope:bc.exchange.RpcUpdateFeedTransaction)
+  # @@protoc_insertion_point(class_scope:bc.exchange.RpcUpdateFeedTransactionRequest)
   })
-_sym_db.RegisterMessage(RpcUpdateFeedTransaction)
+_sym_db.RegisterMessage(RpcUpdateFeedTransactionRequest)
 
 RpcTransactionResponse = _reflection.GeneratedProtocolMessageType('RpcTransactionResponse', (_message.Message,), {
   'DESCRIPTOR' : _RPCTRANSACTIONRESPONSE,
@@ -2742,8 +2823,8 @@ _BC = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=4282,
-  serialized_end=8400,
+  serialized_start=4563,
+  serialized_end=8695,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetRoveredBlockHash',
@@ -2980,7 +3061,7 @@ _BC = _descriptor.ServiceDescriptor(
     full_name='bc.exchange.Bc.NewFeed',
     index=23,
     containing_service=None,
-    input_type=_RPCFEEDTRANSACTION,
+    input_type=_RPCFEEDTRANSACTIONREQUEST,
     output_type=_RPCTRANSACTIONRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
@@ -2990,7 +3071,7 @@ _BC = _descriptor.ServiceDescriptor(
     full_name='bc.exchange.Bc.UpdateFeed',
     index=24,
     containing_service=None,
-    input_type=_RPCUPDATEFEEDTRANSACTION,
+    input_type=_RPCUPDATEFEEDTRANSACTIONREQUEST,
     output_type=_RPCTRANSACTIONRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,

@@ -132,12 +132,12 @@ class BcStub(object):
                 )
         self.NewFeed = channel.unary_unary(
                 '/bc.exchange.Bc/NewFeed',
-                request_serializer=bc__pb2.RpcFeedTransaction.SerializeToString,
+                request_serializer=bc__pb2.RpcFeedTransactionRequest.SerializeToString,
                 response_deserializer=bc__pb2.RpcTransactionResponse.FromString,
                 )
         self.UpdateFeed = channel.unary_unary(
                 '/bc.exchange.Bc/UpdateFeed',
-                request_serializer=bc__pb2.RpcUpdateFeedTransaction.SerializeToString,
+                request_serializer=bc__pb2.RpcUpdateFeedTransactionRequest.SerializeToString,
                 response_deserializer=bc__pb2.RpcTransactionResponse.FromString,
                 )
         self.NewTx = channel.unary_unary(
@@ -701,12 +701,12 @@ def add_BcServicer_to_server(servicer, server):
             ),
             'NewFeed': grpc.unary_unary_rpc_method_handler(
                     servicer.NewFeed,
-                    request_deserializer=bc__pb2.RpcFeedTransaction.FromString,
+                    request_deserializer=bc__pb2.RpcFeedTransactionRequest.FromString,
                     response_serializer=bc__pb2.RpcTransactionResponse.SerializeToString,
             ),
             'UpdateFeed': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateFeed,
-                    request_deserializer=bc__pb2.RpcUpdateFeedTransaction.FromString,
+                    request_deserializer=bc__pb2.RpcUpdateFeedTransactionRequest.FromString,
                     response_serializer=bc__pb2.RpcTransactionResponse.SerializeToString,
             ),
             'NewTx': grpc.unary_unary_rpc_method_handler(
@@ -1252,7 +1252,7 @@ class Bc(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/NewFeed',
-            bc__pb2.RpcFeedTransaction.SerializeToString,
+            bc__pb2.RpcFeedTransactionRequest.SerializeToString,
             bc__pb2.RpcTransactionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -1269,7 +1269,7 @@ class Bc(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/bc.exchange.Bc/UpdateFeed',
-            bc__pb2.RpcUpdateFeedTransaction.SerializeToString,
+            bc__pb2.RpcUpdateFeedTransactionRequest.SerializeToString,
             bc__pb2.RpcTransactionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
