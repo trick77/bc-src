@@ -21,27 +21,39 @@ message RpcTransaction {
     string private_key_hex = 5;
 }
 
-message RpcFeedTransaction {
-    string owner_addr = 1;
-    string feed_addr = 2;
-    string amount = 3;
-    string tx_fee = 4;
-    string private_key_hex = 5;
+enum FeedTransactionDataType {
+    TYPE1 = 0; // this is here as a placeholder, can be removed when types are decided
 }
 
-message RpcUpdateFeedTransaction {
+message RpcFeedTransactionRequest {
     string owner_addr = 1;
     string feed_addr = 2;
-    string sender_addr = 3;
-    string data = 4;
-    string data_length = 5;
+    FeedTransactionDataType data_type = 3;
+    uint64 data_length = 4;
+    string data = 5;
     string amount = 6;
     string tx_fee = 7;
-    string tx_panel = 8;
-    string tx_part = 9;
+    string tx_part = 8;
+    string tx_panel = 9;
     string tx_nonce = 10;
     string minimum_distance = 11;
     string private_key_hex = 12;
+}
+
+message RpcUpdateFeedTransactionRequest {
+    string owner_addr = 1;
+    string feed_addr = 2;
+    string sender_addr = 3;
+    FeedTransactionDataType data_type = 4;
+    uint64 data_length = 5;
+    string data = 6;
+    string amount = 7;
+    string tx_fee = 8;
+    string tx_panel = 9;
+    string tx_part = 10;
+    string tx_nonce = 11;
+    string minimum_distance = 12;
+    string private_key_hex = 13;
 }
 
 enum RpcTransactionResponseStatus {
@@ -335,8 +347,8 @@ service Bc {
     rpc Help (core.Null) returns (HelpResponse) {}
     rpc Stats (core.Null) returns (StatsResponse) {}
     rpc GetSettings (core.Null) returns (SettingsResponse) {}
-    rpc NewFeed (RpcFeedTransaction) returns (RpcTransactionResponse) {}
-    rpc UpdateFeed (RpcUpdateFeedTransaction) returns (RpcTransactionResponse) {}
+    rpc NewFeed (RpcFeedTransactionRequest) returns (RpcTransactionResponse) {}
+    rpc UpdateFeed (RpcUpdateFeedTransactionRequest) returns (RpcTransactionResponse) {}
     rpc NewTx (RpcTransaction) returns (RpcTransactionResponse) {}
     rpc SendTx (core.Transaction) returns (RpcTransactionResponse) {}
 
