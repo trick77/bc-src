@@ -1,6 +1,6 @@
 {
   "name": "olnode",
-  "version": "1.5.8",
+  "version": "1.5.9",
   "description": "OVERLINE EMB & OL MINER",
   "main": "lib/src/init.js",
   "scripts": {
@@ -110,7 +110,7 @@
     "@liskhq/lisk-cryptography": "^3.2.0",
     "@liskhq/lisk-p2p": "^0.7.1",
     "@liskhq/lisk-validator": "^0.6.0",
-    "@overline/proto": "0.3.2",
+    "@overline/proto": "0.3.3",
     "@pm2/io": "^5.0.0",
     "async": "^3.2.2",
     "atob": "2.1.2",
