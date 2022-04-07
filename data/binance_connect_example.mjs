@@ -6,15 +6,20 @@ const blockQueue = []
 
 const blockHeights = new WebSocket("wss://dex.binance.org/api/ws/$all@blockheight")
 
+const rpcEndpoints = [
+  "https://dex.binance.org"
+]
+
 const getBlock = async (height, route) => {
 
-  if (route === 1) {
-    const res = await fetch(`https://dex.binance.org/api/v1/transactions-in-block/${height}`, {method:'get'})
-    const block = res.json()
+  const host = rpcEndpoints[Math.floor(Math.random()*rpcEndpoints.length)];
 
+  if (route === 1) {
+    const res = await fetch(`${host}/api/v1/transactions-in-block/${height}`, {method:'get'})
+    const block = res.json()
     return block
   }
-  const res = await fetch(`https://dex.binance.org/api/v2/transactions-in-block/${height}`, {method:'get'})
+  const res = await fetch(`${host}/api/v2/transactions-in-block/${height}`, {method:'get'})
   const block = res.json()
 
   return block
