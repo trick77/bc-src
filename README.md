@@ -15,9 +15,9 @@ All versions/tags are pushed to https://hub.docker.com/r/trick77/bcnode/tags?pag
 2. Make sure to add the nvm env vars at the end of your .bashrc
 3. Install Nodejs:
    ```
-   nvm install v10.21.0
-   nvm use v10.21.0
-   nvm alias default v10.21.0
+   nvm install v12.22.12
+   nvm use v12.22.12
+   nvm alias default v12.22.12
    ```
 4. Edit start.sh
 5. ./start.sh or screen -dm ./start.sh
