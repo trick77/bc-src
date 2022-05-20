@@ -1,5 +1,3 @@
 [
-	"udp://104.207.130.112:16060/announce",
-  "udp://139.180.221.213:16060/announce",
-  "udp://sa1.alcor1436.com:16060/announce"
+	"udp://104.207.130.112:16060/announce"
 ]
