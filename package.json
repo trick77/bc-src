@@ -216,7 +216,7 @@
     "sntp": "2.1.0",
     "socket.io": "^2.4.1",
     "socket.io-client": "^2.4.0",
-    "stream-write": "1.0.1",
+    "stream-write": "2.0.0",
     "to-buffer": "1.1.1",
     "typeforce": "^1.18.0",
     "unzip-stream": "^0.3.1",
