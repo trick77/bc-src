@@ -38,9 +38,9 @@
     "url": "git+https://github.com/blockcollider/bcnode.git"
   },
   "author": {
-    "name": "Patrick McConlogue",
+    "name": "Overline Network",
     "email": "no-reply@github.com",
-    "url": "https://www.overline.network/"
+    "url": "https://docs.overline.network/"
   },
   "license": "MIT",
   "bugs": {
