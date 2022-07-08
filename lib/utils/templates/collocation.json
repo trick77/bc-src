@@ -1,3 +1,6 @@
 [
-	"udp://104.207.130.112:16060/announce"
+	"udp://104.207.130.112:16060/announce",
+	"udp://opensource_tor.dexvr.org:16060/announce",
+	"udp://p2p.dewiscan.com:16060/announce",
+	"udp://sp-1.presidentdao.com:16060/announce"
 ]
